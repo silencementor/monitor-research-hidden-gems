@@ -20,12 +20,12 @@ class SeenStore:
 
     def seen_ids(self) -> set[str]:
         with self._connect() as connection:
-            rows = connection.execute("SELECT arxiv_id FROM seen_papers").fetchall()
+            rows = connection.execute("SELECT paper_key FROM seen_papers").fetchall()
         return {row[0] for row in rows}
 
     def unseen(self, papers: list[ScoredPaper]) -> list[ScoredPaper]:
         seen = self.seen_ids()
-        return [paper for paper in papers if paper.paper.arxiv_id not in seen]
+        return [paper for paper in papers if paper.paper.key not in seen]
 
     def upsert(self, papers: list[ScoredPaper]) -> None:
         now = datetime.now(timezone.utc).isoformat()
@@ -34,17 +34,17 @@ class SeenStore:
                 connection.execute(
                     """
                     INSERT INTO seen_papers (
-                        arxiv_id, first_seen, last_seen, title, score, payload_json
+                        paper_key, first_seen, last_seen, title, score, payload_json
                     )
                     VALUES (?, ?, ?, ?, ?, ?)
-                    ON CONFLICT(arxiv_id) DO UPDATE SET
+                    ON CONFLICT(paper_key) DO UPDATE SET
                         last_seen = excluded.last_seen,
                         title = excluded.title,
                         score = excluded.score,
                         payload_json = excluded.payload_json
                     """,
                     (
-                        scored.paper.arxiv_id,
+                        scored.paper.key,
                         now,
                         now,
                         scored.paper.title,
@@ -61,7 +61,7 @@ class SeenStore:
             connection.execute(
                 """
                 CREATE TABLE IF NOT EXISTS seen_papers (
-                    arxiv_id TEXT PRIMARY KEY,
+                    paper_key TEXT PRIMARY KEY,
                     first_seen TEXT NOT NULL,
                     last_seen TEXT NOT NULL,
                     title TEXT NOT NULL,

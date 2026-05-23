@@ -9,10 +9,20 @@ dependencies = [
     "httpx>=0.27.0",
     "rich>=13.7.0",
     "typer>=0.12.0",
+    "numpy>=1.24",
 ]
 
+[project.optional-dependencies]
+# Real semantic embeddings for the outlier-novelty + relevance signals.
+# Without this, the tool falls back to dependency-free feature hashing.
+embeddings = ["sentence-transformers>=2.2"]
+# The Claude deep-judge stage. Without it (or without ANTHROPIC_API_KEY),
+# ranking uses the heuristic + embedding signals only.
+llm = ["anthropic>=0.40"]
+all = ["sentence-transformers>=2.2", "anthropic>=0.40"]
+
 [project.scripts]
-hidden-gems = "research_hidden_gems.cli:app"
+hidden-gems = "research_hidden_gems.cli:main"
 
 [dependency-groups]
 dev = [
