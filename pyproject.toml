@@ -1,0 +1,31 @@
+[project]
+name = "monitor-research-hidden-gems"
+version = "0.1.0"
+description = "Find under-the-radar research papers with transferable novel techniques."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "httpx>=0.27.0",
+    "rich>=13.7.0",
+    "typer>=0.12.0",
+]
+
+[project.scripts]
+hidden-gems = "research_hidden_gems.cli:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/research_hidden_gems"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
