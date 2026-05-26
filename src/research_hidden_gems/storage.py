@@ -6,10 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from research_hidden_gems.models import ScoredPaper
-
-
-def default_state_path() -> Path:
-    return Path.home() / ".cache" / "research-hidden-gems" / "seen.sqlite3"
+from research_hidden_gems.paths import default_state_path
 
 
 class SeenStore:

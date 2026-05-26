@@ -204,6 +204,10 @@ cython_debug/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
+# Research Hidden Gems local runtime and generated monitor reports
+.hidden-gems/
+reports/hidden-gems/
+
 # Ruff stuff:
 .ruff_cache/
 

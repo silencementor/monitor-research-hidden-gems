@@ -56,6 +56,10 @@ For embeddings, install the `embeddings` extra (sentence-transformers) **or** se
 `embed_backend = "openai"` to use your OpenAI key; otherwise a dependency-free
 hashing fallback is used automatically.
 
+If Hugging Face downloads are slow or rate-limited, put `HF_TOKEN=hf_...` in
+your `.env`; the sentence-transformers backend will use it when downloading
+models.
+
 ## Search
 
 ```bash
@@ -107,26 +111,34 @@ Quick env overrides: `RHG_JUDGE_PROVIDER`, `RHG_JUDGE_MODEL`, `RHG_EMBED_BACKEND
 ## Monitor & schedule
 
 A one-shot run that prints only papers not seen before (cron-friendly), and can
-write a markdown digest:
+also writes a timestamped markdown report under `reports/hidden-gems/`:
 
 ```bash
-uv run hidden-gems monitor --days 7 --threshold 50 --out digest.md
+uv run hidden-gems monitor --days 7 --threshold 50
 ```
 
 Schedule it with cron (daily 8am):
 
 ```cron
-0 8 * * *  cd /path/to/repo && uv run hidden-gems monitor --days 2 --out ~/hidden-gems-$(date +\%F).md
+0 8 * * *  cd /path/to/repo && uv run hidden-gems monitor --days 2
 ```
 
 Or run a long-lived local watcher:
 
 ```bash
-uv run hidden-gems monitor --interval-minutes 360
+uv run hidden-gems monitor -q "vector indexing" --provider openai --format markdown --interval-minutes 360
 ```
 
-Seen-paper state lives in `~/.cache/research-hidden-gems/seen.sqlite3` (override
-with `--state`, e.g. a separate file per topic).
+By default, monitor state and cache stay in the project:
+
+- seen-paper DB: `.hidden-gems/state/seen.sqlite3`
+- model/app cache: `.hidden-gems/cache/`
+- markdown reports: `reports/hidden-gems/YYYYMMDD-HHMMSS-query.md`
+
+Override with `--state`, `--report-dir`, `RHG_RUNTIME_DIR`, `RHG_CACHE_DIR`,
+`RHG_STATE_PATH`, or `RHG_REPORT_DIR`. Use `--no-reports` if you only want
+console output. To keep uv's own package cache inside the project too, prefix the
+command with `UV_CACHE_DIR="$PWD/.hidden-gems/cache/uv"`.
 
 ## Inspect one paper
 

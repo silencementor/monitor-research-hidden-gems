@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import json
+import re
 import time
+from datetime import datetime
 from pathlib import Path
 from typing import Annotated, Literal, Optional
 
@@ -14,6 +16,7 @@ from research_hidden_gems.config import Config, load_env_files
 from research_hidden_gems.llm_judge import is_available
 from research_hidden_gems.models import ScoredPaper
 from research_hidden_gems.openalex import enrich_with_openalex
+from research_hidden_gems.paths import configure_project_cache, default_report_dir
 from research_hidden_gems.pipeline import rank_papers, run_pipeline
 from research_hidden_gems.semantic_scholar import enrich_with_semantic_scholar
 from research_hidden_gems.storage import SeenStore, default_state_path
@@ -22,6 +25,8 @@ OutputFormat = Literal["table", "json", "markdown"]
 
 app = typer.Typer(no_args_is_help=True, help="Find under-the-radar papers with transferable novel techniques.")
 console = Console()
+load_env_files()
+configure_project_cache()
 
 # --- shared option types -----------------------------------------------------
 QueryOpt = Annotated[str, typer.Option("--query", "-q", help="arXiv query or plain phrase. Also enables OpenAlex discovery.")]
@@ -76,6 +81,8 @@ def monitor(
     threshold: Annotated[float, typer.Option("--threshold", help="Minimum hidden-gem score (0-100) to notify on.")] = 0.0,
     state: Annotated[Path, typer.Option("--state", help="SQLite file for seen-paper state.")] = default_state_path(),
     out: Annotated[Optional[Path], typer.Option("--out", help="Also write a markdown digest of new papers to this file.")] = None,
+    report_dir: Annotated[Path, typer.Option("--report-dir", help="Directory for timestamped markdown reports.")] = default_report_dir(),
+    reports: Annotated[bool, typer.Option("--reports/--no-reports", help="Write one timestamped markdown report per monitor run.")] = True,
     output: Annotated[OutputFormat, typer.Option("--format", help="Output format.")] = "table",
     enrich: Annotated[bool, typer.Option("--enrich/--no-enrich", help="Fetch citation counts (OpenAlex + Semantic Scholar).")] = True,
     no_llm: NoLlmOpt = False,
@@ -103,7 +110,10 @@ def monitor(
         new_top = unseen[:top_k]
         _render(new_top, output=output, cfg=cfg)
         if out is not None:
-            out.write_text(_markdown(new_top), encoding="utf-8")
+            _write_markdown(out, new_top)
+        if reports:
+            report_path = _write_timestamped_report(report_dir, query, new_top)
+            console.print(f"[dim]Wrote markdown report to {report_path}[/dim]")
 
     if interval_minutes is None:
         run_once()
@@ -258,7 +268,7 @@ def _markdown(papers: list[ScoredPaper]) -> str:
         if scored.verdict is not None:
             v = scored.verdict
             lines += [
-                f"- **Claude verdict:** {'HIDDEN GEM' if v.is_hidden_gem else 'not flagged'} "
+                f"- **LLM verdict:** {'HIDDEN GEM' if v.is_hidden_gem else 'not flagged'} "
                 f"(novelty {v.novelty:.2f}, transferability {v.transferability:.2f}, conf {v.confidence:.2f})",
                 f"- **Technique:** {v.technique or 'n/a'}",
                 f"- **In one line:** {v.one_liner or 'n/a'}",
@@ -275,12 +285,30 @@ def _markdown(papers: list[ScoredPaper]) -> str:
     return "\n\n".join(blocks)
 
 
+def _write_markdown(path: Path, papers: list[ScoredPaper]) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(_markdown(papers) + "\n", encoding="utf-8")
+    return path
+
+
+def _write_timestamped_report(report_dir: Path, query: str, papers: list[ScoredPaper]) -> Path:
+    label = _slug(query) or "all"
+    stamp = datetime.now().astimezone().strftime("%Y%m%d-%H%M%S")
+    return _write_markdown(report_dir / f"{stamp}-{label}.md", papers)
+
+
+def _slug(value: str, max_length: int = 80) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+    return slug[:max_length].strip("-")
+
+
 def _split_csv(value: str) -> list[str]:
     return [item.strip() for item in value.split(",") if item.strip()]
 
 
 def main() -> None:
     load_env_files()
+    configure_project_cache()
     app()
 
 

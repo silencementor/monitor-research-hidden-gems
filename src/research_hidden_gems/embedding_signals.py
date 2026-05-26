@@ -9,11 +9,15 @@ but the tool always runs).
 from __future__ import annotations
 
 import hashlib
+import inspect
 import os
 import re
 from functools import lru_cache
 
 import numpy as np
+
+from research_hidden_gems.config import load_env_files
+from research_hidden_gems.paths import configure_project_cache
 
 _TOKEN_RE = re.compile(r"[a-z][a-z0-9+\-]{1,}", re.I)
 
@@ -41,9 +45,13 @@ class Embedder:
         # "auto" stays local-first (sentence-transformers -> hashing); OpenAI is opt-in.
         if backend in ("auto", "sentence-transformers"):
             try:
+                load_env_files()
+                configure_project_cache()
                 from sentence_transformers import SentenceTransformer
 
-                return "sentence-transformers", SentenceTransformer(model)
+                return "sentence-transformers", SentenceTransformer(
+                    model, **_hf_token_kwargs(SentenceTransformer)
+                )
             except Exception:
                 if backend == "sentence-transformers":
                     pass  # explicit request failed — degrade rather than crash
@@ -85,6 +93,21 @@ def _hash_embed(texts: list[str], dim: int = 1024) -> np.ndarray:
             sign = 1.0 if digest[4] & 1 else -1.0
             out[row, idx] += sign
     return out
+
+
+def _hf_token_kwargs(sentence_transformer_cls) -> dict[str, str]:
+    token = os.getenv("HF_TOKEN") or os.getenv("HUGGING_FACE_HUB_TOKEN")
+    if not token:
+        return {}
+    try:
+        params = inspect.signature(sentence_transformer_cls).parameters
+    except (TypeError, ValueError):
+        return {}
+    if "token" in params:
+        return {"token": token}
+    if "use_auth_token" in params:
+        return {"use_auth_token": token}
+    return {}
 
 
 def _openai_embed(client, model: str, texts: list[str], batch: int = 256) -> np.ndarray:
