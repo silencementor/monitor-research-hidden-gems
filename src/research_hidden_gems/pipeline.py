@@ -149,7 +149,7 @@ def _apply_semantic_signals(scored: list[ScoredPaper], config: Config) -> None:
     if not scored:
         return
     texts = [item.paper.text for item in scored]
-    embedder = get_embedder(config.embed_backend, config.embed_model)
+    embedder = get_embedder(config.embed_backend, config.embed_model, config.openai_embed_model)
     matrix = embedder.encode(texts)
     profile_vec = embedder.encode([config.profile])[0]
     outliers = outlier_scores(matrix)

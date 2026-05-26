@@ -58,6 +58,26 @@ _CONFIG_SEARCH_PATHS = [
 ]
 
 
+def load_env_files() -> None:
+    """Load API keys / ``RHG_*`` vars from a ``.env`` file into the environment.
+
+    Loads the nearest ``.env`` walking up from the working directory, plus a
+    user-global ``~/.config/research-hidden-gems/.env``. Real environment
+    variables always take precedence (``override=False``). No-op when
+    python-dotenv is not installed.
+    """
+    try:
+        from dotenv import find_dotenv, load_dotenv
+    except ImportError:
+        return
+    found = find_dotenv(usecwd=True)
+    if found:
+        load_dotenv(found, override=False)
+    home_env = Path.home() / ".config" / "research-hidden-gems" / ".env"
+    if home_env.is_file():
+        load_dotenv(home_env, override=False)
+
+
 @dataclass(slots=True)
 class Config:
     profile: str = DEFAULT_PROFILE
@@ -67,13 +87,17 @@ class Config:
 
     # LLM judge
     judge_enabled: bool = True
-    judge_model: str = "claude-sonnet-4-6"
+    judge_provider: str = "auto"   # auto | anthropic | openai
+    judge_model: str = ""          # explicit model; empty => the provider default below
+    anthropic_model: str = "claude-sonnet-4-6"
+    openai_model: str = "gpt-4.1"
     judge_top: int = 15            # how many top-prefiltered papers to deep-judge
     judge_max_tokens: int = 900
 
     # embeddings
-    embed_backend: str = "auto"    # auto | sentence-transformers | hashing
+    embed_backend: str = "auto"    # auto | sentence-transformers | openai | hashing
     embed_model: str = "sentence-transformers/all-MiniLM-L6-v2"
+    openai_embed_model: str = "text-embedding-3-small"
 
     # prefilter blend weights (lexical from Codex + new embedding/relevance signals)
     w_lexical: float = 0.30
@@ -97,6 +121,7 @@ class Config:
 
     @classmethod
     def load(cls, path: str | Path | None = None) -> "Config":
+        load_env_files()
         cfg = cls()
         data = _read_toml(path)
         if data:
@@ -123,6 +148,8 @@ def _apply_env(cfg: Config) -> Config:
     updates: dict = {}
     if (val := os.getenv("RHG_JUDGE_MODEL")):
         updates["judge_model"] = val
+    if (val := os.getenv("RHG_JUDGE_PROVIDER")):
+        updates["judge_provider"] = val
     if (val := os.getenv("RHG_EMBED_BACKEND")):
         updates["embed_backend"] = val
     if (val := os.getenv("RHG_MATH_SKILLS_PATH")):

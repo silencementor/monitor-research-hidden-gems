@@ -34,13 +34,27 @@ uv sync --extra llm           # add the Claude deep-judge (anthropic SDK)
 uv sync --extra all           # everything
 ```
 
-To unlock the two highest-value stages:
+To unlock the deep-judge, set an API key for **either** provider (auto-selected,
+Anthropic preferred when both are present):
 
 ```bash
-export ANTHROPIC_API_KEY=sk-...   # enables the Claude deep-judge
-# embeddings: install the 'embeddings' extra above for real semantic vectors;
-# otherwise a dependency-free hashing fallback is used automatically.
+export ANTHROPIC_API_KEY=sk-ant-...   # Claude judge
+export OPENAI_API_KEY=sk-...          # or OpenAI judge
 ```
+
+Or keep them in a `.env` file — the nearest one (walking up from your working
+directory) is auto-loaded, and a real shell variable still takes precedence:
+
+```bash
+cp .env.example .env    # then fill in your keys
+```
+
+Force one with `--provider openai` / `--provider anthropic`, or just name a model
+(`--model gpt-4.1` infers OpenAI, `--model claude-sonnet-4-6` infers Anthropic).
+
+For embeddings, install the `embeddings` extra (sentence-transformers) **or** set
+`embed_backend = "openai"` to use your OpenAI key; otherwise a dependency-free
+hashing fallback is used automatically.
 
 ## Search
 
@@ -55,9 +69,9 @@ older-but-uncited work — often the truest hidden gems):
 uv run hidden-gems search -q "approximate nearest neighbor" --days 120 --format markdown
 ```
 
-Useful flags: `--no-llm` (heuristics only), `--model claude-...`, `--judge-top N`
-(how many to deep-judge — controls cost), `--threshold 50`, `--sources arxiv,openalex`,
-`--categories cs.IR,cs.DB`, `--profile @my_interests.txt`.
+Useful flags: `--no-llm` (heuristics only), `--provider openai`, `--model gpt-4.1`,
+`--judge-top N` (how many to deep-judge — controls cost), `--threshold 50`,
+`--sources arxiv,openalex`, `--categories cs.IR,cs.DB`, `--profile @my_interests.txt`.
 
 ## Personalize
 
@@ -71,9 +85,13 @@ Override anything in `hidden_gems.toml` (or `~/.config/research-hidden-gems/conf
 profile = "I work on retrieval-augmented LLM agents and recommender systems; I want transferable indexing, ranking, and training techniques."
 categories = ["cs.IR", "cs.DB", "cs.LG", "cs.MA"]
 sources = ["arxiv", "huggingface_daily", "openalex"]
-judge_model = "claude-sonnet-4-6"
+judge_provider = "auto"         # auto | anthropic | openai
+judge_model = ""                # empty => provider default below
+anthropic_model = "claude-sonnet-4-6"
+openai_model = "gpt-4.1"
 judge_top = 15
-embed_backend = "auto"          # auto | sentence-transformers | hashing
+embed_backend = "auto"          # auto | sentence-transformers | openai | hashing
+openai_embed_model = "text-embedding-3-small"
 # scoring weights (prefilter blend)
 w_lexical = 0.30
 w_outlier = 0.25
@@ -83,8 +101,8 @@ relevance_floor = 0.35          # how hard relevance gates off-topic papers
 openalex_mailto = "you@example.com"   # OpenAlex polite pool
 ```
 
-Quick env overrides: `RHG_JUDGE_MODEL`, `RHG_EMBED_BACKEND`, `RHG_JUDGE=off`,
-`RHG_OPENALEX_MAILTO`, `RHG_MATH_SKILLS_PATH`.
+Quick env overrides: `RHG_JUDGE_PROVIDER`, `RHG_JUDGE_MODEL`, `RHG_EMBED_BACKEND`,
+`RHG_JUDGE=off`, `RHG_OPENALEX_MAILTO`, `RHG_MATH_SKILLS_PATH`.
 
 ## Monitor & schedule
 

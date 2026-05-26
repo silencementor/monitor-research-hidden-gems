@@ -9,6 +9,7 @@ but the tool always runs).
 from __future__ import annotations
 
 import hashlib
+import os
 import re
 from functools import lru_cache
 
@@ -24,13 +25,20 @@ def _tokenize(text: str) -> list[str]:
 class Embedder:
     """Encodes texts into L2-normalized row vectors."""
 
-    def __init__(self, backend: str = "auto", model: str = "sentence-transformers/all-MiniLM-L6-v2") -> None:
+    def __init__(
+        self,
+        backend: str = "auto",
+        model: str = "sentence-transformers/all-MiniLM-L6-v2",
+        openai_model: str = "text-embedding-3-small",
+    ) -> None:
         self.requested_backend = backend
         self.model_name = model
+        self.openai_model = openai_model
         self.backend, self._model = self._resolve(backend, model)
 
     @staticmethod
     def _resolve(backend: str, model: str):
+        # "auto" stays local-first (sentence-transformers -> hashing); OpenAI is opt-in.
         if backend in ("auto", "sentence-transformers"):
             try:
                 from sentence_transformers import SentenceTransformer
@@ -38,21 +46,33 @@ class Embedder:
                 return "sentence-transformers", SentenceTransformer(model)
             except Exception:
                 if backend == "sentence-transformers":
-                    # explicit request failed — degrade rather than crash
-                    pass
+                    pass  # explicit request failed — degrade rather than crash
+        if backend == "openai":
+            try:
+                import importlib.util
+
+                if importlib.util.find_spec("openai") and os.getenv("OPENAI_API_KEY"):
+                    from openai import OpenAI
+
+                    return "openai", OpenAI()
+            except Exception:
+                pass  # fall through to hashing
         return "hashing", None
 
     def encode(self, texts: list[str]) -> np.ndarray:
         if not texts:
             return np.zeros((0, 1), dtype=np.float32)
         if self.backend == "sentence-transformers":
-            vecs = np.asarray(
+            return np.asarray(
                 self._model.encode(texts, normalize_embeddings=True, show_progress_bar=False),
                 dtype=np.float32,
             )
-            return vecs
-        vecs = _hash_embed(texts)
-        return _l2_normalize(vecs)
+        if self.backend == "openai":
+            try:
+                return _openai_embed(self._model, self.openai_model, texts)
+            except Exception:
+                pass  # API hiccup — fall back to hashing for this call
+        return _l2_normalize(_hash_embed(texts))
 
 
 def _hash_embed(texts: list[str], dim: int = 1024) -> np.ndarray:
@@ -65,6 +85,14 @@ def _hash_embed(texts: list[str], dim: int = 1024) -> np.ndarray:
             sign = 1.0 if digest[4] & 1 else -1.0
             out[row, idx] += sign
     return out
+
+
+def _openai_embed(client, model: str, texts: list[str], batch: int = 256) -> np.ndarray:
+    rows: list[list[float]] = []
+    for start in range(0, len(texts), batch):
+        response = client.embeddings.create(model=model, input=texts[start : start + batch])
+        rows.extend(item.embedding for item in response.data)
+    return _l2_normalize(np.asarray(rows, dtype=np.float32))
 
 
 def _l2_normalize(matrix: np.ndarray) -> np.ndarray:
@@ -133,5 +161,5 @@ def relevance_scores(
 
 
 @lru_cache(maxsize=4)
-def get_embedder(backend: str, model: str) -> Embedder:
-    return Embedder(backend=backend, model=model)
+def get_embedder(backend: str, model: str, openai_model: str = "text-embedding-3-small") -> Embedder:
+    return Embedder(backend=backend, model=model, openai_model=openai_model)

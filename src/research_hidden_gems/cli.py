@@ -10,7 +10,7 @@ from rich.console import Console
 from rich.table import Table
 
 from research_hidden_gems.arxiv_client import ArxivClient, arxiv_id_from_text
-from research_hidden_gems.config import Config
+from research_hidden_gems.config import Config, load_env_files
 from research_hidden_gems.llm_judge import is_available
 from research_hidden_gems.models import ScoredPaper
 from research_hidden_gems.openalex import enrich_with_openalex
@@ -28,8 +28,9 @@ QueryOpt = Annotated[str, typer.Option("--query", "-q", help="arXiv query or pla
 CategoriesOpt = Annotated[Optional[str], typer.Option("--categories", "-c", help="Comma-separated arXiv categories (overrides config).")]
 SourcesOpt = Annotated[Optional[str], typer.Option("--sources", help="Comma-separated: arxiv,huggingface_daily,openalex,openreview.")]
 ProfileOpt = Annotated[Optional[str], typer.Option("--profile", help="Interest profile text, or @path/to/file.txt (overrides config).")]
-NoLlmOpt = Annotated[bool, typer.Option("--no-llm", help="Skip the Claude deep-judge; rank on heuristics + embeddings only.")]
-ModelOpt = Annotated[Optional[str], typer.Option("--model", help="Claude model for the judge (default from config).")]
+NoLlmOpt = Annotated[bool, typer.Option("--no-llm", help="Skip the LLM deep-judge; rank on heuristics + embeddings only.")]
+ProviderOpt = Annotated[Optional[str], typer.Option("--provider", help="Judge provider: auto | anthropic | openai.")]
+ModelOpt = Annotated[Optional[str], typer.Option("--model", help="Judge model, e.g. claude-... or gpt-... (default per provider).")]
 JudgeTopOpt = Annotated[Optional[int], typer.Option("--judge-top", help="How many top-prefiltered papers to deep-judge.")]
 MathDepthOpt = Annotated[bool, typer.Option("--math-depth", help="Ask the judge to also weigh mathematical novelty/rigor.")]
 MathPathOpt = Annotated[Optional[str], typer.Option("--math-skills-path", help="Path to a math-skills repo to ground deep math assessment.")]
@@ -47,6 +48,7 @@ def search(
     output: Annotated[OutputFormat, typer.Option("--format", help="Output format.")] = "table",
     enrich: Annotated[bool, typer.Option("--enrich/--no-enrich", help="Fetch citation counts (OpenAlex + Semantic Scholar).")] = True,
     no_llm: NoLlmOpt = False,
+    provider: ProviderOpt = None,
     model: ModelOpt = None,
     judge_top: JudgeTopOpt = None,
     math_depth: MathDepthOpt = False,
@@ -56,7 +58,7 @@ def search(
     config_path: ConfigOpt = None,
 ) -> None:
     """Search multiple sources and rank papers by hidden-gem potential."""
-    cfg = _build_config(config_path, categories, profile, sources, no_llm, model, judge_top, math_depth, math_skills_path)
+    cfg = _build_config(config_path, categories, profile, sources, no_llm, model, provider, judge_top, math_depth, math_skills_path)
     scored = run_pipeline(
         cfg, query=query, days=days, max_results=max_results, enrich=enrich, do_judge=not no_llm
     )
@@ -77,6 +79,7 @@ def monitor(
     output: Annotated[OutputFormat, typer.Option("--format", help="Output format.")] = "table",
     enrich: Annotated[bool, typer.Option("--enrich/--no-enrich", help="Fetch citation counts (OpenAlex + Semantic Scholar).")] = True,
     no_llm: NoLlmOpt = False,
+    provider: ProviderOpt = None,
     model: ModelOpt = None,
     judge_top: JudgeTopOpt = None,
     math_depth: MathDepthOpt = False,
@@ -87,7 +90,7 @@ def monitor(
     interval_minutes: Annotated[Optional[float], typer.Option("--interval-minutes", help="Repeat forever every N minutes.")] = None,
 ) -> None:
     """Show only papers not already seen by this monitor (cron- or loop-friendly)."""
-    cfg = _build_config(config_path, categories, profile, sources, no_llm, model, judge_top, math_depth, math_skills_path)
+    cfg = _build_config(config_path, categories, profile, sources, no_llm, model, provider, judge_top, math_depth, math_skills_path)
     store = SeenStore(state)
 
     def run_once() -> None:
@@ -116,13 +119,14 @@ def inspect(
     output: Annotated[OutputFormat, typer.Option("--format", help="Output format.")] = "markdown",
     enrich: Annotated[bool, typer.Option("--enrich/--no-enrich", help="Fetch citation counts (OpenAlex + Semantic Scholar).")] = True,
     no_llm: NoLlmOpt = False,
+    provider: ProviderOpt = None,
     model: ModelOpt = None,
     math_depth: MathDepthOpt = False,
     math_skills_path: MathPathOpt = None,
     config_path: ConfigOpt = None,
 ) -> None:
     """Explain why a single paper does or does not look like a hidden gem."""
-    cfg = _build_config(config_path, None, None, None, no_llm, model, None, math_depth, math_skills_path)
+    cfg = _build_config(config_path, None, None, None, no_llm, model, provider, None, math_depth, math_skills_path)
     arxiv_id = arxiv_id_from_text(paper)
     fetched = ArxivClient().get(arxiv_id)
     if enrich:
@@ -140,6 +144,7 @@ def _build_config(
     sources: Optional[str],
     no_llm: bool,
     model: Optional[str],
+    provider: Optional[str],
     judge_top: Optional[int],
     math_depth: bool,
     math_skills_path: Optional[str],
@@ -153,6 +158,8 @@ def _build_config(
         cfg.profile = _load_profile(profile)
     if no_llm:
         cfg.judge_enabled = False
+    if provider:
+        cfg.judge_provider = provider
     if model:
         cfg.judge_model = model
     if judge_top is not None:
@@ -185,8 +192,9 @@ def _render(papers: list[ScoredPaper], *, output: OutputFormat, cfg: Config) -> 
 def _judge_note(cfg: Config) -> str | None:
     if cfg.judge_enabled and not is_available(cfg):
         return (
-            "[dim]Claude judge enabled but unavailable (install the 'llm' extra and set "
-            "ANTHROPIC_API_KEY). Ranking on heuristics + embeddings only.[/dim]"
+            "[dim]LLM judge enabled but unavailable. Install the 'llm' extra and set "
+            "ANTHROPIC_API_KEY or OPENAI_API_KEY (or pass --no-llm). "
+            "Ranking on heuristics + embeddings only.[/dim]"
         )
     return None
 
@@ -272,6 +280,7 @@ def _split_csv(value: str) -> list[str]:
 
 
 def main() -> None:
+    load_env_files()
     app()
 
 

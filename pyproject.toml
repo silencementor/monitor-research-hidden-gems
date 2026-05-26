@@ -10,16 +10,18 @@ dependencies = [
     "rich>=13.7.0",
     "typer>=0.12.0",
     "numpy>=1.24",
+    "python-dotenv>=1.0",
 ]
 
 [project.optional-dependencies]
 # Real semantic embeddings for the outlier-novelty + relevance signals.
 # Without this, the tool falls back to dependency-free feature hashing.
 embeddings = ["sentence-transformers>=2.2"]
-# The Claude deep-judge stage. Without it (or without ANTHROPIC_API_KEY),
-# ranking uses the heuristic + embedding signals only.
-llm = ["anthropic>=0.40"]
-all = ["sentence-transformers>=2.2", "anthropic>=0.40"]
+# The LLM deep-judge stage (Anthropic and/or OpenAI). Without a usable provider
+# (package + API key), ranking uses the heuristic + embedding signals only.
+# The OpenAI SDK also powers the optional `embed_backend = "openai"` embeddings.
+llm = ["anthropic>=0.40", "openai>=1.40"]
+all = ["sentence-transformers>=2.2", "anthropic>=0.40", "openai>=1.40"]
 
 [project.scripts]
 hidden-gems = "research_hidden_gems.cli:main"

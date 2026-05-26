@@ -1,13 +1,16 @@
-"""Claude deep-judge stage: structured novelty / transferability assessment.
+"""LLM deep-judge stage: structured novelty / transferability assessment.
 
-Runs only on the top-prefiltered shortlist (cost control). The big static
-instructions + interest profile live in a cached system block, so every call
-after the first is a prompt-cache hit. Degrades to a no-op when the ``anthropic``
-package or an API key is missing — the pipeline then ranks on heuristics alone.
+Supports two providers — Anthropic (Claude) and OpenAI — selected via
+``config.judge_provider`` ("auto" | "anthropic" | "openai"). In "auto" mode the
+provider is inferred from an explicit model name, else from whichever SDK +
+API key is usable (Anthropic preferred). Runs only on the top-prefiltered
+shortlist (cost control), and degrades to a no-op when no provider is usable —
+the pipeline then ranks on heuristics + embeddings alone.
 """
 
 from __future__ import annotations
 
+import importlib.util
 import json
 import os
 import re
@@ -54,57 +57,99 @@ results), not just empirical claims. Reference background:
 """
 
 
+# --------------------------------------------------------- provider routing -
+def _import_ok(module: str) -> bool:
+    try:
+        return importlib.util.find_spec(module) is not None
+    except (ImportError, ValueError):
+        return False
+
+
+def _usable(provider: str) -> bool:
+    if provider == "openai":
+        return _import_ok("openai") and bool(os.getenv("OPENAI_API_KEY"))
+    return _import_ok("anthropic") and bool(
+        os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_AUTH_TOKEN")
+    )
+
+
+def _infer_provider(model: str) -> str | None:
+    low = model.lower()
+    if low.startswith(("gpt", "o1", "o3", "o4", "chatgpt", "text-", "davinci")):
+        return "openai"
+    if low.startswith("claude"):
+        return "anthropic"
+    return None
+
+
+def _resolve_provider(config: Config) -> tuple[str, str]:
+    """Return (provider, model)."""
+    provider = (config.judge_provider or "auto").lower()
+    model = (config.judge_model or "").strip()
+    if provider not in ("anthropic", "openai"):
+        inferred = _infer_provider(model) if model else None
+        if inferred:
+            provider = inferred
+        else:
+            provider = next((cand for cand in ("anthropic", "openai") if _usable(cand)), "anthropic")
+    if not model:
+        model = config.anthropic_model if provider == "anthropic" else config.openai_model
+    return provider, model
+
+
 def is_available(config: Config) -> bool:
     if not config.judge_enabled:
         return False
-    try:
-        import anthropic  # noqa: F401
-    except Exception:
-        return False
-    return bool(os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_AUTH_TOKEN"))
+    provider, _ = _resolve_provider(config)
+    return _usable(provider)
 
 
+# ------------------------------------------------------------------- judge --
 def judge_papers(scored: list[ScoredPaper], config: Config) -> int:
     """Attach an LLMVerdict to the top ``config.judge_top`` papers, in place.
 
-    Returns the number of papers actually judged. No-op (returns 0) when the
-    judge is unavailable.
+    Returns the number of papers judged. No-op (0) when no provider is usable.
     """
     if not scored or not is_available(config):
         return 0
 
-    import anthropic
-
-    client = anthropic.Anthropic()
-    system = _build_system(config)
+    provider, model = _resolve_provider(config)
+    client = _make_client(provider)
+    system_text = _build_system(config)
     judged = 0
     for item in scored[: config.judge_top]:
-        verdict = _judge_one(client, system, item, config)
+        verdict = _judge_one(provider, client, system_text, item, config, model)
         if verdict is not None:
             item.verdict = verdict
             judged += 1
     return judged
 
 
-def _build_system(config: Config) -> list[dict]:
+def _make_client(provider: str):
+    if provider == "openai":
+        from openai import OpenAI
+
+        return OpenAI()
+    import anthropic
+
+    return anthropic.Anthropic()
+
+
+def _build_system(config: Config) -> str:
     math_block = ""
     if config.math_depth:
         reference = _math_reference(config.math_skills_path)
         math_block = "\n" + _MATH_BLOCK.format(reference=reference) + "\n"
-    text = _SYSTEM.format(profile=config.profile.strip(), math_block=math_block)
-    # single cached block — reused across every paper in the shortlist
-    return [{"type": "text", "text": text, "cache_control": {"type": "ephemeral"}}]
+    return _SYSTEM.format(profile=config.profile.strip(), math_block=math_block)
 
 
-def _judge_one(client, system: list[dict], item: ScoredPaper, config: Config) -> LLMVerdict | None:
+def _judge_one(provider, client, system_text, item, config, model) -> LLMVerdict | None:
+    user = _paper_prompt(item)
     try:
-        response = client.messages.create(
-            model=config.judge_model,
-            max_tokens=config.judge_max_tokens,
-            system=system,
-            messages=[{"role": "user", "content": _paper_prompt(item)}],
-        )
-        text = "".join(block.text for block in response.content if getattr(block, "type", "") == "text")
+        if provider == "openai":
+            text = _call_openai(client, system_text, user, model, config.judge_max_tokens)
+        else:
+            text = _call_anthropic(client, system_text, user, model, config.judge_max_tokens)
     except Exception:
         return None
 
@@ -115,6 +160,40 @@ def _judge_one(client, system: list[dict], item: ScoredPaper, config: Config) ->
     return LLMVerdict.from_dict(data)
 
 
+def _call_anthropic(client, system_text: str, user: str, model: str, max_tokens: int) -> str:
+    # The big static system block is cached (cache hit on every call after the first).
+    response = client.messages.create(
+        model=model,
+        max_tokens=max_tokens,
+        system=[{"type": "text", "text": system_text, "cache_control": {"type": "ephemeral"}}],
+        messages=[{"role": "user", "content": user}],
+    )
+    return "".join(b.text for b in response.content if getattr(b, "type", "") == "text")
+
+
+def _call_openai(client, system_text: str, user: str, model: str, max_tokens: int) -> str:
+    # OpenAI auto-caches long shared prefixes; json_object mode guarantees parseable output.
+    kwargs = dict(
+        model=model,
+        response_format={"type": "json_object"},
+        messages=[
+            {"role": "system", "content": system_text},
+            {"role": "user", "content": user},
+        ],
+    )
+    try:
+        response = client.chat.completions.create(max_tokens=max_tokens, **kwargs)
+    except TypeError:
+        response = client.chat.completions.create(max_completion_tokens=max_tokens, **kwargs)
+    except Exception as exc:  # newer models reject 'max_tokens' at the API layer
+        if "max_tokens" in str(exc) or "max_completion_tokens" in str(exc):
+            response = client.chat.completions.create(max_completion_tokens=max_tokens, **kwargs)
+        else:
+            raise
+    return response.choices[0].message.content or ""
+
+
+# -------------------------------------------------------------- prompt I/O --
 def _paper_prompt(item: ScoredPaper) -> str:
     paper = item.paper
     now = datetime.now(timezone.utc)
