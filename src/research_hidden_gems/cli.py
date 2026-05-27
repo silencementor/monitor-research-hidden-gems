@@ -3,12 +3,13 @@ from __future__ import annotations
 import json
 import re
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Annotated, Literal, Optional
+from typing import Annotated, Callable, Literal, Optional
 
 import typer
 from rich.console import Console
+from rich.markup import escape
 from rich.table import Table
 
 from research_hidden_gems.arxiv_client import ArxivClient, arxiv_id_from_text
@@ -22,6 +23,7 @@ from research_hidden_gems.semantic_scholar import enrich_with_semantic_scholar
 from research_hidden_gems.storage import SeenStore, default_state_path
 
 OutputFormat = Literal["table", "json", "markdown"]
+Progress = Callable[[str], None]
 
 app = typer.Typer(no_args_is_help=True, help="Find under-the-radar papers with transferable novel techniques.")
 console = Console()
@@ -40,6 +42,7 @@ JudgeTopOpt = Annotated[Optional[int], typer.Option("--judge-top", help="How man
 MathDepthOpt = Annotated[bool, typer.Option("--math-depth", help="Ask the judge to also weigh mathematical novelty/rigor.")]
 MathPathOpt = Annotated[Optional[str], typer.Option("--math-skills-path", help="Path to a math-skills repo to ground deep math assessment.")]
 ConfigOpt = Annotated[Optional[Path], typer.Option("--config", help="Path to a TOML config file.")]
+ProgressOpt = Annotated[bool, typer.Option("--progress/--no-progress", help="Print timestamped pipeline stage updates.")]
 
 
 @app.command()
@@ -61,11 +64,19 @@ def search(
     profile: ProfileOpt = None,
     sources: SourcesOpt = None,
     config_path: ConfigOpt = None,
+    progress: ProgressOpt = True,
 ) -> None:
     """Search multiple sources and rank papers by hidden-gem potential."""
     cfg = _build_config(config_path, categories, profile, sources, no_llm, model, provider, judge_top, math_depth, math_skills_path)
+    progress_log = _progress_logger(progress and output != "json")
     scored = run_pipeline(
-        cfg, query=query, days=days, max_results=max_results, enrich=enrich, do_judge=not no_llm
+        cfg,
+        query=query,
+        days=days,
+        max_results=max_results,
+        enrich=enrich,
+        do_judge=not no_llm,
+        progress=progress_log,
     )
     kept = [item for item in scored if item.score >= threshold][:top_k]
     _render(kept, output=output, cfg=cfg)
@@ -95,32 +106,65 @@ def monitor(
     sources: SourcesOpt = None,
     config_path: ConfigOpt = None,
     interval_minutes: Annotated[Optional[float], typer.Option("--interval-minutes", help="Repeat forever every N minutes.")] = None,
+    progress: ProgressOpt = True,
 ) -> None:
     """Show only papers not already seen by this monitor (cron- or loop-friendly)."""
     cfg = _build_config(config_path, categories, profile, sources, no_llm, model, provider, judge_top, math_depth, math_skills_path)
     store = SeenStore(state)
+    progress_log = _progress_logger(progress and output != "json")
+    if progress_log:
+        progress_log(f"Monitor state DB: {store.path}")
+        if reports:
+            progress_log(f"Markdown reports directory: {report_dir}")
+        if out is not None:
+            progress_log(f"Markdown digest file: {out}")
 
-    def run_once() -> None:
+    def run_once(run_number: int) -> None:
+        if progress_log:
+            progress_log(f"Monitor run {run_number} started")
         scored = run_pipeline(
-            cfg, query=query, days=days, max_results=max_results, enrich=enrich, do_judge=not no_llm
+            cfg,
+            query=query,
+            days=days,
+            max_results=max_results,
+            enrich=enrich,
+            do_judge=not no_llm,
+            progress=progress_log,
         )
         kept = [item for item in scored if item.score >= threshold]
+        if progress_log:
+            progress_log(f"Filtering complete: {len(kept)} papers at threshold >= {threshold:g}")
         unseen = store.unseen(kept)
         store.upsert(kept)
         new_top = unseen[:top_k]
+        if progress_log:
+            progress_log(f"Seen-state updated: {len(unseen)} unseen, showing {len(new_top)}")
         _render(new_top, output=output, cfg=cfg)
         if out is not None:
-            _write_markdown(out, new_top)
+            path = _write_markdown(out, new_top)
+            if progress_log:
+                progress_log(f"Wrote markdown digest to {path}")
         if reports:
             report_path = _write_timestamped_report(report_dir, query, new_top)
-            console.print(f"[dim]Wrote markdown report to {report_path}[/dim]")
+            if progress_log:
+                progress_log(f"Wrote markdown report to {report_path}")
+        if progress_log:
+            progress_log(f"Monitor run {run_number} finished")
 
     if interval_minutes is None:
-        run_once()
+        run_once(1)
         return
+    run_number = 1
     while True:
-        run_once()
+        run_once(run_number)
+        next_run = datetime.now().astimezone() + timedelta(minutes=interval_minutes)
+        if progress_log:
+            progress_log(
+                f"Sleeping for {_format_interval(interval_minutes)}; next run at "
+                f"{next_run.strftime('%Y-%m-%d %H:%M:%S %Z')}"
+            )
         time.sleep(interval_minutes * 60)
+        run_number += 1
 
 
 @app.command()
@@ -197,6 +241,27 @@ def _render(papers: list[ScoredPaper], *, output: OutputFormat, cfg: Config) -> 
         console.print(_markdown(papers))
         return
     _table(papers, cfg=cfg)
+
+
+def _progress_logger(enabled: bool) -> Progress | None:
+    if not enabled:
+        return None
+
+    def log(message: str) -> None:
+        timestamp = datetime.now().astimezone().strftime("%H:%M:%S")
+        console.print(f"[dim][{timestamp}] {escape(message)}[/dim]")
+
+    return log
+
+
+def _format_interval(minutes: float) -> str:
+    if minutes < 1:
+        seconds = round(minutes * 60, 1)
+        return f"{seconds:g} seconds"
+    if minutes < 60:
+        return f"{minutes:g} minutes"
+    hours = minutes / 60
+    return f"{hours:g} hours"
 
 
 def _judge_note(cfg: Config) -> str | None:

@@ -129,6 +129,10 @@ Or run a long-lived local watcher:
 uv run hidden-gems monitor -q "vector indexing" --provider openai --format markdown --interval-minutes 360
 ```
 
+Monitor runs print timestamped stage updates by default: source fetches,
+deduplication, citation enrichment, embedding/ranking, LLM judging, report
+writing, and the next scheduled run time. Add `--no-progress` for quiet output.
+
 By default, monitor state and cache stay in the project:
 
 - seen-paper DB: `.hidden-gems/state/seen.sqlite3`

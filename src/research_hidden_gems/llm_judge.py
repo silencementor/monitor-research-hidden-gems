@@ -16,6 +16,7 @@ import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Callable
 
 from research_hidden_gems.config import Config
 from research_hidden_gems.models import LLMVerdict, ScoredPaper
@@ -105,23 +106,37 @@ def is_available(config: Config) -> bool:
 
 
 # ------------------------------------------------------------------- judge --
-def judge_papers(scored: list[ScoredPaper], config: Config) -> int:
+Progress = Callable[[str], None]
+
+
+def judge_papers(scored: list[ScoredPaper], config: Config, progress: Progress | None = None) -> int:
     """Attach an LLMVerdict to the top ``config.judge_top`` papers, in place.
 
     Returns the number of papers judged. No-op (0) when no provider is usable.
     """
-    if not scored or not is_available(config):
+    if not scored:
+        return 0
+    if not is_available(config):
+        if progress:
+            progress("LLM judge unavailable; using heuristic and embedding scores only")
         return 0
 
     provider, model = _resolve_provider(config)
+    limit = min(config.judge_top, len(scored))
+    if progress:
+        progress(f"LLM judge: {provider}/{model} on top {limit} papers")
     client = _make_client(provider)
     system_text = _build_system(config)
     judged = 0
-    for item in scored[: config.judge_top]:
+    for index, item in enumerate(scored[: config.judge_top], start=1):
+        if progress:
+            progress(f"LLM judge {index}/{limit}: {item.paper.title[:90]}")
         verdict = _judge_one(provider, client, system_text, item, config, model)
         if verdict is not None:
             item.verdict = verdict
             judged += 1
+    if progress:
+        progress(f"LLM judge finished: {judged}/{limit} verdicts attached")
     return judged
 
 
