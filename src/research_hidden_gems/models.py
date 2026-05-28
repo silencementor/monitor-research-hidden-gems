@@ -111,6 +111,7 @@ class ScoredPaper:
             "title": paper.title,
             "authors": paper.authors,
             "published": paper.published.date().isoformat(),
+            "source": paper.source,
             "categories": paper.categories,
             "abstract_url": paper.abs_url,
             "pdf_url": paper.pdf_url,

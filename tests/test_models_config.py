@@ -35,6 +35,14 @@ def test_paper_key_prefers_arxiv_then_doi_then_url() -> None:
     )
 
 
+def test_scored_paper_dict_includes_source() -> None:
+    from research_hidden_gems.scoring import score_papers
+
+    scored = score_papers([_paper(source="openalex")])
+
+    assert scored[0].to_dict()["source"] == "openalex"
+
+
 def test_config_env_override(monkeypatch) -> None:
     monkeypatch.setenv("RHG_JUDGE_MODEL", "claude-test")
     monkeypatch.setenv("RHG_JUDGE", "off")

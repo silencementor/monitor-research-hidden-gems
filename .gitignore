@@ -206,6 +206,7 @@ tempCodeRunnerFile.py
 
 # Research Hidden Gems local runtime and generated monitor reports
 .hidden-gems/
+reports/dashboard/
 reports/hidden-gems/
 
 # Ruff stuff:

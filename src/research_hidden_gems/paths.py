@@ -40,6 +40,12 @@ def default_report_dir() -> Path:
     return project_root() / "reports" / "hidden-gems"
 
 
+def default_dashboard_dir() -> Path:
+    if configured := os.getenv("RHG_DASHBOARD_DIR"):
+        return Path(configured).expanduser().resolve()
+    return project_root() / "reports" / "dashboard"
+
+
 def configure_project_cache() -> None:
     cache_dir = default_cache_dir()
     cache_dir.mkdir(parents=True, exist_ok=True)

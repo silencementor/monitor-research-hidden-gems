@@ -4,6 +4,7 @@ from pathlib import Path
 from research_hidden_gems.paths import (
     configure_project_cache,
     default_cache_dir,
+    default_dashboard_dir,
     default_report_dir,
     default_state_path,
     project_root,
@@ -20,11 +21,13 @@ def test_project_paths_default_to_working_tree(tmp_path, monkeypatch) -> None:
     monkeypatch.delenv("RHG_CACHE_DIR", raising=False)
     monkeypatch.delenv("RHG_STATE_PATH", raising=False)
     monkeypatch.delenv("RHG_REPORT_DIR", raising=False)
+    monkeypatch.delenv("RHG_DASHBOARD_DIR", raising=False)
 
     assert project_root() == tmp_path
     assert default_state_path() == tmp_path / ".hidden-gems" / "state" / "seen.sqlite3"
     assert default_cache_dir() == tmp_path / ".hidden-gems" / "cache"
     assert default_report_dir() == tmp_path / "reports" / "hidden-gems"
+    assert default_dashboard_dir() == tmp_path / "reports" / "dashboard"
 
 
 def test_project_paths_allow_env_overrides(tmp_path, monkeypatch) -> None:
@@ -32,14 +35,17 @@ def test_project_paths_allow_env_overrides(tmp_path, monkeypatch) -> None:
     cache = tmp_path / "cache"
     state = tmp_path / "db" / "seen.sqlite3"
     reports = tmp_path / "reports"
+    dashboard = tmp_path / "dashboard"
     monkeypatch.setenv("RHG_RUNTIME_DIR", str(runtime))
     monkeypatch.setenv("RHG_CACHE_DIR", str(cache))
     monkeypatch.setenv("RHG_STATE_PATH", str(state))
     monkeypatch.setenv("RHG_REPORT_DIR", str(reports))
+    monkeypatch.setenv("RHG_DASHBOARD_DIR", str(dashboard))
 
     assert default_state_path() == state
     assert default_cache_dir() == cache
     assert default_report_dir() == reports
+    assert default_dashboard_dir() == dashboard
 
 
 def test_configure_project_cache_sets_local_cache_env(tmp_path, monkeypatch) -> None:

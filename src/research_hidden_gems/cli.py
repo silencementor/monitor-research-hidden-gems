@@ -14,10 +14,11 @@ from rich.table import Table
 
 from research_hidden_gems.arxiv_client import ArxivClient, arxiv_id_from_text
 from research_hidden_gems.config import Config, load_env_files
+from research_hidden_gems.dashboard import write_dashboard
 from research_hidden_gems.llm_judge import is_available
 from research_hidden_gems.models import ScoredPaper
 from research_hidden_gems.openalex import enrich_with_openalex
-from research_hidden_gems.paths import configure_project_cache, default_report_dir
+from research_hidden_gems.paths import configure_project_cache, default_dashboard_dir, default_report_dir
 from research_hidden_gems.pipeline import rank_papers, run_pipeline
 from research_hidden_gems.semantic_scholar import enrich_with_semantic_scholar
 from research_hidden_gems.storage import SeenStore, default_state_path
@@ -94,6 +95,8 @@ def monitor(
     out: Annotated[Optional[Path], typer.Option("--out", help="Also write a markdown digest of new papers to this file.")] = None,
     report_dir: Annotated[Path, typer.Option("--report-dir", help="Directory for timestamped markdown reports.")] = default_report_dir(),
     reports: Annotated[bool, typer.Option("--reports/--no-reports", help="Write one timestamped markdown report per monitor run.")] = True,
+    dashboard_dir: Annotated[Path, typer.Option("--dashboard-dir", help="Directory for the generated analysis dashboard.")] = default_dashboard_dir(),
+    dashboard: Annotated[bool, typer.Option("--dashboard/--no-dashboard", help="Rebuild the analysis dashboard after each monitor run.")] = True,
     output: Annotated[OutputFormat, typer.Option("--format", help="Output format.")] = "table",
     enrich: Annotated[bool, typer.Option("--enrich/--no-enrich", help="Fetch citation counts (OpenAlex + Semantic Scholar).")] = True,
     no_llm: NoLlmOpt = False,
@@ -116,6 +119,8 @@ def monitor(
         progress_log(f"Monitor state DB: {store.path}")
         if reports:
             progress_log(f"Markdown reports directory: {report_dir}")
+        if dashboard:
+            progress_log(f"Dashboard directory: {dashboard_dir}")
         if out is not None:
             progress_log(f"Markdown digest file: {out}")
 
@@ -148,6 +153,10 @@ def monitor(
             report_path = _write_timestamped_report(report_dir, query, new_top)
             if progress_log:
                 progress_log(f"Wrote markdown report to {report_path}")
+        if dashboard:
+            dashboard_path = write_dashboard(store.path, dashboard_dir, report_dir)
+            if progress_log:
+                progress_log(f"Updated analysis dashboard at {dashboard_path}")
         if progress_log:
             progress_log(f"Monitor run {run_number} finished")
 
@@ -188,6 +197,17 @@ def inspect(
         enrich_with_semantic_scholar([fetched])
     scored = rank_papers(cfg, [fetched], do_judge=not no_llm)
     _render(scored, output=output, cfg=cfg)
+
+
+@app.command()
+def dashboard(
+    state: Annotated[Path, typer.Option("--state", help="SQLite file for seen-paper state.")] = default_state_path(),
+    report_dir: Annotated[Path, typer.Option("--report-dir", help="Directory containing markdown monitor reports for source backfill.")] = default_report_dir(),
+    dashboard_dir: Annotated[Path, typer.Option("--dashboard-dir", help="Directory for the generated analysis dashboard.")] = default_dashboard_dir(),
+) -> None:
+    """Rebuild the static analysis dashboard from monitor state."""
+    path = write_dashboard(state, dashboard_dir, report_dir)
+    console.print(f"Updated analysis dashboard at {path}")
 
 
 # ----------------------------------------------------------------- config ---
