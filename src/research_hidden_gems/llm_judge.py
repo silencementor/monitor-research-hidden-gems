@@ -219,6 +219,8 @@ def _paper_prompt(item: ScoredPaper) -> str:
         f"Source: {paper.source}; Published: {paper.published.date().isoformat()}; "
         f"Age(days): {paper.age_days(now)}; Citations: {cites}",
     ]
+    if paper.venue:
+        lines.append(f"Venue: {paper.venue}")
     if item.techniques:
         lines.append(f"Heuristic technique phrases: {', '.join(item.techniques[:8])}")
     lines.append("")

@@ -50,7 +50,28 @@ DEFAULT_CATEGORIES = [
 
 # Sources to pull from. arXiv is the spine; the rest broaden discovery and the
 # popularity signal. See sources/ for each fetcher.
-DEFAULT_SOURCES = ["arxiv", "huggingface_daily", "openalex", "openreview"]
+DEFAULT_SOURCES = ["arxiv", "huggingface_daily", "openalex", "premium_venues", "openreview"]
+
+# Premium venue discovery is resolved dynamically through OpenAlex sources, so
+# the config keeps human-facing venue names/acronyms rather than fragile ids.
+DEFAULT_PREMIUM_VENUES = [
+    "NeurIPS",
+    "ICML",
+    "ICLR",
+    "KDD",
+    "SIGMOD",
+    "VLDB",
+    "ICDE",
+    "ICDM",
+    "SIGIR",
+    "ICCV",
+    "CVPR",
+    "ACL",
+    "EMNLP",
+    "WWW",
+    "AAAI",
+    "IJCAI",
+]
 
 _CONFIG_SEARCH_PATHS = [
     Path("hidden_gems.toml"),
@@ -84,6 +105,7 @@ class Config:
     keywords: list[str] = field(default_factory=lambda: list(DEFAULT_KEYWORDS))
     categories: list[str] = field(default_factory=lambda: list(DEFAULT_CATEGORIES))
     sources: list[str] = field(default_factory=lambda: list(DEFAULT_SOURCES))
+    premium_venues: list[str] = field(default_factory=lambda: list(DEFAULT_PREMIUM_VENUES))
 
     # LLM judge
     judge_enabled: bool = True
@@ -157,6 +179,12 @@ def _apply_env(cfg: Config) -> Config:
         updates["math_depth"] = True
     if (val := os.getenv("RHG_OPENALEX_MAILTO")):
         updates["openalex_mailto"] = val
+    if (val := os.getenv("RHG_PREMIUM_VENUES")):
+        updates["premium_venues"] = _split_csv(val)
     if (val := os.getenv("RHG_JUDGE")) is not None:
         updates["judge_enabled"] = val.strip().lower() not in {"0", "false", "no", "off"}
     return replace(cfg, **updates) if updates else cfg
+
+
+def _split_csv(value: str) -> list[str]:
+    return [item.strip() for item in value.split(",") if item.strip()]

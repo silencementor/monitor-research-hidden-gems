@@ -118,6 +118,7 @@ def build_dashboard_data(records: list[dict[str, Any]], state_path: Path | str) 
         "trend": _trend(ordered),
         "score_buckets": _score_buckets(ordered),
         "source_counts": _counter_items(item.get("source") or "unknown" for item in ordered),
+        "venue_counts": _counter_items(item.get("venue") for item in ordered if item.get("venue")),
         "category_counts": _category_counts(ordered),
         "technique_counts": _list_counts(ordered, "techniques", limit=18),
         "rare_term_counts": _list_counts(ordered, "rare_terms", limit=18),
@@ -138,6 +139,7 @@ def _paper_row(item: dict[str, Any]) -> dict[str, Any]:
         "key": item.get("paper_key") or item.get("arxiv_id") or item.get("title") or "",
         "title": item.get("title") or "",
         "arxiv_id": item.get("arxiv_id") or "",
+        "doi": item.get("doi") or "",
         "abstract_url": item.get("abstract_url") or _arxiv_url(item.get("arxiv_id")),
         "pdf_url": item.get("pdf_url") or "",
         "authors": item.get("authors") or [],
@@ -458,11 +460,12 @@ _HTML_TEMPLATE = r"""<!doctype html>
           <article class="panel chart wide"><h2>Discovery Trend</h2><div id="trendChart"></div><div class="legend"><span><span class="swatch" style="background:#087f8c"></span>New papers</span><span><span class="swatch" style="background:#c2410c"></span>Hidden gems</span></div></article>
           <article class="panel chart"><h2>Score Distribution</h2><div id="scoreChart"></div></article>
           <article class="panel chart"><h2>Source Mix</h2><div id="sourceChart"></div></article>
+          <article class="panel chart"><h2>Venue Mix</h2><div id="venueChart"></div></article>
           <article class="panel chart"><h2>Signal Averages</h2><div id="componentChart"></div></article>
           <article class="panel chart"><h2>Relevance vs Outlier</h2><div id="scatterChart"></div><div class="legend"><span><span class="swatch" style="background:#087f8c"></span>Candidate</span><span><span class="swatch" style="background:#c2410c"></span>Hidden gem</span></div></article>
           <article class="panel wide"><h2>Top Techniques</h2><div class="tag-list" id="techniqueTags"></div></article>
           <article class="panel wide"><h2>Rare Terms</h2><div class="tag-list" id="rareTags"></div></article>
-          <article class="panel wide"><h2>Papers</h2><div class="table-wrap"><table><thead><tr><th class="num">Score</th><th>Title</th><th>Source</th><th>Published</th><th class="num">Cites</th><th class="num">Rel</th><th class="num">Outlier</th><th>Verdict</th></tr></thead><tbody id="paperRows"></tbody></table></div></article>
+          <article class="panel wide"><h2>Papers</h2><div class="table-wrap"><table><thead><tr><th class="num">Score</th><th>Title</th><th>Source</th><th>Venue</th><th>Published</th><th class="num">Cites</th><th class="num">Rel</th><th class="num">Outlier</th><th>Verdict</th></tr></thead><tbody id="paperRows"></tbody></table></div></article>
         </div>
         <aside class="panel detail" id="detailPanel"></aside>
       </section>
@@ -570,6 +573,7 @@ _HTML_TEMPLATE = r"""<!doctype html>
       renderTrend();
       renderScoreChart();
       renderSourceChart();
+      renderVenueChart();
       renderComponentChart();
       renderScatter(papers);
       renderTags("techniqueTags", data.technique_counts, "technique");
@@ -596,6 +600,13 @@ _HTML_TEMPLATE = r"""<!doctype html>
       barChart("sourceChart", data.source_counts, {
         label: "label", value: "count", color: "#087f8c",
         onClick: (item) => { $("sourceFilter").value = item.label; state.source = item.label; render(); },
+      });
+    }
+
+    function renderVenueChart() {
+      barChart("venueChart", data.venue_counts, {
+        label: "label", value: "count", color: "#b7791f",
+        onClick: (item) => { $("searchInput").value = item.label; state.search = item.label; render(); },
       });
     }
 
@@ -689,7 +700,7 @@ _HTML_TEMPLATE = r"""<!doctype html>
       if (!papers.length) {
         const row = document.createElement("tr");
         const cell = document.createElement("td");
-        cell.colSpan = 8;
+        cell.colSpan = 9;
         cell.className = "empty";
         cell.textContent = "No papers match the current filters.";
         row.append(cell);
@@ -703,6 +714,7 @@ _HTML_TEMPLATE = r"""<!doctype html>
           td(fmt(paper.score, 1), "num"),
           td(paper.title, "title-cell"),
           td(paper.source || "unknown"),
+          td(paper.venue || ""),
           td(paper.published || ""),
           td(paper.citation_count == null ? "?" : fmt(paper.citation_count), "num"),
           td(fmt(paper.components.relevance || 0, 2), "num"),
@@ -723,7 +735,9 @@ _HTML_TEMPLATE = r"""<!doctype html>
       }
       const title = el("h2", "detail-title", paper.title);
       const meta = el("div", "detail-meta");
-      [paper.source || "unknown", paper.published || "no date", `${paper.citation_count ?? "?"} citations`, paper.arxiv_id || paper.key].forEach((value) => meta.append(el("span", "", value)));
+      [paper.source || "unknown", paper.venue || "", paper.published || "no date", `${paper.citation_count ?? "?"} citations`, paper.arxiv_id || paper.doi || paper.key].forEach((value) => {
+        if (value) meta.append(el("span", "", value));
+      });
       const scoreRow = el("div", "score-row");
       scoreRow.append(mini("Score", fmt(paper.score, 1)), mini("Relevance", fmt(paper.components.relevance || 0, 2)), mini("Outlier", fmt(paper.components.outlier || 0, 2)));
       const links = el("div", "tag-list");
@@ -800,9 +814,9 @@ _HTML_TEMPLATE = r"""<!doctype html>
 
     function downloadCsv() {
       const rows = filteredPapers();
-      const header = ["score", "title", "source", "published", "citations", "relevance", "outlier", "hidden_gem", "url"];
+      const header = ["score", "title", "source", "venue", "published", "citations", "relevance", "outlier", "hidden_gem", "url"];
       const csv = [header, ...rows.map((p) => [
-        p.score, p.title, p.source, p.published, p.citation_count ?? "", p.components.relevance ?? "", p.components.outlier ?? "", p.hidden_gem, p.abstract_url || "",
+        p.score, p.title, p.source, p.venue || "", p.published, p.citation_count ?? "", p.components.relevance ?? "", p.components.outlier ?? "", p.hidden_gem, p.abstract_url || "",
       ])].map((row) => row.map(csvCell).join(",")).join("\n");
       const blob = new Blob([csv], { type: "text/csv" });
       const url = URL.createObjectURL(blob);

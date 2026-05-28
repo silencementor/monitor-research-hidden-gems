@@ -47,14 +47,17 @@ def test_config_env_override(monkeypatch) -> None:
     monkeypatch.setenv("RHG_JUDGE_MODEL", "claude-test")
     monkeypatch.setenv("RHG_JUDGE", "off")
     monkeypatch.setenv("RHG_EMBED_BACKEND", "hashing")
+    monkeypatch.setenv("RHG_PREMIUM_VENUES", "NeurIPS,SIGMOD,VLDB")
     cfg = Config.load(None)
     assert cfg.judge_model == "claude-test"
     assert cfg.judge_enabled is False
     assert cfg.embed_backend == "hashing"
+    assert cfg.premium_venues == ["NeurIPS", "SIGMOD", "VLDB"]
 
 
 def test_config_defaults_cover_user_domains() -> None:
     cfg = Config()
     for category in ("cs.IR", "cs.DB", "cs.MA"):
         assert category in cfg.categories
-    assert set(cfg.sources) >= {"arxiv", "huggingface_daily", "openalex", "openreview"}
+    assert set(cfg.sources) >= {"arxiv", "huggingface_daily", "openalex", "premium_venues", "openreview"}
+    assert {"NeurIPS", "SIGMOD", "VLDB", "KDD", "ICML", "ICLR"} <= set(cfg.premium_venues)

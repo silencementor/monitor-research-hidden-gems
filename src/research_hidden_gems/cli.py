@@ -32,9 +32,10 @@ load_env_files()
 configure_project_cache()
 
 # --- shared option types -----------------------------------------------------
-QueryOpt = Annotated[str, typer.Option("--query", "-q", help="arXiv query or plain phrase. Also enables OpenAlex discovery.")]
+QueryOpt = Annotated[str, typer.Option("--query", "-q", help="arXiv query or plain phrase. Also narrows OpenAlex discovery.")]
 CategoriesOpt = Annotated[Optional[str], typer.Option("--categories", "-c", help="Comma-separated arXiv categories (overrides config).")]
-SourcesOpt = Annotated[Optional[str], typer.Option("--sources", help="Comma-separated: arxiv,huggingface_daily,openalex,openreview.")]
+SourcesOpt = Annotated[Optional[str], typer.Option("--sources", help="Comma-separated: arxiv,huggingface_daily,openalex,premium_venues,openreview.")]
+PremiumVenuesOpt = Annotated[Optional[str], typer.Option("--premium-venues", help="Comma-separated premium venues for OpenAlex discovery.")]
 ProfileOpt = Annotated[Optional[str], typer.Option("--profile", help="Interest profile text, or @path/to/file.txt (overrides config).")]
 NoLlmOpt = Annotated[bool, typer.Option("--no-llm", help="Skip the LLM deep-judge; rank on heuristics + embeddings only.")]
 ProviderOpt = Annotated[Optional[str], typer.Option("--provider", help="Judge provider: auto | anthropic | openai.")]
@@ -64,11 +65,14 @@ def search(
     math_skills_path: MathPathOpt = None,
     profile: ProfileOpt = None,
     sources: SourcesOpt = None,
+    premium_venues: PremiumVenuesOpt = None,
     config_path: ConfigOpt = None,
     progress: ProgressOpt = True,
 ) -> None:
     """Search multiple sources and rank papers by hidden-gem potential."""
-    cfg = _build_config(config_path, categories, profile, sources, no_llm, model, provider, judge_top, math_depth, math_skills_path)
+    cfg = _build_config(
+        config_path, categories, profile, sources, premium_venues, no_llm, model, provider, judge_top, math_depth, math_skills_path
+    )
     progress_log = _progress_logger(progress and output != "json")
     scored = run_pipeline(
         cfg,
@@ -107,12 +111,15 @@ def monitor(
     math_skills_path: MathPathOpt = None,
     profile: ProfileOpt = None,
     sources: SourcesOpt = None,
+    premium_venues: PremiumVenuesOpt = None,
     config_path: ConfigOpt = None,
     interval_minutes: Annotated[Optional[float], typer.Option("--interval-minutes", help="Repeat forever every N minutes.")] = None,
     progress: ProgressOpt = True,
 ) -> None:
     """Show only papers not already seen by this monitor (cron- or loop-friendly)."""
-    cfg = _build_config(config_path, categories, profile, sources, no_llm, model, provider, judge_top, math_depth, math_skills_path)
+    cfg = _build_config(
+        config_path, categories, profile, sources, premium_venues, no_llm, model, provider, judge_top, math_depth, math_skills_path
+    )
     store = SeenStore(state)
     progress_log = _progress_logger(progress and output != "json")
     if progress_log:
@@ -189,7 +196,7 @@ def inspect(
     config_path: ConfigOpt = None,
 ) -> None:
     """Explain why a single paper does or does not look like a hidden gem."""
-    cfg = _build_config(config_path, None, None, None, no_llm, model, provider, None, math_depth, math_skills_path)
+    cfg = _build_config(config_path, None, None, None, None, no_llm, model, provider, None, math_depth, math_skills_path)
     arxiv_id = arxiv_id_from_text(paper)
     fetched = ArxivClient().get(arxiv_id)
     if enrich:
@@ -216,6 +223,7 @@ def _build_config(
     categories: Optional[str],
     profile: Optional[str],
     sources: Optional[str],
+    premium_venues: Optional[str],
     no_llm: bool,
     model: Optional[str],
     provider: Optional[str],
@@ -228,6 +236,8 @@ def _build_config(
         cfg.categories = _split_csv(categories)
     if sources:
         cfg.sources = _split_csv(sources)
+    if premium_venues:
+        cfg.premium_venues = _split_csv(premium_venues)
     if profile:
         cfg.profile = _load_profile(profile)
     if no_llm:
@@ -309,7 +319,8 @@ def _table(papers: list[ScoredPaper], *, cfg: Config) -> None:
     table.add_column("Title", ratio=3)
     table.add_column("Technique", ratio=2)
     table.add_column("Cites", justify="right", no_wrap=True)
-    table.add_column("arXiv", no_wrap=True)
+    table.add_column("Venue", ratio=1)
+    table.add_column("ID", no_wrap=True)
 
     for scored in papers:
         paper = scored.paper
@@ -322,6 +333,7 @@ def _table(papers: list[ScoredPaper], *, cfg: Config) -> None:
             paper.title,
             technique or "-",
             "?" if paper.citation_count is None else str(paper.citation_count),
+            paper.venue or "-",
             paper.arxiv_id or paper.key,
         )
     console.print(table)
@@ -350,6 +362,8 @@ def _markdown(papers: list[ScoredPaper]) -> str:
             f"- **Published:** {paper.published.date().isoformat()}  · "
             f"**Citations:** {'unknown' if paper.citation_count is None else paper.citation_count}",
         ]
+        if paper.venue:
+            lines.append(f"- **Venue:** {paper.venue}")
         if scored.verdict is not None:
             v = scored.verdict
             lines += [

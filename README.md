@@ -10,7 +10,7 @@ firehose, then Claude deep-judges the shortlist for genuine novelty and *how it
 could apply to you*:
 
 ```
-fetch (arXiv · HF Daily · OpenAlex · OpenReview)
+fetch (arXiv · HF Daily · OpenAlex · premium venues · OpenReview)
   → dedup + citation enrichment
   → prefilter:  lexical signals (novelty/technique language, rare terms)
               + embedding-outlier novelty (semantic isolation)
@@ -75,7 +75,8 @@ uv run hidden-gems search -q "approximate nearest neighbor" --days 120 --format 
 
 Useful flags: `--no-llm` (heuristics only), `--provider openai`, `--model gpt-4.1`,
 `--judge-top N` (how many to deep-judge — controls cost), `--threshold 50`,
-`--sources arxiv,openalex`, `--categories cs.IR,cs.DB`, `--profile @my_interests.txt`.
+`--sources arxiv,openalex,premium_venues`, `--premium-venues NeurIPS,ICML,SIGMOD`,
+`--categories cs.IR,cs.DB`, `--profile @my_interests.txt`.
 
 ## Personalize
 
@@ -88,7 +89,8 @@ Override anything in `hidden_gems.toml` (or `~/.config/research-hidden-gems/conf
 ```toml
 profile = "I work on retrieval-augmented LLM agents and recommender systems; I want transferable indexing, ranking, and training techniques."
 categories = ["cs.IR", "cs.DB", "cs.LG", "cs.MA"]
-sources = ["arxiv", "huggingface_daily", "openalex"]
+sources = ["arxiv", "huggingface_daily", "openalex", "premium_venues"]
+premium_venues = ["NeurIPS", "ICML", "ICLR", "KDD", "SIGMOD", "VLDB", "ICDE", "ICDM", "SIGIR", "ICCV", "CVPR", "ACL", "EMNLP", "WWW", "AAAI", "IJCAI"]
 judge_provider = "auto"         # auto | anthropic | openai
 judge_model = ""                # empty => provider default below
 anthropic_model = "claude-sonnet-4-6"
@@ -106,7 +108,8 @@ openalex_mailto = "you@example.com"   # OpenAlex polite pool
 ```
 
 Quick env overrides: `RHG_JUDGE_PROVIDER`, `RHG_JUDGE_MODEL`, `RHG_EMBED_BACKEND`,
-`RHG_JUDGE=off`, `RHG_OPENALEX_MAILTO`, `RHG_MATH_SKILLS_PATH`.
+`RHG_JUDGE=off`, `RHG_PREMIUM_VENUES`, `RHG_OPENALEX_MAILTO`,
+`RHG_MATH_SKILLS_PATH`.
 
 ## Monitor & schedule
 
@@ -139,9 +142,9 @@ reports/dashboard/index.html
 ```
 
 The dashboard includes score distributions, discovery trends, source/category
-mix, signal averages, relevance-vs-outlier scatter analysis, top technique/rare
-term tables, searchable paper rows, and clickable paper detail panels. Rebuild it
-manually from the project-local DB with:
+mix, venue mix, signal averages, relevance-vs-outlier scatter analysis, top
+technique/rare term tables, searchable paper rows, and clickable paper detail
+panels. Rebuild it manually from the project-local DB with:
 
 ```bash
 uv run hidden-gems dashboard
@@ -176,6 +179,9 @@ may be overlooked, and a concrete way to apply it to your work.
 - **OpenAlex** — free citation enrichment (via the arXiv DOI `10.48550/arXiv.<id>`)
   and, when a `--query` is given, discovery of older arXiv works whose low
   citation counts make them candidate gems.
+- **Premium venues** — OpenAlex-backed discovery from configured venue sources
+  such as NeurIPS, SIGMOD, VLDB, KDD, ICDM, ICDE, SIGIR, ICML, ICCV, and ICLR.
+  These can include DOI/web-only proceedings papers, not just arXiv papers.
 - **OpenReview** — best-effort; recent submissions are keyed by per-venue
   invitation ids that rotate each cycle, so it returns nothing until you supply
   venues in config (it never ships stale guesses).

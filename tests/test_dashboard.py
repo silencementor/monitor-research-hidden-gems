@@ -16,7 +16,8 @@ def _store_with_paper(tmp_path):
         published=datetime(2026, 1, 1, tzinfo=timezone.utc),
         citation_count=0,
         abs_url="https://arxiv.org/abs/2601.00001",
-        source="openalex",
+        venue="ACM SIGMOD Conference",
+        source="premium_venues",
     )
     scored = score_papers([paper])
     scored[0].components["relevance"] = 0.9
@@ -33,7 +34,8 @@ def test_load_seen_records_includes_monitor_metadata(tmp_path) -> None:
 
     assert len(records) == 1
     assert records[0]["paper_key"] == "2601.00001"
-    assert records[0]["source"] == "openalex"
+    assert records[0]["source"] == "premium_venues"
+    assert records[0]["venue"] == "ACM SIGMOD Conference"
     assert records[0]["first_seen"]
 
 
@@ -45,7 +47,8 @@ def test_build_dashboard_data_summarizes_records(tmp_path) -> None:
 
     assert data["summary"]["total"] == 1
     assert data["summary"]["zero_citation"] == 1
-    assert data["source_counts"] == [{"label": "openalex", "count": 1}]
+    assert data["source_counts"] == [{"label": "premium_venues", "count": 1}]
+    assert data["venue_counts"] == [{"label": "ACM SIGMOD Conference", "count": 1}]
     assert data["papers"][0]["title"] == "Vector Index Routing for Agent Memory"
 
 

@@ -2,11 +2,11 @@ from datetime import datetime, timezone
 
 from research_hidden_gems.config import Config
 from research_hidden_gems.models import Paper
-from research_hidden_gems.pipeline import rank_papers
+from research_hidden_gems.pipeline import _dedup, rank_papers
 
 
-def _paper(arxiv_id: str, title: str, summary: str, citations: int = 0) -> Paper:
-    return Paper(
+def _paper(arxiv_id: str, title: str, summary: str, citations: int = 0, **kwargs) -> Paper:
+    base = dict(
         arxiv_id=arxiv_id,
         title=title,
         authors=[],
@@ -15,6 +15,8 @@ def _paper(arxiv_id: str, title: str, summary: str, citations: int = 0) -> Paper
         citation_count=citations,
         abs_url=f"https://arxiv.org/abs/{arxiv_id}",
     )
+    base.update(kwargs)
+    return Paper(**base)
 
 
 def test_rank_papers_offline_blends_signals() -> None:
@@ -75,3 +77,21 @@ def test_relevance_gate_downranks_offtopic_outlier() -> None:
     off_topic = by_title["Glacial Sediment Cores from the Pleistocene"]
     assert on_topic.components["relevance"] > off_topic.components["relevance"]
     assert on_topic.score > off_topic.score
+
+
+def test_dedup_preserves_premium_venue_metadata() -> None:
+    arxiv = _paper("2601.00020", "Indexed Agents", "A paper.", source="arxiv")
+    premium = _paper(
+        "2601.00020",
+        "Indexed Agents",
+        "A longer paper.",
+        source="premium_venues",
+        venue="International Conference on Learning Representations",
+    )
+
+    merged = _dedup([arxiv, premium])
+
+    assert len(merged) == 1
+    assert merged[0].source == "premium_venues"
+    assert merged[0].venue == "International Conference on Learning Representations"
+    assert merged[0].external_ids["source_before_premium"] == "arxiv"

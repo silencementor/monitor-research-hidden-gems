@@ -150,6 +150,23 @@ def _fetch_all(
                 progress(f"OpenAlex fetch failed: {exc}")
     elif "openalex" in sources and progress:
         progress("Skipping OpenAlex discovery because no query was provided")
+    if "premium_venues" in sources:
+        try:
+            if progress:
+                progress(f"Fetching premium venues via OpenAlex ({', '.join(config.premium_venues)})")
+            fetched = openalex.fetch_premium_venues(
+                days=days,
+                max_results=max_results,
+                search=query or None,
+                venues=config.premium_venues,
+                mailto=config.openalex_mailto,
+            )
+            papers += fetched
+            if progress:
+                progress(f"Fetched premium venues: {len(fetched)} papers")
+        except Exception as exc:
+            if progress:
+                progress(f"Premium venue fetch failed: {exc}")
     if "openreview" in sources:
         try:
             if progress:
@@ -180,12 +197,31 @@ def _merge(into: Paper, other: Paper) -> None:
         into.summary = other.summary
     if not into.doi and other.doi:
         into.doi = other.doi
+    if not into.abs_url and other.abs_url:
+        into.abs_url = other.abs_url
+    if not into.pdf_url and other.pdf_url:
+        into.pdf_url = other.pdf_url
+    if not into.venue and other.venue:
+        into.venue = other.venue
     if not into.categories and other.categories:
         into.categories = other.categories
     if other.citation_count is not None:
         into.citation_count = max(into.citation_count or 0, other.citation_count)
     into.external_ids.update({k: v for k, v in other.external_ids.items() if v})
-    into.external_ids.setdefault("also_in", other.source)
+    if into.source != other.source:
+        if other.source == "premium_venues":
+            original_source = into.source
+            _record_additional_source(into, original_source)
+            into.external_ids.setdefault("source_before_premium", original_source)
+            into.source = other.source
+        else:
+            _record_additional_source(into, other.source)
+
+
+def _record_additional_source(paper: Paper, source: str) -> None:
+    existing = {item for item in paper.external_ids.get("also_in", "").split(",") if item}
+    existing.add(source)
+    paper.external_ids["also_in"] = ",".join(sorted(existing))
 
 
 def _enrich(config: Config, papers: list[Paper], progress: Progress | None = None) -> None:
