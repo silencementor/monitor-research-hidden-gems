@@ -1,3 +1,5 @@
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=silencementor.monitor-research-hidden-gems)
+
 # monitor-research-hidden-gems
 
 Surface **hidden gems**: research papers whose core *technique* or *problem
@@ -219,3 +221,10 @@ uv run pytest
 This is a discovery aid, not a literature review. The heuristic prefilter and
 embedding outliers find *candidates*; the Claude judge adds calibrated judgement
 but only sees title + abstract. Treat high scores as prompts for manual reading.
+
+
+
+-----------
+**Backup Statistics**
+
+![Visitors](https://margherita-gustatory-zane.ngrok-free.dev/badge/silencementor%2Fmonitor-research-hidden-gems.svg?ngrok-skip-browser-warning=true)
