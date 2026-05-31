@@ -60,7 +60,9 @@ def test_write_dashboard_outputs_html_and_json(tmp_path) -> None:
     data_path = html_path.parent / "data.json"
     assert html_path.is_file()
     assert data_path.is_file()
-    assert "Research Hidden Gems Dashboard" in html_path.read_text(encoding="utf-8")
+    html = html_path.read_text(encoding="utf-8")
+    assert "Research Hidden Gems Dashboard" in html
+    assert 'applyMetricFilter("hidden")' in html
     data = json.loads(data_path.read_text(encoding="utf-8"))
     assert data["summary"]["total"] == 1
 

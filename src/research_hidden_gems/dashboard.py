@@ -341,7 +341,10 @@ _HTML_TEMPLATE = r"""<!doctype html>
       border-radius: 8px;
       box-shadow: var(--shadow);
     }
-    .metric { padding: 13px 14px; }
+    .metric { padding: 13px 14px; text-align: left; }
+    button.metric { cursor: pointer; }
+    button.metric:hover { border-color: #aab5ad; transform: translateY(-1px); }
+    button.metric.active { border-color: var(--teal); box-shadow: 0 0 0 2px rgba(8, 127, 140, 0.14), var(--shadow); }
     .metric-label { color: var(--muted); font-size: 12px; }
     .metric-value { font-size: 26px; font-weight: 760; line-height: 1.1; margin-top: 4px; }
     .controls {
@@ -482,7 +485,7 @@ _HTML_TEMPLATE = r"""<!doctype html>
   <script id="dashboard-data" type="application/json">__RHG_DATA__</script>
   <script>
     const data = JSON.parse(document.getElementById("dashboard-data").textContent);
-    let state = { search: "", source: "all", verdict: "all", minScore: 0, sortBy: "score", selected: null };
+    let state = { search: "", source: "all", verdict: "all", minScore: 0, sortBy: "score", zeroCitation: false, selected: null };
     const $ = (id) => document.getElementById(id);
     const fmt = (n, digits = 0) => Number(n || 0).toLocaleString(undefined, { maximumFractionDigits: digits });
     const pct = (n) => `${Math.round(Number(n || 0) * 100)}%`;
@@ -499,17 +502,22 @@ _HTML_TEMPLATE = r"""<!doctype html>
     function renderMetrics() {
       const s = data.summary;
       const metrics = [
-        ["Papers", s.total],
-        ["Hidden Gems", s.hidden_gems],
-        ["Judged", s.judged],
-        ["Zero Citation", s.zero_citation],
-        ["Avg Score", fmt(s.average_score, 1)],
-        ["Top Score", fmt(s.top_score, 1)],
+        { label: "Papers", value: s.total, action: () => resetFilters(), active: noFiltersActive() },
+        { label: "Hidden Gems", value: s.hidden_gems, action: () => applyMetricFilter("hidden"), active: state.verdict === "hidden" },
+        { label: "Judged", value: s.judged, action: () => applyMetricFilter("judged"), active: state.verdict === "judged" },
+        { label: "Zero Citation", value: s.zero_citation, action: () => applyMetricFilter("zero_citation"), active: state.zeroCitation },
+        { label: "Avg Score", value: fmt(s.average_score, 1) },
+        { label: "Top Score", value: fmt(s.top_score, 1) },
       ];
-      $("metrics").replaceChildren(...metrics.map(([label, value]) => {
-        const node = document.createElement("article");
+      $("metrics").replaceChildren(...metrics.map((metric) => {
+        const node = document.createElement(metric.action ? "button" : "article");
         node.className = "metric";
-        node.append(el("div", "metric-label", label), el("div", "metric-value", String(value)));
+        if (metric.action) {
+          node.type = "button";
+          node.classList.toggle("active", metric.active);
+          node.addEventListener("click", metric.action);
+        }
+        node.append(el("div", "metric-label", metric.label), el("div", "metric-value", String(metric.value)));
         return node;
       }));
     }
@@ -528,7 +536,7 @@ _HTML_TEMPLATE = r"""<!doctype html>
     function wireControls() {
       $("searchInput").addEventListener("input", (e) => { state.search = e.target.value; render(); });
       $("sourceFilter").addEventListener("change", (e) => { state.source = e.target.value; render(); });
-      $("verdictFilter").addEventListener("change", (e) => { state.verdict = e.target.value; render(); });
+      $("verdictFilter").addEventListener("change", (e) => { state.verdict = e.target.value; state.zeroCitation = false; render(); });
       $("scoreFilter").addEventListener("input", (e) => { state.minScore = Number(e.target.value || 0); render(); });
       $("sortBy").addEventListener("change", (e) => { state.sortBy = e.target.value; render(); });
       $("resetBtn").addEventListener("click", resetFilters);
@@ -536,7 +544,7 @@ _HTML_TEMPLATE = r"""<!doctype html>
     }
 
     function resetFilters() {
-      state = { search: "", source: "all", verdict: "all", minScore: 0, sortBy: "score", selected: null };
+      state = { search: "", source: "all", verdict: "all", minScore: 0, sortBy: "score", zeroCitation: false, selected: null };
       $("searchInput").value = "";
       $("sourceFilter").value = "all";
       $("verdictFilter").value = "all";
@@ -545,11 +553,30 @@ _HTML_TEMPLATE = r"""<!doctype html>
       render();
     }
 
+    function applyMetricFilter(metric) {
+      if (metric === "hidden" || metric === "judged") {
+        state.verdict = metric;
+        state.zeroCitation = false;
+        $("verdictFilter").value = metric;
+      }
+      if (metric === "zero_citation") {
+        state.verdict = "all";
+        state.zeroCitation = true;
+        $("verdictFilter").value = "all";
+      }
+      render();
+    }
+
+    function noFiltersActive() {
+      return !state.search && state.source === "all" && state.verdict === "all" && !state.zeroCitation && state.minScore === 0;
+    }
+
     function filteredPapers() {
       const q = state.search.trim().toLowerCase();
       const rows = data.papers.filter((paper) => {
         if (state.source !== "all" && paper.source !== state.source) return false;
         if (paper.score < state.minScore) return false;
+        if (state.zeroCitation && paper.citation_count !== 0) return false;
         if (state.verdict === "hidden" && !paper.hidden_gem) return false;
         if (state.verdict === "judged" && !paper.verdict) return false;
         if (state.verdict === "unjudged" && paper.verdict) return false;
@@ -578,6 +605,7 @@ _HTML_TEMPLATE = r"""<!doctype html>
 
     function render() {
       const papers = filteredPapers();
+      renderMetrics();
       renderTrend();
       renderScoreChart();
       renderSourceChart();
