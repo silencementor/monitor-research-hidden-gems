@@ -2,10 +2,11 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Annotated, Callable, Literal, Optional
+from typing import Annotated, Callable, Literal, Optional, Sequence
 
 import typer
 from rich.console import Console
@@ -18,7 +19,7 @@ from research_hidden_gems.dashboard import write_dashboard
 from research_hidden_gems.llm_judge import is_available
 from research_hidden_gems.models import ScoredPaper
 from research_hidden_gems.openalex import enrich_with_openalex
-from research_hidden_gems.paths import configure_project_cache, default_dashboard_dir, default_report_dir
+from research_hidden_gems.paths import configure_project_cache, default_dashboard_dir, default_report_dir, project_root
 from research_hidden_gems.pipeline import rank_papers, run_pipeline
 from research_hidden_gems.semantic_scholar import enrich_with_semantic_scholar
 from research_hidden_gems.storage import SeenStore, default_state_path
@@ -45,6 +46,15 @@ MathDepthOpt = Annotated[bool, typer.Option("--math-depth", help="Ask the judge 
 MathPathOpt = Annotated[Optional[str], typer.Option("--math-skills-path", help="Path to a math-skills repo to ground deep math assessment.")]
 ConfigOpt = Annotated[Optional[Path], typer.Option("--config", help="Path to a TOML config file.")]
 ProgressOpt = Annotated[bool, typer.Option("--progress/--no-progress", help="Print timestamped pipeline stage updates.")]
+GitPushOpt = Annotated[
+    bool,
+    typer.Option(
+        "--git-push/--no-git-push",
+        help="After each monitor run, commit generated report/dashboard files and push HEAD to the configured branch.",
+    ),
+]
+GitRemoteOpt = Annotated[str, typer.Option("--git-remote", help="Git remote used by --git-push.")]
+GitBranchOpt = Annotated[str, typer.Option("--git-branch", help="Remote branch used by --git-push.")]
 
 
 @app.command()
@@ -114,6 +124,9 @@ def monitor(
     premium_venues: PremiumVenuesOpt = None,
     config_path: ConfigOpt = None,
     interval_minutes: Annotated[Optional[float], typer.Option("--interval-minutes", help="Repeat forever every N minutes.")] = None,
+    git_push: GitPushOpt = True,
+    git_remote: GitRemoteOpt = "origin",
+    git_branch: GitBranchOpt = "master",
     progress: ProgressOpt = True,
 ) -> None:
     """Show only papers not already seen by this monitor (cron- or loop-friendly)."""
@@ -130,8 +143,11 @@ def monitor(
             progress_log(f"Dashboard directory: {dashboard_dir}")
         if out is not None:
             progress_log(f"Markdown digest file: {out}")
+        if git_push:
+            progress_log(f"Git publishing enabled: {git_remote}/{git_branch}")
 
     def run_once(run_number: int) -> None:
+        generated_paths: list[Path] = []
         if progress_log:
             progress_log(f"Monitor run {run_number} started")
         scored = run_pipeline(
@@ -154,16 +170,36 @@ def monitor(
         _render(new_top, output=output, cfg=cfg)
         if out is not None:
             path = _write_markdown(out, new_top)
+            generated_paths.append(path)
             if progress_log:
                 progress_log(f"Wrote markdown digest to {path}")
         if reports:
             report_path = _write_timestamped_report(report_dir, query, new_top)
+            generated_paths.append(report_path)
             if progress_log:
                 progress_log(f"Wrote markdown report to {report_path}")
         if dashboard:
-            dashboard_path = write_dashboard(store.path, dashboard_dir, report_dir)
+            publish_dir = project_root()
+            dashboard_path = write_dashboard(store.path, dashboard_dir, report_dir, publish_dir=publish_dir)
+            generated_paths.extend(
+                [
+                    dashboard_path,
+                    dashboard_path.parent / "data.json",
+                    publish_dir / "index.html",
+                    publish_dir / "data.json",
+                ]
+            )
             if progress_log:
                 progress_log(f"Updated analysis dashboard at {dashboard_path}")
+                progress_log(f"Published dashboard to {publish_dir / 'index.html'}")
+        if git_push:
+            _commit_and_push_monitor_outputs(
+                generated_paths,
+                remote=git_remote,
+                branch=git_branch,
+                run_number=run_number,
+                progress=progress_log,
+            )
         if progress_log:
             progress_log(f"Monitor run {run_number} finished")
 
@@ -213,8 +249,10 @@ def dashboard(
     dashboard_dir: Annotated[Path, typer.Option("--dashboard-dir", help="Directory for the generated analysis dashboard.")] = default_dashboard_dir(),
 ) -> None:
     """Rebuild the static analysis dashboard from monitor state."""
-    path = write_dashboard(state, dashboard_dir, report_dir)
+    publish_dir = project_root()
+    path = write_dashboard(state, dashboard_dir, report_dir, publish_dir=publish_dir)
     console.print(f"Updated analysis dashboard at {path}")
+    console.print(f"Published root dashboard at {publish_dir / 'index.html'}")
 
 
 # ----------------------------------------------------------------- config ---
@@ -394,6 +432,91 @@ def _write_timestamped_report(report_dir: Path, query: str, papers: list[ScoredP
     label = _slug(query) or "all"
     stamp = datetime.now().astimezone().strftime("%Y%m%d-%H%M%S")
     return _write_markdown(report_dir / f"{stamp}-{label}.md", papers)
+
+
+def _commit_and_push_monitor_outputs(
+    paths: Sequence[Path],
+    *,
+    remote: str,
+    branch: str,
+    run_number: int,
+    progress: Progress | None,
+) -> None:
+    repo = project_root()
+    if not (repo / ".git").exists():
+        if progress:
+            progress("Skipping git publish: no .git directory found")
+        return
+
+    rel_paths = _repo_relative_paths(repo, paths)
+    if not rel_paths:
+        if progress:
+            progress("Skipping git publish: no generated files are inside the repository")
+        return
+
+    if progress:
+        progress(f"Checking generated monitor files for git changes ({len(rel_paths)} paths)")
+    status = _git(["status", "--porcelain", "--", *rel_paths], repo)
+    if status.returncode != 0:
+        _log_git_failure("git status", status, progress)
+        return
+
+    if status.stdout.strip():
+        add = _git(["add", "--", *rel_paths], repo)
+        if add.returncode != 0:
+            _log_git_failure("git add", add, progress)
+            return
+        diff = _git(["diff", "--cached", "--quiet", "--", *rel_paths], repo)
+        if diff.returncode == 1:
+            stamp = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %Z")
+            commit = _git(["commit", "-m", f"Update hidden gems monitor output ({stamp}, run {run_number})"], repo)
+            if commit.returncode != 0:
+                _log_git_failure("git commit", commit, progress)
+                return
+            if progress:
+                progress("Committed generated monitor files")
+        elif diff.returncode == 0 and progress:
+            progress("No staged generated monitor changes to commit")
+        elif diff.returncode not in {0, 1}:
+            _log_git_failure("git diff", diff, progress)
+            return
+    elif progress:
+        progress("No generated monitor file changes to commit")
+
+    push_ref = f"HEAD:{branch}"
+    push = _git(["push", remote, push_ref], repo)
+    if push.returncode != 0:
+        _log_git_failure("git push", push, progress)
+        return
+    if progress:
+        progress(f"Pushed monitor output to {remote}/{branch}")
+
+
+def _repo_relative_paths(repo: Path, paths: Sequence[Path]) -> list[str]:
+    rel_paths: list[str] = []
+    seen: set[str] = set()
+    for path in paths:
+        try:
+            resolved = Path(path).expanduser().resolve()
+            rel = resolved.relative_to(repo.resolve())
+        except ValueError:
+            continue
+        rel_text = rel.as_posix()
+        if rel_text and rel_text not in seen:
+            rel_paths.append(rel_text)
+            seen.add(rel_text)
+    return rel_paths
+
+
+def _git(args: Sequence[str], cwd: Path) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(["git", *args], cwd=cwd, capture_output=True, text=True, check=False)
+
+
+def _log_git_failure(label: str, result: subprocess.CompletedProcess[str], progress: Progress | None) -> None:
+    message = (result.stderr or result.stdout or "").strip().splitlines()
+    detail = message[-1] if message else f"exit code {result.returncode}"
+    if progress:
+        progress(f"{label} failed: {detail}")
 
 
 def _slug(value: str, max_length: int = 80) -> str:

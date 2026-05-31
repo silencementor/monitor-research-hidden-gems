@@ -27,6 +27,7 @@ def test_extract_json_none() -> None:
 def test_is_available_false_without_key(monkeypatch) -> None:
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     monkeypatch.delenv("ANTHROPIC_AUTH_TOKEN", raising=False)
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     assert is_available(Config(judge_enabled=True)) is False
 
 

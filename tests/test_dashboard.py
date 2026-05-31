@@ -65,6 +65,17 @@ def test_write_dashboard_outputs_html_and_json(tmp_path) -> None:
     assert data["summary"]["total"] == 1
 
 
+def test_write_dashboard_can_publish_root_copy(tmp_path) -> None:
+    store = _store_with_paper(tmp_path)
+    publish_dir = tmp_path / "public"
+
+    write_dashboard(store.path, tmp_path / "dashboard", publish_dir=publish_dir)
+
+    assert (publish_dir / "index.html").is_file()
+    assert (publish_dir / "data.json").is_file()
+    assert "Research Hidden Gems Dashboard" in (publish_dir / "index.html").read_text(encoding="utf-8")
+
+
 def test_load_report_sources_parses_markdown_reports(tmp_path) -> None:
     report_dir = tmp_path / "reports"
     report_dir.mkdir()

@@ -135,10 +135,11 @@ uv run hidden-gems monitor -q "vector indexing" --provider openai --format markd
 Monitor runs print timestamped stage updates by default: source fetches,
 deduplication, citation enrichment, embedding/ranking, LLM judging, report
 writing, and the next scheduled run time. Add `--no-progress` for quiet output.
-Each run also rebuilds a clickable analysis dashboard:
+Each run also rebuilds a clickable analysis dashboard and publishes a root copy:
 
 ```text
 reports/dashboard/index.html
+index.html
 ```
 
 The dashboard includes score distributions, discovery trends, source/category
@@ -156,12 +157,17 @@ By default, monitor state and cache stay in the project:
 - model/app cache: `.hidden-gems/cache/`
 - markdown reports: `reports/hidden-gems/YYYYMMDD-HHMMSS-query.md`
 - analysis dashboard: `reports/dashboard/index.html`
+- root dashboard page: `index.html`
 
 Override with `--state`, `--report-dir`, `RHG_RUNTIME_DIR`, `RHG_CACHE_DIR`,
 `RHG_STATE_PATH`, `RHG_REPORT_DIR`, or `RHG_DASHBOARD_DIR`. Use `--no-reports`
 or `--no-dashboard` if you only want console output. To keep uv's own package
 cache inside the project too, prefix the command with
 `UV_CACHE_DIR="$PWD/.hidden-gems/cache/uv"`.
+
+After each monitor run, generated report/dashboard files are committed and pushed
+to `origin/master` by default. Use `--no-git-push` to disable this, or
+`--git-remote` / `--git-branch` to publish somewhere else.
 
 ## Inspect one paper
 

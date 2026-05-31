@@ -28,6 +28,7 @@ def write_dashboard(
     state_path: Path | str | None = None,
     dashboard_dir: Path | str | None = None,
     report_dir: Path | str | None = None,
+    publish_dir: Path | str | None = None,
 ) -> Path:
     state = Path(state_path) if state_path is not None else default_state_path()
     out_dir = Path(dashboard_dir) if dashboard_dir is not None else default_dashboard_dir()
@@ -36,10 +37,17 @@ def write_dashboard(
     source_map = load_report_sources(Path(report_dir) if report_dir is not None else default_report_dir())
     records = load_seen_records(state, source_map=source_map)
     data = build_dashboard_data(records, state)
+    data_text = json.dumps(data, indent=2, sort_keys=True)
+    html_text = render_dashboard_html(data)
     data_path = out_dir / "data.json"
-    data_path.write_text(json.dumps(data, indent=2, sort_keys=True), encoding="utf-8")
+    data_path.write_text(data_text, encoding="utf-8")
     html_path = out_dir / "index.html"
-    html_path.write_text(render_dashboard_html(data), encoding="utf-8")
+    html_path.write_text(html_text, encoding="utf-8")
+    if publish_dir is not None:
+        publish = Path(publish_dir)
+        publish.mkdir(parents=True, exist_ok=True)
+        (publish / "index.html").write_text(html_text, encoding="utf-8")
+        (publish / "data.json").write_text(data_text, encoding="utf-8")
     return html_path
 
 
