@@ -1,5 +1,7 @@
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=silencementor.monitor-research-hidden-gems)
 
+https://silencementor.github.io/monitor-research-hidden-gems/
+
 # monitor-research-hidden-gems
 
 Surface **hidden gems**: research papers whose core *technique* or *problem
