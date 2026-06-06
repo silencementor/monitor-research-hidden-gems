@@ -99,7 +99,7 @@
       "value": 1.0
     }
   ],
-  "generated_at": "2026-06-06T22:21:06+10:00",
+  "generated_at": "2026-06-07T04:21:53+10:00",
   "papers": [
     {
       "abstract_url": "https://arxiv.org/abs/2605.20176",
@@ -283,7 +283,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03841",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03841",
       "problems": [
         "However, existing approaches remain fundamentally limited by their static action sets and lack of principled long-horizon context management, hindering their ability to accumulate...",
@@ -762,7 +762,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06286",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06286",
       "problems": [],
       "published": "2026-06-04",
@@ -1495,7 +1495,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.01166",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01166",
       "problems": [
         "This shift creates safety risks that are difficult to detect from isolated prompts or final responses, because harm often emerges only through multi-step execution traces whose in...",
@@ -1641,7 +1641,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05112",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05112",
       "problems": [
         "Medical education has long addressed an analogous challenge through standardized patients (SPs): trained actors who consistently portray clinical cases, enabling realistic practic...",
@@ -2813,7 +2813,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06473",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06473",
       "problems": [
         "However, existing MLE agents suffer from inter-branch information isolation, memoryless search, and lack of hierarchical control, which together hinder long-horizon optimization."
@@ -3613,7 +3613,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05622",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05622",
       "problems": [
         "Planning for real-world problems by language models often involves both world and user constraints, which may not be fully specified upfront and are progressively disclosed throug...",
@@ -4181,7 +4181,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05158",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05158",
       "problems": [
         "We formalize both advantages with the first closed-form joint analysis of stream, serial, and single protocols, deriving the effectiveness ordering, speedup upper bound, and cost..."
@@ -4321,7 +4321,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06462",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06462",
       "problems": [
         "However, their construction is labor-intensive and hard to reuse, raising concerns about sustainability and scalability.",
@@ -4740,7 +4740,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03577",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03577",
       "problems": [
         "Wide-baseline matching (WBM) requires integrating geometric understanding, viewpoint changes, fine-grained perception, and occlusion reasoning, making it a challenging testbed for...",
@@ -5188,7 +5188,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.04513",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04513",
       "problems": [],
       "published": "2026-06-03",
@@ -5483,7 +5483,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06294",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06294",
       "problems": [
         "Real-world scenarios, however, often require localizing multiple disjoint segments for a single query -- a setting we term One-to-Many Temporal Grounding (OMTG)."
@@ -6216,7 +6216,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.01286",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01286",
       "problems": [
         "Constructing new, challenging datasets typically requires substantial human effort, creating a bottleneck for progress.",
@@ -7853,7 +7853,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.01886",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01886",
       "problems": [
         "A user must repeatedly restate goals, risk preferences, portfolio context, past judgments, and shifting market assumptions, while the agent answers, retrieves, acts, and forgets.",
@@ -8933,7 +8933,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.04703",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04703",
       "problems": [
         "We systematically examine this failure through three vital dimensions of experience internalization: (1) Experience Granularity: We find that principle-level experience is more du..."
@@ -9005,7 +9005,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.00125",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.00125",
       "problems": [
         "Moreover, our experiments show that naive multimodal fusion does not always yield additive improvements, highlighting challenges in cross-modal integration."
@@ -9230,7 +9230,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.02859",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02859",
       "problems": [],
       "published": "2026-06-01",
@@ -9737,7 +9737,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2605.30792",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.30792",
       "problems": [
         "To address this gap, we present OpenSTBench, a unified multidimensional evaluation framework that organizes heterogeneous speech translation outputs into a shared evaluation forma..."
@@ -9803,7 +9803,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05008",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05008",
       "problems": [
         "To address this gap, we introduce M^3Eval, the first comprehensive evaluation framework and benchmark for probing different memory dimensions in multi-modal models.",
@@ -9938,7 +9938,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.00825",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.00825",
       "problems": [
         "However, existing egocentric datasets predominantly focus on action recognition or generic QAs from short clips, measuring perceptual capabilities rather than realistic human memo..."
@@ -10156,7 +10156,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.02060",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02060",
       "problems": [],
       "published": "2026-06-01",
@@ -10661,7 +10661,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05769",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05769",
       "problems": [
         "Video event prediction (VEP) requires models to infer unobserved future states from partial video evidence."
@@ -12172,7 +12172,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03965",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03965",
       "problems": [],
       "published": "2026-06-02",
@@ -12943,7 +12943,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06428",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06428",
       "problems": [
         "However, both methods typically overfit specific languages, with limited zero-shot transfer at test time."
@@ -13378,7 +13378,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2605.30848",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.30848",
       "problems": [
         "Existing defenses either remove explicit identifiers, perturb text for formal privacy, or test rewritten text against non-web inference models, leaving underexplored the operating..."
@@ -13574,7 +13574,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.04465",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04465",
       "problems": [],
       "published": "2026-06-03",
@@ -13993,7 +13993,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.02800",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02800",
       "problems": [],
       "published": "2026-06-01",
@@ -14351,7 +14351,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03197",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03197",
       "problems": [
         "However, collecting high-quality annotated problems for memory-intensive scenarios is costly, and the resulting training data often lack sufficient diversity to cover general memo...",
@@ -14634,7 +14634,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06416",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06416",
       "problems": [
         "However, discovering effective skills for data analysis remains challenging, as reliable supervision is expensive and success criteria vary across analytical formats."
@@ -14834,7 +14834,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03773",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03773",
       "problems": [],
       "published": "2026-06-02",
@@ -14851,7 +14851,7 @@
       "rationale": [
         "Technique signals: controlled training, document length, klettermix training.",
         "Uncommon terms in this batch: german, klettermix, document, english, german-language.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.53, relevance=0.65."
       ],
@@ -15174,7 +15174,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.00644",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.00644",
       "problems": [
         "AI research often requires decisions before future evidence exists: which bottleneck to attack, which direction to pursue, or where a project should be positioned."
@@ -15436,7 +15436,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06492",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06492",
       "problems": [
         "Existing methods inject this knowledge as long inputs (retrieved through RAG or dependency analysis) or through per-repository fine-tuning and LoRA -- costly at repository scale a..."
@@ -15502,7 +15502,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2605.27492",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.27492",
       "problems": [
         "However, existing evaluation methodologies remain largely centered on static, isolated, and short-horizon benchmarks that fail to capture the dynamic complexity of real-world prod...",
@@ -15635,7 +15635,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.01804",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01804",
       "problems": [
         "Instruction-guided speech editing requires a model to modify specified speech attributes while preserving unrelated characteristics.",
@@ -17114,7 +17114,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03031",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03031",
       "problems": [],
       "published": "2026-06-02",
@@ -17665,7 +17665,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06443",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06443",
       "problems": [
         "However, it remains unclear whether these simulations reflect precise user-specific beliefs or whether they are highly sensitive to semantically independent changes in conversatio...",
@@ -17790,7 +17790,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03895",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03895",
       "problems": [],
       "published": "2026-06-02",
@@ -18998,7 +18998,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03092",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03092",
       "problems": [
         "In this work, we formulate inference budget allocation as a global constrained optimization problem governed by economic principles.",
@@ -19411,7 +19411,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03712",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03712",
       "problems": [
         "However, this activation-level saliency does not imply that these tokens are the main carriers of graph information.",
@@ -19945,7 +19945,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03890",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03890",
       "problems": [
         "86.6, with allocentric mapping as the dominant bottleneck.",
@@ -20269,7 +20269,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.02684",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02684",
       "problems": [],
       "published": "2026-06-01",
@@ -20619,7 +20619,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2605.30794",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.30794",
       "problems": [
         "However, they remain brittle on mechanical engineering drawings, where high annotation density and weak domain knowledge, compounded by unreliable spatial relation reasoning under..."
@@ -20978,7 +20978,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2605.31058",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.31058",
       "problems": [
         "However, the scalability of RLVR is severely constrained by the scarcity of sufficiently challenging verifiable code tasks that target near the model's edge of competence."
@@ -21562,7 +21562,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06155",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06155",
       "problems": [
         "However, the structural mismatch between VLM semantic spaces and embodied control policies often hinders the learning of precise perception--action mappings.",
@@ -21693,7 +21693,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.04351",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04351",
       "problems": [
         "Processing video in vision-language models is expensive: each frame occupies hundreds of tokens, and inference cost scales with every frame and every repeated query.",
@@ -22695,7 +22695,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05165",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05165",
       "problems": [
         "However, tracking gradients across billions of parameters is not only prohibitively expensive but relies on local approximations.",
@@ -22767,7 +22767,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2605.30159",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.30159",
       "problems": [
         "However, existing approaches typically train these memory policies using outcome-based reinforcement learning, failing to localize where intermediate memory quality degrades."
@@ -24875,7 +24875,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.04075",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04075",
       "problems": [
         "We hypothesise that the RL training process may exploit these gaps and therefore ask whether models' well-known tendency to hack reward functions during RL can scale into a more c...",
@@ -25568,7 +25568,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.01753",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01753",
       "problems": [
         "Training accurate medical image segmentation models requires large amounts of densely annotated data, which is costly and time-consuming to obtain.",
@@ -26003,7 +26003,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.04880",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04880",
       "problems": [
         "However, existing vision-language-model (VLM) based selection methods are object-centric and typically support a single interaction modality, limiting their applicability.",
@@ -26651,7 +26651,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2605.31148",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.31148",
       "problems": [
         "To study this problem, we introduce SpatialAct, a simulator-grounded benchmark for probing action-conditioned spatial reasoning in 3D scenes.",
@@ -26792,7 +26792,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05172",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05172",
       "problems": [
         "RE-Edit comprises 1,000 carefully curated samples, each designed such that visual plausibility alone is insufficient and correct editing requires satisfying implicit logical const...",
@@ -27479,7 +27479,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03220",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03220",
       "problems": [],
       "published": "2026-06-02",
@@ -29169,7 +29169,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.01993",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01993",
       "problems": [
         "However, such knowledge is often multimodal, heterogeneous, noisy, and implicitly assumes human executors, making it difficult to use directly as the skills required by agents.",
@@ -30052,7 +30052,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.01317",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01317",
       "problems": [
         "Existing benchmarks, however, primarily assess whether models refuse unsafe prompts, leaving impacts on stateful workspaces largely unexamined."
@@ -30256,7 +30256,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05557",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05557",
       "problems": [
         "On factual lookup the controller trades raw accuracy for 82% fewer probes and zero forbidden-tool violations on a privacy-sensitive slice; scope conditions are detailed in Limitat..."
@@ -33099,7 +33099,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05121",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05121",
       "problems": [],
       "published": "2026-06-03",
@@ -33952,7 +33952,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05515",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05515",
       "problems": [
         "Learning representations of CAD models is a largely open problem."
@@ -36432,7 +36432,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06447",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06447",
       "problems": [
         "However, textual CoT forces this computation through a discrete, serial, and communication-oriented token stream: each reasoning step must be verbalized before the model can proce...",
@@ -37040,7 +37040,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05160",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05160",
       "problems": [
         "Scaling humanoid loco-manipulation requires robot-compatible demonstrations across diverse objects, whole-body motions, and scene geometries, but teleoperation and motion capture..."
@@ -37104,7 +37104,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.04923",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04923",
       "problems": [
         "However, policy models may exploit latent biases in the judge, leading to reward hacking and ineffective or unsafe training outcomes."
@@ -37238,7 +37238,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05009",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05009",
       "problems": [
         "A key technical challenge for LLM-based deontic reasoning is that the relevant ruleset can be long and cross-referenced, so models may still fail to locate the rules needed for a..."
@@ -37368,7 +37368,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05275",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05275",
       "problems": [
         "Together, the camroll dataset and camroll-agent highlight the gap in AI agents' long-context reasoning: personalized visual memory requires different approaches from standard long..."
@@ -37834,7 +37834,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05080",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05080",
       "problems": [
         "Yet existing benchmarks for frontier models primarily evaluate either single-turn responses or short-horizon agent trajectories, failing to capture the challenges of sustained ite...",
@@ -38233,7 +38233,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05833",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05833",
       "problems": [],
       "published": "2026-06-04",
@@ -38542,7 +38542,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.04048",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04048",
       "problems": [],
       "published": "2026-06-02",
@@ -40376,7 +40376,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03645",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03645",
       "problems": [
         "Finally, we validate these insights through a geometric consistency check method that effectively detects and corrects these quantization failures during inference."
@@ -40646,7 +40646,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06042",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06042",
       "problems": [
         "To address these bottlenecks, we present LoomVideo, a highly efficient 5B-parameter unified architecture for both video generation and editing.",
@@ -40835,7 +40835,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05259",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05259",
       "problems": [],
       "published": "2026-06-03",
@@ -41782,7 +41782,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.04527",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04527",
       "problems": [
         "We present Echo Infinity, an autoregressive (AR) framework towards real-time infinite video generation that employs a learnable evolving memory to dynamically filter, abstract, an..."
@@ -42768,7 +42768,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03503",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03503",
       "problems": [
         "However, since long CoTs naturally contain trial and errors and mainstream RLVR approaches choose outcome-correct CoT trajectories for memorization, the redundant explorations in..."
@@ -43233,7 +43233,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03940",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03940",
       "problems": [
         "In robotics systems, vast amounts of visual data are easily captured at high resolution using low-cost, low-power hardware.",
@@ -43507,7 +43507,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.04811",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04811",
       "problems": [],
       "published": "2026-06-04",
@@ -44308,7 +44308,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2605.30257",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.30257",
       "problems": [
         "The key challenge lies in designing a reliable reward signal: VLMs scoring samples in isolation tend to compress their judgements into a narrow band, leaving GRPO with little with..."
@@ -44756,7 +44756,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.04743",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04743",
       "problems": [
         "However, they typically act only on explicit user requests, which surface only the problems the user has noticed, while many other important problems coexist, hidden in plain sigh...",
@@ -47689,7 +47689,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05645",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05645",
       "problems": [
         "Autonomous driving requires reasoning about how ego actions shape the evolution of the surrounding world.",
@@ -48306,7 +48306,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06021",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06021",
       "problems": [],
       "published": "2026-06-04",
@@ -48511,7 +48511,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.02569",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02569",
       "problems": [
         "AdaCodec spends full visual tokens on a reference frame only when its conditional predictive cost is high; otherwise, it encodes inter-frame changes, including motion and predicti..."
@@ -48829,7 +48829,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05979",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05979",
       "problems": [],
       "published": "2026-06-04",
@@ -48887,7 +48887,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05102",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05102",
       "problems": [],
       "published": "2026-06-03",
@@ -50549,7 +50549,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.04978",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04978",
       "problems": [
         "LLMs can appear cautious in risk decision-making tasks, yet cautious-looking outputs do not necessarily indicate alignment with human decision-making mechanisms.",
@@ -51476,7 +51476,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06477",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06477",
       "problems": [
         "Extensive evaluation across multiple architectures (SiT, JiT, and UNet) and datasets demonstrates that CBS consistently improves synthesis quality without increasing per-step infe..."
@@ -51604,7 +51604,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03312",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03312",
       "problems": [],
       "published": "2026-06-02",
@@ -51737,7 +51737,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2605.31498",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.31498",
       "problems": [
         "A long standing challenge in computational chemistry and biophysics is efficiently sampling the Boltzmann distribution of molecules.",
@@ -52778,7 +52778,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05553",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05553",
       "problems": [],
       "published": "2026-06-04",
@@ -53631,7 +53631,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.04036",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04036",
       "problems": [],
       "published": "2026-06-02",
@@ -53949,7 +53949,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2605.27079",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.27079",
       "problems": [
         "Recently, Q-learning with Adjoint Matching (QAM) addressed this issue by reformulating into a memoryless stochastic optimal control (SOC) problem with a learned critic.",
@@ -54406,7 +54406,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05254",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05254",
       "problems": [
         "World-action models (WAMs) jointly generate future video and robot actions through iterative diffusion, achieving strong performance on manipulation benchmarks but requiring tens..."
@@ -55761,7 +55761,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03746",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03746",
       "problems": [
         "Overall, our results suggest that effective few-step distillation requires not only carefully designed objectives, but also principled organization of the broader training pipelin..."
@@ -57132,7 +57132,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05846",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05846",
       "problems": [
         "However, code-switching ASR (CS-ASR) remains particularly challenging due to the severe scarcity of multilingual CS speech resources across diverse language pairs.",
@@ -57998,7 +57998,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.00377",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.00377",
       "problems": [],
       "published": "2026-05-29",
@@ -58317,7 +58317,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.05131",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05131",
       "problems": [
         "Koopman theory turns nonlinear dynamics into a linear spectral problem.",
@@ -62562,7 +62562,7 @@
       "hidden_gem": false,
       "influential_citation_count": null,
       "key": "2606.06486",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06486",
       "problems": [
         "To address this challenge, we propose three algorithms: (i) one based on an optimization oracle, as assumed in some prior work in online non-convex learning; (ii) one that minimiz..."
@@ -62895,7 +62895,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.03972",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03972",
       "problems": [
         "AAD-1 addresses these challenges through two key designs in architecture and training strategy.",
@@ -63400,7 +63400,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2605.29489",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.29489",
       "problems": [
         "We introduce MergePipe, a budget-aware execution layer that casts LLM merging as an expert access-set problem: given a merge operator and a checkpoint family in a shared weight co..."
@@ -63966,7 +63966,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.04056",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04056",
       "problems": [
         "LLM-agent budget overruns are a documented production failure class: a single retry loop can spend thousands of dollars before an operator notices, and the in-process integrity pr...",
@@ -64109,7 +64109,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.02956",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02956",
       "problems": [],
       "published": "2026-06-01",
@@ -64165,7 +64165,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.04688",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04688",
       "problems": [
         "However, existing approaches suffer from two fundamental limitations: (i) low tokenization efficiency, which yields long token sequences and prevents scaling to high-poly meshes,..."
@@ -64349,7 +64349,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.02993",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02993",
       "problems": [],
       "published": "2026-06-02",
@@ -64841,7 +64841,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.00558",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.00558",
       "problems": [
         "However, a recent study observes that the noise domain constructed from simple distributions (*e.g.*, Gaussian distributions) can serve as a surrogate source domain in the semi-su...",
@@ -69495,7 +69495,7 @@
       "hidden_gem": false,
       "influential_citation_count": 0,
       "key": "2606.01090",
-      "last_seen": "2026-06-06T12:21:06.463702+00:00",
+      "last_seen": "2026-06-06T18:21:53.503258+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01090",
       "problems": [
         "The methodological contributions -- the relative-rate estimator that cancels the shared-difficulty confound, the wrong-group control, and a pre-specified failure taxonomy -- trans...",
