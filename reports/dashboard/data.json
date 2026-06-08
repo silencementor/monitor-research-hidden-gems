@@ -99,7 +99,7 @@
       "value": 1.0
     }
   ],
-  "generated_at": "2026-06-08T04:23:19+10:00",
+  "generated_at": "2026-06-08T10:23:41+10:00",
   "papers": [
     {
       "abstract_url": "https://arxiv.org/abs/2605.20176",
@@ -288,9 +288,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06448",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06448v1",
       "problems": [
         "Realizing this at scale requires agents to persistently store, retrieve, and update their own memory across sessions.",
@@ -358,9 +358,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03841",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03841",
       "problems": [
         "However, existing approaches remain fundamentally limited by their static action sets and lack of principled long-horizon context management, hindering their ability to accumulate...",
@@ -383,7 +383,7 @@
         "Technique signals: science agent, skill learning, llm agents.",
         "Problem hook: However, existing approaches remain fundamentally limited by their static action sets and lack of principled long-horizon context managemen...",
         "Uncommon terms in this batch: evods, orchestrated, autonomously, out-of-token, acquisition.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.84, relevance=0.81."
       ],
@@ -932,9 +932,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.01166",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01166",
       "problems": [
         "This shift creates safety risks that are difficult to detect from isolated prompts or final responses, because harm often emerges only through multi-step execution traces whose in...",
@@ -957,7 +957,7 @@
         "Technique signals: computer-use agents, realistic agent, defense framework.",
         "Problem hook: This shift creates safety risks that are difficult to detect from isolated prompts or final responses, because harm often emerges only thro...",
         "Uncommon terms in this batch: braveguard, guard, open-world, defense, benchmark-driven.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.48, relevance=0.83."
       ],
@@ -1164,9 +1164,9 @@
       "doi": "",
       "first_seen": "2026-06-05T12:19:27.214741+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06286",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06286v1",
       "problems": [],
       "published": "2026-06-04",
@@ -1319,9 +1319,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06473",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06473v1",
       "problems": [
         "However, existing MLE agents suffer from inter-branch information isolation, memoryless search, and lack of hierarchical control, which together hinder long-horizon optimization."
@@ -1725,9 +1725,9 @@
       "doi": "",
       "first_seen": "2026-06-04T18:17:52.896605+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05112",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05112",
       "problems": [
         "Medical education has long addressed an analogous challenge through standardized patients (SPs): trained actors who consistently portray clinical cases, enabling realistic practic...",
@@ -1748,7 +1748,7 @@
         "Technique signals: simulation evaluation, clinical agents, interactive benchmark.",
         "Problem hook: Medical education has long addressed an analogous challenge through standardized patients (SPs): trained actors who consistently portray cl...",
         "Uncommon terms in this batch: medsp1000, patient, peer-reviewed, encounter, medically.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.84, relevance=0.77."
       ],
@@ -2216,9 +2216,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06423",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06423v1",
       "problems": [
         "Safety-critical traffic scenario generation is essential for evaluating autonomous driving systems under rare but high-risk interactions.",
@@ -2586,9 +2586,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06462",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06462v1",
       "problems": [
         "However, their construction is labor-intensive and hard to reuse, raising concerns about sustainability and scalability.",
@@ -2742,9 +2742,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05622",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05622",
       "problems": [
         "Planning for real-world problems by language models often involves both world and user constraints, which may not be fully specified upfront and are progressively disclosed throug...",
@@ -2767,7 +2767,7 @@
         "Technique signals: llm agents, dynamic interactive benchmark, adaplanbench dynamic.",
         "Problem hook: Planning for real-world problems by language models often involves both world and user constraints, which may not be fully specified upfron...",
         "Uncommon terms in this batch: adaplanbench, dual-constrained, underexplore, accumulating, re-planning.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.74, relevance=0.74."
       ],
@@ -3118,9 +3118,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06453",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06453v1",
       "problems": [
         "However, deploying and evaluating new sparse attention algorithms at scale remains highly engineering-intensive, slowing both human researchers and AI agents in exploring the spar...",
@@ -3181,9 +3181,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05158",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05158",
       "problems": [
         "We formalize both advantages with the first closed-form joint analysis of stream, serial, and single protocols, deriving the effectiveness ordering, speedup upper bound, and cost..."
@@ -3203,7 +3203,7 @@
         "Technique signals: multi-agent reasoning, downstream agents, streaming communication.",
         "Problem hook: We formalize both advantages with the first closed-form joint analysis of stream, serial, and single protocols, deriving the effectiveness...",
         "Uncommon terms in this batch: pipelining, streamma, opus, generate-then-transfer, error-prone.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.56, relevance=0.80."
       ],
@@ -3904,9 +3904,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03577",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03577",
       "problems": [
         "Wide-baseline matching (WBM) requires integrating geometric understanding, viewpoint changes, fine-grained perception, and occlusion reasoning, making it a challenging testbed for...",
@@ -3927,7 +3927,7 @@
         "Technique signals: spatial reasoning, training frameworks, occlusion reasoning.",
         "Problem hook: Wide-baseline matching (WBM) requires integrating geometric understanding, viewpoint changes, fine-grained perception, and occlusion reason...",
         "Uncommon terms in this batch: wide-baseline, reasonmatch-bench, dcrl, data-generation, reconstructions.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.38, relevance=0.82."
       ],
@@ -4477,9 +4477,9 @@
       "doi": "",
       "first_seen": "2026-06-05T12:19:27.214741+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06294",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06294v1",
       "problems": [
         "Real-world scenarios, however, often require localizing multiple disjoint segments for a single query -- a setting we term One-to-Many Temporal Grounding (OMTG)."
@@ -4618,9 +4618,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04513",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04513",
       "problems": [],
       "published": "2026-06-03",
@@ -4637,7 +4637,7 @@
       "rationale": [
         "Technique signals: agentic framework, mapping methods, agentic architecture.",
         "Uncommon terms in this batch: mapagent, lane-level, lane, industrial-grade, specification.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.63, relevance=0.78."
       ],
@@ -4945,9 +4945,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.01286",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01286",
       "problems": [
         "Constructing new, challenging datasets typically requires substantial human effort, creating a bottleneck for progress.",
@@ -4970,7 +4970,7 @@
         "Technique signals: widespread benchmark, useful training, evolutionary framework.",
         "Problem hook: Constructing new, challenging datasets typically requires substantial human effort, creating a bottleneck for progress.",
         "Uncommon terms in this batch: evolved, benchevolver, solution-centric, livecodebench, livecodebench-plus.",
-        "Popularity signal: 0 citations over 7 days.",
+        "Popularity signal: 0 citations over 8 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.22, relevance=0.81."
       ],
@@ -6006,9 +6006,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06360",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06360v1",
       "problems": [],
       "published": "2026-06-04",
@@ -6075,9 +6075,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06444",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06444v1",
       "problems": [
         "USAD 2.0 introduces domain-aware distillation to address teacher mismatch, extends coverage to the music domain, and adds second-stage supervised distillation for downstream use."
@@ -6143,9 +6143,9 @@
       "doi": "",
       "first_seen": "2026-06-05T12:19:27.214741+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.00125",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.00125",
       "problems": [
         "Moreover, our experiments show that naive multimodal fusion does not always yield additive improvements, highlighting challenges in cross-modal integration."
@@ -6165,7 +6165,7 @@
         "Technique signals: reasoning framework, some methods, sequential reasoning.",
         "Problem hook: Moreover, our experiments show that naive multimodal fusion does not always yield additive improvements, highlighting challenges in cross-m...",
         "Uncommon terms in this batch: acoustic, llm-augmented, text-enhanced, session-based, content-based.",
-        "Popularity signal: 0 citations over 10 days.",
+        "Popularity signal: 0 citations over 11 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.34, relevance=0.80."
       ],
@@ -6293,9 +6293,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06324",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06324v1",
       "problems": [
         "However, they often fail to diagnose where the responsible evidence lies in failed trajectories and which harness layer causes the unreliable behavior, resulting in broad, indirec...",
@@ -6735,9 +6735,9 @@
       "doi": "",
       "first_seen": "2026-06-04T12:17:30.314709+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.02859",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02859",
       "problems": [],
       "published": "2026-06-01",
@@ -6754,7 +6754,7 @@
       "rationale": [
         "Technique signals: population agents, centralized control, which agents.",
         "Uncommon terms in this batch: decentralized, coordination, wealth, distributed-system, self-orchestrate.",
-        "Popularity signal: 0 citations over 6 days.",
+        "Popularity signal: 0 citations over 7 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.78, relevance=0.71."
       ],
@@ -6803,9 +6803,9 @@
       "doi": "",
       "first_seen": "2026-06-04T18:17:52.896605+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.00825",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.00825",
       "problems": [
         "However, existing egocentric datasets predominantly focus on action recognition or generic QAs from short clips, measuring perceptual capabilities rather than realistic human memo..."
@@ -6825,7 +6825,7 @@
         "Technique signals: long-horizon memory, question-answering benchmark, personalized memory.",
         "Problem hook: However, existing egocentric datasets predominantly focus on action recognition or generic QAs from short clips, measuring perceptual capab...",
         "Uncommon terms in this batch: supermemory-vqa, glasses, question-answering, multiple-choice, human-verified.",
-        "Popularity signal: 0 citations over 8 days.",
+        "Popularity signal: 0 citations over 9 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.64, relevance=0.72."
       ],
@@ -6877,9 +6877,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05769",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05769",
       "problems": [
         "Video event prediction (VEP) requires models to infer unobserved future states from partial video evidence."
@@ -6899,7 +6899,7 @@
         "Technique signals: latent visual reasoning, interleaved latent, visual reasoning.",
         "Problem hook: Video event prediction (VEP) requires models to infer unobserved future states from partial video evidence.",
         "Uncommon terms in this batch: future-l1, outcome-contrastive, temporal-diversity, future-oriented, future-l1-50k.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.85, relevance=0.65."
       ],
@@ -7013,9 +7013,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05008",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05008",
       "problems": [
         "To address this gap, we introduce M^3Eval, the first comprehensive evaluation framework and benchmark for probing different memory dimensions in multi-modal models.",
@@ -7036,7 +7036,7 @@
         "Technique signals: memory evaluation, evaluation framework, multi-modal memory.",
         "Problem hook: To address this gap, we introduce M^3Eval, the first comprehensive evaluation framework and benchmark for probing different memory dimensio...",
         "Uncommon terms in this batch: eval, cognitively-grounded, m3eval-homepage, pku-value-lab, disentangled.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.62, relevance=0.71."
       ],
@@ -7450,9 +7450,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.01886",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01886",
       "problems": [
         "A user must repeatedly restate goals, risk preferences, portfolio context, past judgments, and shifting market assumptions, while the agent answers, retrieves, acts, and forgets.",
@@ -7474,7 +7474,7 @@
         "Technique signals: llm agents, financial agents, stale memory.",
         "Problem hook: A user must repeatedly restate goals, risk preferences, portfolio context, past judgments, and shifting market assumptions, while the agent...",
         "Uncommon terms in this batch: percent, inkh, market, interaction-native, invalidation.",
-        "Popularity signal: 0 citations over 6 days.",
+        "Popularity signal: 0 citations over 7 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.31, relevance=0.78."
       ],
@@ -7912,9 +7912,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06397",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06397v1",
       "problems": [
         "To address this issue, we introduce a curvature-stratified evaluation framework that partitions datasets into positive, negative, and near-zero curvature regimes."
@@ -8974,9 +8974,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06322",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06322v1",
       "problems": [],
       "published": "2026-06-04",
@@ -9255,9 +9255,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2605.30792",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.30792",
       "problems": [
         "To address this gap, we present OpenSTBench, a unified multidimensional evaluation framework that organizes heterogeneous speech translation outputs into a shared evaluation forma..."
@@ -9277,7 +9277,7 @@
         "Technique signals: evaluation framework, semantic evaluation, existing evaluation.",
         "Problem hook: To address this gap, we present OpenSTBench, a unified multidimensional evaluation framework that organizes heterogeneous speech translatio...",
         "Uncommon terms in this batch: openstbench, s2tt, s2st, application-oriented, cross-dimensional.",
-        "Popularity signal: 0 citations over 9 days.",
+        "Popularity signal: 0 citations over 10 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.96, relevance=0.63."
       ],
@@ -9728,9 +9728,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04703",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04703",
       "problems": [
         "We systematically examine this failure through three vital dimensions of experience internalization: (1) Experience Granularity: We find that principle-level experience is more du..."
@@ -9750,7 +9750,7 @@
         "Technique signals: experience internalization, llm agents, learning existing methods.",
         "Problem hook: We systematically examine this failure through three vital dimensions of experience internalization: (1) Experience Granularity: We find th...",
         "Uncommon terms in this batch: context-distillation, trajectory-specific, single-iteration, multi-iteration, principle-level.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=1.00, relevance=0.57."
       ],
@@ -10250,9 +10250,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06407",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06407v1",
       "problems": [
         "Here we formulate radiological comparison as an entity-aware cross-image reasoning problem and introduce a framework that supports both reference-case retrieval and temporal compa..."
@@ -10583,9 +10583,9 @@
       "doi": "",
       "first_seen": "2026-06-05T00:18:15.404825+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03965",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03965",
       "problems": [],
       "published": "2026-06-02",
@@ -10602,7 +10602,7 @@
       "rationale": [
         "Technique signals: chain-of-thought steering, reasoning methods, methods control.",
         "Uncommon terms in this batch: reasoner, accuracy-efficiency, budget-conditioned, early-stopping, full-thinking.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.52, relevance=0.67."
       ],
@@ -11447,9 +11447,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.02800",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02800",
       "problems": [],
       "published": "2026-06-01",
@@ -11466,7 +11466,7 @@
       "rationale": [
         "Technique signals: evaluation benchmark, mixture-of-transformers architecture, single framework.",
         "Uncommon terms in this batch: cosmos, omnimodal, license, cosmos3, mixture-of-transformers.",
-        "Popularity signal: 0 citations over 6 days.",
+        "Popularity signal: 0 citations over 7 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.46, relevance=0.75."
       ],
@@ -11513,9 +11513,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06256",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06256v1",
       "problems": [
         "As the input length of large language model (LLM) serving continues to grow, the KV cache has become a dominant bottleneck in AI infrastructure.",
@@ -11648,9 +11648,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06302",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06302v1",
       "problems": [
         "However, such KV cache heterogeneity introduces various systemic challenges - including memory fragmentation, scheduling complexities, and diminished kernel utilization - which co...",
@@ -11803,9 +11803,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06350",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06350v1",
       "problems": [
         "Reliable rubric grading requires more than accurate score prediction.",
@@ -11881,9 +11881,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.02060",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02060",
       "problems": [],
       "published": "2026-06-01",
@@ -11900,7 +11900,7 @@
       "rationale": [
         "Technique signals: deep-research agents, agent frameworks, localization agent.",
         "Uncommon terms in this batch: deep-research, claim-centric, unsupported, first-error, hypotheses.",
-        "Popularity signal: 0 citations over 6 days.",
+        "Popularity signal: 0 citations over 7 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.69, relevance=0.66."
       ],
@@ -12298,9 +12298,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06379",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06379v1",
       "problems": [
         "However, their practical utility remains limited by insufficient sensitivity to subtle lesions, whose visual evidence is often sparse, low-contrast, and embedded within complex an...",
@@ -12364,9 +12364,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03197",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03197",
       "problems": [
         "However, collecting high-quality annotated problems for memory-intensive scenarios is costly, and the resulting training data often lack sufficient diversity to cover general memo...",
@@ -12387,7 +12387,7 @@
         "Technique signals: memory training, training framework, llm agents.",
         "Problem hook: However, collecting high-quality annotated problems for memory-intensive scenarios is costly, and the resulting training data often lack su...",
         "Uncommon terms in this batch: memtrain, memory-intensive, encouraging, context-memory, indispensable.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.49, relevance=0.66."
       ],
@@ -12434,9 +12434,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06420",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06420v1",
       "problems": [
         "The results show that evaluative conclusions in this setting depend materially on metric choice and failure handling, so the paper frames the corpus as both a dataset contribution..."
@@ -12556,9 +12556,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2605.30848",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.30848",
       "problems": [
         "Existing defenses either remove explicit identifiers, perturb text for formal privacy, or test rewritten text against non-web inference models, leaving underexplored the operating..."
@@ -12578,7 +12578,7 @@
         "Technique signals: web search, mask-reconstruct framework, web-search agents.",
         "Problem hook: Existing defenses either remove explicit identifiers, perturb text for formal privacy, or test rewritten text against non-web inference mod...",
         "Uncommon terms in this batch: re-identification, anonymization, utility-retention, mask-reconstruct, resistance.",
-        "Popularity signal: 0 citations over 6 days.",
+        "Popularity signal: 0 citations over 7 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.80, relevance=0.66."
       ],
@@ -13308,9 +13308,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06492",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06492v1",
       "problems": [
         "Existing methods inject this knowledge as long inputs (retrieved through RAG or dependency analysis) or through per-repository fine-tuning and LoRA -- costly at repository scale a..."
@@ -13374,9 +13374,9 @@
       "doi": "",
       "first_seen": "2026-06-04T12:17:30.314709+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2605.27492",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.27492",
       "problems": [
         "However, existing evaluation methodologies remain largely centered on static, isolated, and short-horizon benchmarks that fail to capture the dynamic complexity of real-world prod...",
@@ -13398,7 +13398,7 @@
         "Technique signals: llm agents, existing evaluation, result benchmark.",
         "Problem hook: However, existing evaluation methodologies remain largely centered on static, isolated, and short-horizon benchmarks that fail to capture t...",
         "Uncommon terms in this batch: ramp, production-grounded, assessing, stage, compiler-construction.",
-        "Popularity signal: 0 citations over 12 days.",
+        "Popularity signal: 0 citations over 13 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.41, relevance=0.72."
       ],
@@ -14001,9 +14001,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06428",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06428v1",
       "problems": [
         "However, both methods typically overfit specific languages, with limited zero-shot transfer at test time."
@@ -14345,9 +14345,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04465",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04465",
       "problems": [],
       "published": "2026-06-03",
@@ -14364,7 +14364,7 @@
       "rationale": [
         "Technique signals: prompt agent, prompt optimization, task agents.",
         "Uncommon terms in this batch: sepo, manual-cot, hand-engineered, graduate-level, modifying.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.96, relevance=0.54."
       ],
@@ -14417,9 +14417,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06416",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06416v1",
       "problems": [
         "However, discovering effective skills for data analysis remains challenging, as reliable supervision is expensive and success criteria vary across analytical formats."
@@ -15065,9 +15065,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06388",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06388v1",
       "problems": [
         "Effective collaboration, however, requires collaborators to continuously maintain and align mental models of their own reasoning,partners' intentions, and shared goals during the..."
@@ -15280,9 +15280,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.00644",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.00644",
       "problems": [
         "AI research often requires decisions before future evidence exists: which bottleneck to attack, which direction to pursue, or where a project should be positioned."
@@ -15302,7 +15302,7 @@
         "Technique signals: llm agents, controlled benchmark, decoupling agents.",
         "Problem hook: AI research often requires decisions before future evidence exists: which bottleneck to attack, which direction to pursue, or where a proje...",
         "Uncommon terms in this batch: foresci, forward-looking, answer-generation, evidence-decision, cutoff-aligned.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.90, relevance=0.62."
       ],
@@ -15759,9 +15759,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.01804",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01804",
       "problems": [
         "Instruction-guided speech editing requires a model to modify specified speech attributes while preserving unrelated characteristics.",
@@ -15782,7 +15782,7 @@
         "Technique signals: multi-attribute benchmark, systematic evaluation, anchor-based evaluation.",
         "Problem hook: Instruction-guided speech editing requires a model to modify specified speech attributes while preserving unrelated characteristics.",
         "Uncommon terms in this batch: speecheditbench, multi-attribute, daxintan-cuhk, anchor-based, encompasses.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.95, relevance=0.57."
       ],
@@ -16094,9 +16094,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06443",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06443v1",
       "problems": [
         "However, it remains unclear whether these simulations reflect precise user-specific beliefs or whether they are highly sensitive to semantically independent changes in conversatio...",
@@ -16228,9 +16228,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06390",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06390v1",
       "problems": [
         "However, complex layouts together with scarce 3D scene data make learning-based generation challenging.",
@@ -16921,9 +16921,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03031",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03031",
       "problems": [],
       "published": "2026-06-02",
@@ -16940,7 +16940,7 @@
       "rationale": [
         "Technique signals: language-model agents, multi-agent framework, adaptive search.",
         "Uncommon terms in this batch: auditflow, finauditing-derived, trustworthiness, graph-grounded, disagreements.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.60, relevance=0.69."
       ],
@@ -16983,9 +16983,9 @@
       "doi": "",
       "first_seen": "2026-06-04T18:17:52.896605+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03773",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03773",
       "problems": [],
       "published": "2026-06-02",
@@ -17050,9 +17050,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06155",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06155",
       "problems": [
         "However, the structural mismatch between VLM semantic spaces and embodied control policies often hinders the learning of precise perception--action mappings.",
@@ -17073,7 +17073,7 @@
         "Technique signals: embodied control, unified framework, intermediate representation.",
         "Problem hook: However, the structural mismatch between VLM semantic spaces and embodied control policies often hinders the learning of precise perception...",
         "Uncommon terms in this batch: affordancevla, perception--action, mixture-of-transformer, instruction-following, affordance-aware.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.24, relevance=0.72."
       ],
@@ -17304,6 +17304,82 @@
       "verdict": null
     },
     {
+      "abstract_url": "https://arxiv.org/abs/2605.30159",
+      "arxiv_id": "2605.30159",
+      "authors": [
+        "Ziyan Liu",
+        "Zhezheng Hao",
+        "Yeqiu Chen",
+        "Hong Wang",
+        "Jingren Hou",
+        "Ruiyi Ding",
+        "Yongkang Yang",
+        "Wence Ji",
+        "Wei Xia",
+        "Feng Liu"
+      ],
+      "categories": [],
+      "citation_count": 0,
+      "components": {
+        "applicability": 0.36,
+        "hiddenness": 1.0,
+        "novelty": 0.64,
+        "outlier": 0.714,
+        "prefilter": 0.746,
+        "rarity": 1.0,
+        "relevance": 0.569,
+        "technique": 1.0
+      },
+      "doi": "",
+      "first_seen": "2026-06-05T06:18:37.114727+00:00",
+      "hidden_gem": false,
+      "influential_citation_count": null,
+      "key": "2605.30159",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
+      "pdf_url": "https://arxiv.org/pdf/2605.30159",
+      "problems": [
+        "However, existing approaches typically train these memory policies using outcome-based reinforcement learning, failing to localize where intermediate memory quality degrades."
+      ],
+      "published": "2026-05-28",
+      "rare_terms": [
+        "summaries",
+        "mmpo",
+        "memory-specific",
+        "meta-cognitive",
+        "metacognitive",
+        "recursively",
+        "summarizing",
+        "exacerbates"
+      ],
+      "rationale": [
+        "Technique signals: memory policy, policy optimization, llm agents.",
+        "Problem hook: However, existing approaches typically train these memory policies using outcome-based reinforcement learning, failing to localize where in...",
+        "Uncommon terms in this batch: summaries, mmpo, memory-specific, meta-cognitive, metacognitive.",
+        "Popularity signal: 0 citations over 11 days.",
+        "Strongest score component: technique=1.00.",
+        "Semantic signals: outlier-novelty=0.71, relevance=0.57."
+      ],
+      "score": 53.68,
+      "source": "huggingface_daily",
+      "techniques": [
+        "memory policy",
+        "policy optimization",
+        "llm agents",
+        "memory optimization",
+        "meta-cognitive memory",
+        "compact memory",
+        "reinforcement learning",
+        "intermediate memory",
+        "long-horizon reasoning",
+        "current memory",
+        "metacognitive memory",
+        "existing methods"
+      ],
+      "title": "Meta-Cognitive Memory Policy Optimization for Long-Horizon LLM Agents",
+      "venue": "",
+      "verdict": null
+    },
+    {
       "abstract_url": "http://arxiv.org/abs/2606.05002v1",
       "arxiv_id": "2606.05002",
       "authors": [
@@ -17393,9 +17469,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06337",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06337v1",
       "problems": [
         "TokenMizer provides a queryable alternative to text-retention baselines at half the token cost."
@@ -17776,9 +17852,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06399",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06399v1",
       "problems": [],
       "published": "2026-06-04",
@@ -17840,9 +17916,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04351",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04351",
       "problems": [
         "Processing video in vision-language models is expensive: each frame occupies hundreds of tokens, and inference cost scales with every frame and every repeated query.",
@@ -17863,7 +17939,7 @@
         "Technique signals: video internalization, video2lora method, lora fine-tuning.",
         "Problem hook: Processing video in vision-language models is expensive: each frame occupies hundreds of tokens, and inference cost scales with every frame...",
         "Uncommon terms in this batch: video2lora, video-in-context, captioning, benchmark-scale, non-overlapping.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.31, relevance=0.75."
       ],
@@ -18463,9 +18539,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03092",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03092",
       "problems": [
         "In this work, we formulate inference budget allocation as a global constrained optimization problem governed by economic principles.",
@@ -18487,7 +18563,7 @@
         "Technique signals: price reasoning, constrained optimization, per-query reasoning.",
         "Problem hook: In this work, we formulate inference budget allocation as a global constrained optimization problem governed by economic principles.",
         "Uncommon terms in this batch: shadow, resource-scarce, latent-utility, shifted-surge, equilibrates.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.93, relevance=0.50."
       ],
@@ -18907,9 +18983,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06493",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06493v1",
       "problems": [],
       "published": "2026-06-04",
@@ -19442,9 +19518,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03890",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03890",
       "problems": [
         "86.6, with allocentric mapping as the dominant bottleneck.",
@@ -19465,7 +19541,7 @@
         "Technique signals: hierarchical benchmark, multimodal agents, human-annotated benchmark.",
         "Problem hook: 86.6, with allocentric mapping as the dominant bottleneck.",
         "Uncommon terms in this batch: ovo-s-bench, allocentric, cross-reviewer, instantaneous, person-hours.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.43, relevance=0.71."
       ],
@@ -19509,9 +19585,9 @@
       "doi": "",
       "first_seen": "2026-06-05T12:19:27.214741+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2605.30794",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.30794",
       "problems": [
         "However, they remain brittle on mechanical engineering drawings, where high annotation density and weak domain knowledge, compounded by unreliable spatial relation reasoning under..."
@@ -19531,7 +19607,7 @@
         "Technique signals: relation reasoning, quality-control pipeline, recognition reasoning.",
         "Problem hook: However, they remain brittle on mechanical engineering drawings, where high annotation density and weak domain knowledge, compounded by unr...",
         "Uncommon terms in this batch: mechanical, mechvqa, drawings, mechvl, domain-specialized.",
-        "Popularity signal: 0 citations over 9 days.",
+        "Popularity signal: 0 citations over 10 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.48, relevance=0.67."
       ],
@@ -19645,9 +19721,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.02684",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02684",
       "problems": [],
       "published": "2026-06-01",
@@ -19664,7 +19740,7 @@
       "rationale": [
         "Technique signals: on-policy distillation, opd methods, rethinking optimization.",
         "Uncommon terms in this batch: fire-opd, strong-to-weak, reweight, soft-weighting, single-teacher.",
-        "Popularity signal: 0 citations over 6 days.",
+        "Popularity signal: 0 citations over 7 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.86, relevance=0.53."
       ],
@@ -20260,9 +20336,9 @@
       "doi": "",
       "first_seen": "2026-06-04T18:17:52.896605+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03895",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03895",
       "problems": [],
       "published": "2026-06-02",
@@ -20279,7 +20355,7 @@
       "rationale": [
         "Technique signals: llm agents, agents agent, object memory.",
         "Uncommon terms in this batch: libos, long-running, library-os-inspired, filesystem, authority.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.78, relevance=0.59."
       ],
@@ -20428,82 +20504,6 @@
       "verdict": null
     },
     {
-      "abstract_url": "https://arxiv.org/abs/2605.30159",
-      "arxiv_id": "2605.30159",
-      "authors": [
-        "Ziyan Liu",
-        "Zhezheng Hao",
-        "Yeqiu Chen",
-        "Hong Wang",
-        "Jingren Hou",
-        "Ruiyi Ding",
-        "Yongkang Yang",
-        "Wence Ji",
-        "Wei Xia",
-        "Feng Liu"
-      ],
-      "categories": [],
-      "citation_count": 1,
-      "components": {
-        "applicability": 0.36,
-        "hiddenness": 0.847,
-        "novelty": 0.64,
-        "outlier": 0.714,
-        "prefilter": 0.715,
-        "rarity": 1.0,
-        "relevance": 0.569,
-        "technique": 1.0
-      },
-      "doi": "",
-      "first_seen": "2026-06-05T06:18:37.114727+00:00",
-      "hidden_gem": false,
-      "influential_citation_count": 0,
-      "key": "2605.30159",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
-      "pdf_url": "https://arxiv.org/pdf/2605.30159",
-      "problems": [
-        "However, existing approaches typically train these memory policies using outcome-based reinforcement learning, failing to localize where intermediate memory quality degrades."
-      ],
-      "published": "2026-05-28",
-      "rare_terms": [
-        "summaries",
-        "mmpo",
-        "memory-specific",
-        "meta-cognitive",
-        "metacognitive",
-        "recursively",
-        "summarizing",
-        "exacerbates"
-      ],
-      "rationale": [
-        "Technique signals: memory policy, policy optimization, llm agents.",
-        "Problem hook: However, existing approaches typically train these memory policies using outcome-based reinforcement learning, failing to localize where in...",
-        "Uncommon terms in this batch: summaries, mmpo, memory-specific, meta-cognitive, metacognitive.",
-        "Popularity signal: 1 citations over 10 days.",
-        "Strongest score component: technique=1.00.",
-        "Semantic signals: outlier-novelty=0.71, relevance=0.57."
-      ],
-      "score": 51.49,
-      "source": "huggingface_daily",
-      "techniques": [
-        "memory policy",
-        "policy optimization",
-        "llm agents",
-        "memory optimization",
-        "meta-cognitive memory",
-        "compact memory",
-        "reinforcement learning",
-        "intermediate memory",
-        "long-horizon reasoning",
-        "current memory",
-        "metacognitive memory",
-        "existing methods"
-      ],
-      "title": "Meta-Cognitive Memory Policy Optimization for Long-Horizon LLM Agents",
-      "venue": "",
-      "verdict": null
-    },
-    {
       "abstract_url": "https://arxiv.org/abs/2605.25707",
       "arxiv_id": "2605.25707",
       "authors": [
@@ -20598,9 +20598,9 @@
       "doi": "",
       "first_seen": "2026-06-04T18:17:52.896605+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.00188",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.00188",
       "problems": [
         "To probe this challenge, we introduce PaintBench, a dynamically scalable benchmark targeting 20 fundamental precise visual editing operations across four categories: geometric tra..."
@@ -20620,7 +20620,7 @@
         "Technique signals: deterministic evaluation, scalable benchmark, symbolic reasoning.",
         "Problem hook: To probe this challenge, we introduce PaintBench, a dynamically scalable benchmark targeting 20 fundamental precise visual editing operatio...",
         "Uncommon terms in this batch: paintbench, contamination-resistant, highest-performing, specializations, tinygrafixbench.",
-        "Popularity signal: 0 citations over 9 days.",
+        "Popularity signal: 0 citations over 10 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.77, relevance=0.54."
       ],
@@ -21203,9 +21203,9 @@
       "doi": "",
       "first_seen": "2026-06-04T18:17:52.896605+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03712",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03712",
       "problems": [
         "However, this activation-level saliency does not imply that these tokens are the main carriers of graph information.",
@@ -21226,7 +21226,7 @@
         "Technique signals: graph learning, graph topology, glm architectures.",
         "Problem hook: However, this activation-level saliency does not imply that these tokens are the main carriers of graph information.",
         "Uncommon terms in this batch: graph-token, glms, activation-level, saliency, carriers.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.86, relevance=0.54."
       ],
@@ -22997,9 +22997,9 @@
       "doi": "",
       "first_seen": "2026-06-05T00:18:15.404825+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04075",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04075",
       "problems": [
         "We hypothesise that the RL training process may exploit these gaps and therefore ask whether models' well-known tendency to hack reward functions during RL can scale into a more c...",
@@ -23020,7 +23020,7 @@
         "Technique signals: reinforcement learning, dominant post-training, similar reward.",
         "Problem hook: We hypothesise that the RL training process may exploit these gaps and therefore ask whether models' well-known tendency to hack reward fun...",
         "Uncommon terms in this batch: societal, society, hack, consequential, hypothesise.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.38, relevance=0.64."
       ],
@@ -23134,9 +23134,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2605.31058",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.31058",
       "problems": [
         "However, the scalability of RLVR is severely constrained by the scarcity of sufficiently challenging verifiable code tasks that target near the model's edge of competence."
@@ -23156,7 +23156,7 @@
         "Technique signals: reinforcement learning, novel framework, rlvr training.",
         "Problem hook: However, the scalability of RLVR is severely constrained by the scarcity of sufficiently challenging verifiable code tasks that target near...",
         "Uncommon terms in this batch: recombination, severely, proportionally, cornerstone, originality.",
-        "Popularity signal: 0 citations over 9 days.",
+        "Popularity signal: 0 citations over 10 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.13, relevance=0.71."
       ],
@@ -23451,9 +23451,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04880",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04880",
       "problems": [
         "However, existing vision-language-model (VLM) based selection methods are object-centric and typically support a single interaction modality, limiting their applicability.",
@@ -23474,7 +23474,7 @@
         "Technique signals: selection methods, selection framework, generation pipeline.",
         "Problem hook: However, existing vision-language-model (VLM) based selection methods are object-centric and typically support a single interaction modalit...",
         "Uncommon terms in this batch: material, maoam, material-level, click-based, vision-language-model.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.26, relevance=0.70."
       ],
@@ -23662,9 +23662,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03220",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03220",
       "problems": [],
       "published": "2026-06-02",
@@ -24582,9 +24582,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05172",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05172",
       "problems": [
         "RE-Edit comprises 1,000 carefully curated samples, each designed such that visual plausibility alone is insufficient and correct editing requires satisfying implicit logical const...",
@@ -24605,7 +24605,7 @@
         "Technique signals: multi-dimensional benchmark, without reasoning, re-edit benchmark.",
         "Problem hook: RE-Edit comprises 1,000 carefully curated samples, each designed such that visual plausibility alone is insufficient and correct editing re...",
         "Uncommon terms in this batch: reasoning-aware, re-edit, dimension-aligned, reasoning-guided, plausibility.",
-        "Popularity signal: 0 citations over 52 days.",
+        "Popularity signal: 0 citations over 53 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.83, relevance=0.50."
       ],
@@ -25077,9 +25077,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06284",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06284v1",
       "problems": [
         "Large language model agents increasingly rely on external tools, but larger tool menus can reduce reliability and efficiency by increasing wrong-tool calls, premature actions, and...",
@@ -25354,9 +25354,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.01753",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01753",
       "problems": [
         "Training accurate medical image segmentation models requires large amounts of densely annotated data, which is costly and time-consuming to obtain.",
@@ -25377,7 +25377,7 @@
         "Technique signals: semi-supervised learning, ssl methods, ssl framework.",
         "Problem hook: Training accurate medical image segmentation models requires large amounts of densely annotated data, which is costly and time-consuming to...",
         "Uncommon terms in this batch: quality-guided, variable-quality, time-consuming, quality-aware, quality-based.",
-        "Popularity signal: 0 citations over 6 days.",
+        "Popularity signal: 0 citations over 7 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.65, relevance=0.48."
       ],
@@ -25424,9 +25424,9 @@
       "doi": "",
       "first_seen": "2026-06-04T12:17:30.314709+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2605.31148",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.31148",
       "problems": [
         "To study this problem, we introduce SpatialAct, a simulator-grounded benchmark for probing action-conditioned spatial reasoning in 3D scenes.",
@@ -25447,7 +25447,7 @@
         "Technique signals: vlm agents, spatial reasoning, such reasoning.",
         "Problem hook: To study this problem, we introduce SpatialAct, a simulator-grounded benchmark for probing action-conditioned spatial reasoning in 3D scene...",
         "Uncommon terms in this batch: reasoning-to-action, spatialact, observation-conditioned, simulator-grounded, underperforming.",
-        "Popularity signal: 0 citations over 9 days.",
+        "Popularity signal: 0 citations over 10 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.87, relevance=0.50."
       ],
@@ -27019,9 +27019,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06481",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06481v1",
       "problems": [
         "However, existing AI-text detection benchmarks largely focus on final outputs and provide limited understanding of how AI authorship signals emerge, accumulate, or disappear throu..."
@@ -27347,9 +27347,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05557",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05557",
       "problems": [
         "On factual lookup the controller trades raw accuracy for 82% fewer probes and zero forbidden-tool violations on a privacy-sensitive slice; scope conditions are detailed in Limitat..."
@@ -27369,7 +27369,7 @@
         "Technique signals: llm agents, tool-use agents, implicit-intent benchmark.",
         "Problem hook: On factual lookup the controller trades raw accuracy for 82% fewer probes and zero forbidden-tool violations on a privacy-sensitive slice;...",
         "Uncommon terms in this batch: implicit-need, situated, privacy-sensitive, intent-directed, implicit-intent.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.30, relevance=0.69."
       ],
@@ -27763,9 +27763,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.01993",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01993",
       "problems": [
         "However, such knowledge is often multimodal, heterogeneous, noisy, and implicitly assumes human executors, making it difficult to use directly as the skills required by agents.",
@@ -28115,9 +28115,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05165",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05165",
       "problems": [
         "However, tracking gradients across billions of parameters is not only prohibitively expensive but relies on local approximations.",
@@ -28138,7 +28138,7 @@
         "Technique signals: stride training, effect training, steering-based training.",
         "Problem hook: However, tracking gradients across billions of parameters is not only prohibitively expensive but relies on local approximations.",
         "Uncommon terms in this batch: stride, approximations, steering-based, prohibitively, contamination.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.54, relevance=0.47."
       ],
@@ -29189,9 +29189,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06344",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06344v1",
       "problems": [
         "Probabilistic inference over spatially embedded variables requires beliefs that respect $SE(3)$ symmetry, yet existing equivariant networks produce only scalars and vectors -- not..."
@@ -29724,9 +29724,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06353",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06353v1",
       "problems": [
         "However, existing approaches focus on characterising historical actions or analyst-specified counterfactual scenarios.",
@@ -29794,9 +29794,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06458",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06458v1",
       "problems": [
         "Multiple Instance Learning (MIL) addresses problems where supervision is available at the level of bags of instances and has been successfully applied in fields ranging from compu...",
@@ -30472,9 +30472,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.01317",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01317",
       "problems": [
         "Existing benchmarks, however, primarily assess whether models refuse unsafe prompts, leaving impacts on stateful workspaces largely unexamined."
@@ -30494,7 +30494,7 @@
         "Technique signals: coding agents, saber benchmark, current alignment.",
         "Problem hook: Existing benchmarks, however, primarily assess whether models refuse unsafe prompts, leaving impacts on stateful workspaces largely unexami...",
         "Uncommon terms in this batch: saber, safety-violation, environment-aware, agent-style, categorizes.",
-        "Popularity signal: 0 citations over 7 days.",
+        "Popularity signal: 0 citations over 8 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.98, relevance=0.46."
       ],
@@ -30533,9 +30533,9 @@
       "doi": "",
       "first_seen": "2026-06-06T00:20:13.875399+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05515",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05515",
       "problems": [
         "Learning representations of CAD models is a largely open problem."
@@ -30555,7 +30555,7 @@
         "Technique signals: representation learning, attention representation, first framework.",
         "Problem hook: Learning representations of CAD models is a largely open problem.",
         "Uncommon terms in this batch: brepclip, brep, image-conditioned, muhammadusama100, structure-aware.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.21, relevance=0.64."
       ],
@@ -30935,9 +30935,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06467",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06467v1",
       "problems": [
         "The resulting architecture improves all major inference bottlenecks jointly, including pre-filling, KV-cache storage, and long-context decoding."
@@ -31214,9 +31214,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06480",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06480v1",
       "problems": [
         "We study multi-turn simultaneous bidding as a controlled testbed for such problems and propose DNQ, a solver-in-the-loop equilibrium supervision framework for training bidding age...",
@@ -31352,9 +31352,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05121",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05121",
       "problems": [],
       "published": "2026-06-03",
@@ -31371,7 +31371,7 @@
       "rationale": [
         "Technique signals: soundflow framework, data training, comprehension-aware training.",
         "Uncommon terms in this batch: perceive-decide-respond, audio-interaction, chatting, lalms, voice.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.41, relevance=0.60."
       ],
@@ -31885,9 +31885,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06273",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06273v1",
       "problems": [
         "Lossless pixel-level image transmission is a fundamental regime beyond semantic communications, because exact recovery requires both accurate symbol probability modeling and relia..."
@@ -32442,9 +32442,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06271",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06271v1",
       "problems": [],
       "published": "2026-06-04",
@@ -32687,9 +32687,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06479",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06479v1",
       "problems": [
         "Training recurrent neural networks (RNNs) requires assigning credit across long sequences of computations.",
@@ -33178,9 +33178,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06342",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06342v1",
       "problems": [
         "However, existing paired topological divergences (e.g., RTD) are limited by heuristic asymmetry and, more critically, unbounded scores that depend on sample size, hindering reliab...",
@@ -34112,9 +34112,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06474",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06474v1",
       "problems": [],
       "published": "2026-06-04",
@@ -34174,9 +34174,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06255",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06255v1",
       "problems": [
         "However, the large time complexity of classical FPS scales poorly with the million-point-per-second rates of modern 3D sensors, making it a dominant latency bottleneck that confli...",
@@ -34785,9 +34785,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06315",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06315v1",
       "problems": [],
       "published": "2026-06-04",
@@ -35186,9 +35186,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05275",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05275",
       "problems": [
         "Together, the camroll dataset and camroll-agent highlight the gap in AI agents' long-context reasoning: personalized visual memory requires different approaches from standard long..."
@@ -35208,7 +35208,7 @@
         "Technique signals: visual memory, personal agent, agents long-context reasoning.",
         "Problem hook: Together, the camroll dataset and camroll-agent highlight the gap in AI agents' long-context reasoning: personalized visual memory requires...",
         "Uncommon terms in this batch: roll, camroll-agent, assistant, camroll, photos.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.21, relevance=0.61."
       ],
@@ -35449,9 +35449,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04048",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04048",
       "problems": [],
       "published": "2026-06-02",
@@ -35468,7 +35468,7 @@
       "rationale": [
         "Technique signals: feature learning, sub-quadratic architectures, tuning methods.",
         "Uncommon terms in this batch: hyperparameter, gated, coordinate-size, sub-quadratic, learning-rate.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.37, relevance=0.53."
       ],
@@ -36436,9 +36436,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05259",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05259",
       "problems": [],
       "published": "2026-06-03",
@@ -36455,7 +36455,7 @@
       "rationale": [
         "Technique signals: video reasoning, large-scale training, generation pipeline.",
         "Uncommon terms in this batch: videokr, reasoning-intensive, knowledge-intensive, knowledge-, human-in-the-loop.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.61, relevance=0.44."
       ],
@@ -36639,9 +36639,9 @@
       "doi": "",
       "first_seen": "2026-06-04T12:17:30.314709+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04923",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04923",
       "problems": [
         "However, policy models may exploit latent biases in the judge, leading to reward hacking and ineffective or unsafe training outcomes."
@@ -36661,7 +36661,7 @@
         "Technique signals: detecting reward, reinforcement learning, however policy.",
         "Problem hook: However, policy models may exploit latent biases in the judge, leading to reward hacking and ineffective or unsafe training outcomes.",
         "Uncommon terms in this batch: rubric-based, cherrl, detecting, onset, laaj.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.50, relevance=0.49."
       ],
@@ -36712,9 +36712,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06464",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06464v1",
       "problems": [
         "A long-standing finding in the causal learning literature is that adults struggle to identify conjunctive causal rules, where an effect requires the simultaneous presence of multi...",
@@ -36915,9 +36915,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06447",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06447v1",
       "problems": [
         "However, textual CoT forces this computation through a discrete, serial, and communication-oriented token stream: each reasoning step must be verbalized before the model can proce...",
@@ -37052,9 +37052,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06333",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06333v1",
       "problems": [
         "We prove that there exists a continuous path from the true $d_i$-dimensional basis to a strictly lower risk of the $\\ell_1$-regularized SAE objective, whose descent directions dri...",
@@ -37122,9 +37122,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06261",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06261v1",
       "problems": [
         "Traditional Time-Series Anomaly Detection (TSAD) methods fail in this new regime where labelled baselines are scarce, threats evolve faster than detectors can be retrained, and th...",
@@ -37532,9 +37532,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04527",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04527",
       "problems": [
         "We present Echo Infinity, an autoregressive (AR) framework towards real-time infinite video generation that employs a learnable evolving memory to dynamically filter, abstract, an..."
@@ -37554,7 +37554,7 @@
         "Technique signals: evolving memory, echo-infinity learning, autoregressive framework.",
         "Problem hook: We present Echo Infinity, an autoregressive (AR) framework towards real-time infinite video generation that employs a learnable evolving me...",
         "Uncommon terms in this batch: echo-infinity, dits, extrapolation, fixed-ratio, handcrafted.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.16, relevance=0.54."
       ],
@@ -37813,9 +37813,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05080",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05080",
       "problems": [
         "Yet existing benchmarks for frontier models primarily evaluate either single-turn responses or short-horizon agent trajectories, failing to capture the challenges of sustained ite...",
@@ -37838,7 +37838,7 @@
         "Technique signals: benchmark evaluation, short-horizon agent, new benchmark.",
         "Problem hook: Yet existing benchmarks for frontier models primarily evaluate either single-turn responses or short-horizon agent trajectories, failing to...",
         "Uncommon terms in this batch: autolab, expert-curated, incorporating, claude-opus-4, deliberately.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.37, relevance=0.50."
       ],
@@ -38132,9 +38132,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05833",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05833",
       "problems": [],
       "published": "2026-06-04",
@@ -38151,7 +38151,7 @@
       "rationale": [
         "Technique signals: novel framework, semantic latent, multi-objective learning.",
         "Uncommon terms in this batch: geovr, distilling, multi-objective, restructures, accomplished.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.44, relevance=0.50."
       ],
@@ -38201,9 +38201,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06042",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06042",
       "problems": [
         "To address these bottlenecks, we present LoomVideo, a highly efficient 5B-parameter unified architecture for both video generation and editing.",
@@ -38224,7 +38224,7 @@
         "Technique signals: unified frameworks, sequence length, self-attention mechanism.",
         "Problem hook: To address these bottlenecks, we present LoomVideo, a highly efficient 5B-parameter unified architecture for both video generation and edit...",
         "Uncommon terms in this batch: loomvideo, concatenation, zero-overhead, concatenating, scale-and-add.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.11, relevance=0.51."
       ],
@@ -38679,9 +38679,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06267",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06267v1",
       "problems": [
         "Our results show that structural differences between circuits are not sufficient evidence for distinct mechanisms, and that exposing this requires edge-level evaluation and cross-..."
@@ -38814,9 +38814,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06306",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06306v1",
       "problems": [],
       "published": "2026-06-04",
@@ -39467,9 +39467,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05160",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05160",
       "problems": [
         "Scaling humanoid loco-manipulation requires robot-compatible demonstrations across diverse objects, whole-body motions, and scene geometries, but teleoperation and motion capture..."
@@ -39489,7 +39489,7 @@
         "Technique signals: generation pipeline, interaction-aware optimization, object-aware latent.",
         "Problem hook: Scaling humanoid loco-manipulation requires robot-compatible demonstrations across diverse objects, whole-body motions, and scene geometrie...",
         "Uncommon terms in this batch: grail, loco-manipulation, motions, terrain, pick-up.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.35, relevance=0.56."
       ],
@@ -40694,9 +40694,9 @@
       "doi": "",
       "first_seen": "2026-06-05T12:19:27.214741+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04811",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04811",
       "problems": [],
       "published": "2026-06-04",
@@ -40713,7 +40713,7 @@
       "rationale": [
         "Technique signals: evaluation framework, exe evaluation, video-to-execution pipeline.",
         "Uncommon terms in this batch: dream, video-to-execution, operationalizes, robot-specific, internet-scale.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.92, relevance=0.39."
       ],
@@ -41202,9 +41202,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04743",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04743",
       "problems": [
         "However, they typically act only on explicit user requests, which surface only the problems the user has noticed, while many other important problems coexist, hidden in plain sigh...",
@@ -41226,7 +41226,7 @@
         "Technique signals: iterative framework.",
         "Problem hook: However, they typically act only on explicit user requests, which surface only the problems the user has noticed, while many other importan...",
         "Uncommon terms in this batch: tide, template-guided, multi-problem, recognizable, single-pass.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.19, relevance=0.62."
       ],
@@ -42409,9 +42409,9 @@
       "doi": "",
       "first_seen": "2026-06-05T12:19:27.214741+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03940",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03940",
       "problems": [
         "In robotics systems, vast amounts of visual data are easily captured at high resolution using low-cost, low-power hardware.",
@@ -42433,7 +42433,7 @@
         "Technique signals: compression framework, prohibitive decoding, introduce compression.",
         "Problem hook: In robotics systems, vast amounts of visual data are easily captured at high resolution using low-cost, low-power hardware.",
         "Uncommon terms in this batch: seaotter, jpeg, transcoding, transcode, one-time.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.35, relevance=0.44."
       ],
@@ -43079,9 +43079,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06311",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06311v1",
       "problems": [
         "Although memory-augmented neural networks have recently shown strong performance in pedestrian and road-vehicle trajectory prediction by selectively retrieving relevant informatio..."
@@ -43146,9 +43146,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03503",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03503",
       "problems": [
         "However, since long CoTs naturally contain trial and errors and mainstream RLVR approaches choose outcome-correct CoT trajectories for memorization, the redundant explorations in..."
@@ -43848,9 +43848,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03645",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03645",
       "problems": [
         "Finally, we validate these insights through a geometric consistency check method that effectively detects and corrects these quantization failures during inference."
@@ -43870,7 +43870,7 @@
         "Technique signals: continuous latent, geometric framework, coexisting latent.",
         "Problem hook: Finally, we validate these insights through a geometric consistency check method that effectively detects and corrects these quantization f...",
         "Uncommon terms in this batch: shape-of-addition, multi-operand, paradoxical, iso-raw-sum, versatility.",
-        "Popularity signal: 0 citations over 9 days.",
+        "Popularity signal: 0 citations over 10 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.74, relevance=0.41."
       ],
@@ -44041,9 +44041,9 @@
       "doi": "",
       "first_seen": "2026-06-04T18:17:52.896605+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05009",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05009",
       "problems": [
         "A key technical challenge for LLM-based deontic reasoning is that the relevant ruleset can be long and cross-referenced, so models may still fail to locate the rules needed for a..."
@@ -44063,7 +44063,7 @@
         "Technique signals: deontic reasoning, agentic reasoning, particular reasoning.",
         "Problem hook: A key technical challenge for LLM-based deontic reasoning is that the relevant ruleset can be long and cross-referenced, so models may stil...",
         "Uncommon terms in this batch: deontic, cross-referenced, case-specific, deonticbench, determining.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.29, relevance=0.57."
       ],
@@ -44413,9 +44413,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06468",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06468v1",
       "problems": [
         "With an optional natural-language proof seeding the initial blueprint on the harder problems, we additionally close the remaining two MiniF2F-test problems (reaching 100%), lift P..."
@@ -45000,9 +45000,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06373",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06373v1",
       "problems": [
         "However, existing approaches rely on masked input reconstruction, which can bias representations toward low-level signal details."
@@ -45371,9 +45371,9 @@
       "doi": "",
       "first_seen": "2026-06-04T18:17:52.896605+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2605.30257",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.30257",
       "problems": [
         "The key challenge lies in designing a reliable reward signal: VLMs scoring samples in isolation tend to compress their judgements into a narrow band, leaving GRPO with little with..."
@@ -45393,7 +45393,7 @@
         "Technique signals: reinforcement learning, learning framework, evaluation pipeline.",
         "Problem hook: The key challenge lies in designing a reliable reward signal: VLMs scoring samples in isolation tend to compress their judgements into a na...",
         "Uncommon terms in this batch: stable-layers, decompositions, qwen-image-layered, artifact-heavy, within-group.",
-        "Popularity signal: 0 citations over 10 days.",
+        "Popularity signal: 0 citations over 11 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.58, relevance=0.40."
       ],
@@ -45639,9 +45639,9 @@
       "doi": "",
       "first_seen": "2026-06-02T12:12:02.201113+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.02569",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02569",
       "problems": [
         "AdaCodec spends full visual tokens on a reference frame only when its conditional predictive cost is high; otherwise, it encodes inter-frame changes, including motion and predicti..."
@@ -45660,7 +45660,7 @@
       "rationale": [
         "Problem hook: AdaCodec spends full visual tokens on a reference frame only when its conditional predictive cost is high; otherwise, it encodes inter-fram...",
         "Uncommon terms in this batch: adacodec, time-to-first-token, general-video, residuals, per-frame.",
-        "Popularity signal: 0 citations over 6 days.",
+        "Popularity signal: 0 citations over 7 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.89, relevance=0.41."
       ],
@@ -47080,9 +47080,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06021",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06021",
       "problems": [],
       "published": "2026-06-04",
@@ -47099,7 +47099,7 @@
       "rationale": [
         "Technique signals: representation distillation, on-policy representation, on-policy distillation.",
         "Uncommon terms in this batch: oprd, student-teacher, shenzhiyang2000, probabilities, output-only.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.69, relevance=0.34."
       ],
@@ -47560,9 +47560,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05645",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05645",
       "problems": [
         "Autonomous driving requires reasoning about how ego actions shape the evolution of the surrounding world.",
@@ -47583,7 +47583,7 @@
         "Technique signals: causal reasoning, world-policy learning, requires reasoning.",
         "Problem hook: Autonomous driving requires reasoning about how ego actions shape the evolution of the surrounding world.",
         "Uncommon terms in this batch: discrete-wam, vision-action, futures, autonomous-driving, continuous-latent.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.98, relevance=0.27."
       ],
@@ -47995,9 +47995,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06260",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06260v1",
       "problems": [
         "However, these generative models can only benefit from the scaling advantage, while their reasoning ability is hard to activate, since we cannot construct meaningful Chain-of-Thou..."
@@ -48487,9 +48487,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05979",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05979",
       "problems": [],
       "published": "2026-06-04",
@@ -48506,7 +48506,7 @@
       "rationale": [
         "Technique signals: language reasoning, robot control, long-horizon learning.",
         "Uncommon terms in this batch: wla-0, world-language-action, cross-embodiment, semantic-level, state-action.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.04, relevance=0.57."
       ],
@@ -49011,9 +49011,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06460",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06460v1",
       "problems": [],
       "published": "2026-06-04",
@@ -49139,9 +49139,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06303",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06303v1",
       "problems": [],
       "published": "2026-06-04",
@@ -49393,9 +49393,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06477",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06477",
       "problems": [
         "Extensive evaluation across multiple architectures (SiT, JiT, and UNet) and datasets demonstrates that CBS consistently improves synthesis quality without increasing per-step infe..."
@@ -49415,7 +49415,7 @@
         "Technique signals: search procedures, procedures extensive evaluation, monolithic architectures.",
         "Problem hook: Extensive evaluation across multiple architectures (SiT, JiT, and UNet) and datasets demonstrates that CBS consistently improves synthesis...",
         "Uncommon terms in this batch: complexity-balanced, equidistribution, sub-networks, partitioning, noamissachar.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.20, relevance=0.41."
       ],
@@ -49458,9 +49458,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06391",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06391v1",
       "problems": [
         "We formalise this as the Certified Allocation Problem: from finite data and without distributional assumptions, find a redistribution rule, produce obligation caps for every parti...",
@@ -49594,9 +49594,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06328",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06328v1",
       "problems": [
         "A natural approach is to explicitly estimate the missing data; however, existing imputation methods treat missingness uniformly despite their different structural priors, and the...",
@@ -49725,9 +49725,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06266",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06266v1",
       "problems": [
         "Collecting enough annotations from multiple demographic groups is costly and difficult to scale.",
@@ -50256,9 +50256,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06380",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06380v1",
       "problems": [],
       "published": "2026-06-04",
@@ -50594,9 +50594,9 @@
       "doi": "",
       "first_seen": "2026-06-04T18:17:52.896605+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04978",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04978",
       "problems": [
         "LLMs can appear cautious in risk decision-making tasks, yet cautious-looking outputs do not necessarily indicate alignment with human decision-making mechanisms.",
@@ -50619,7 +50619,7 @@
         "Technique signals: mechanism-level alignment, indicate alignment, behavioral alignment.",
         "Problem hook: LLMs can appear cautious in risk decision-making tasks, yet cautious-looking outputs do not necessarily indicate alignment with human decis...",
         "Uncommon terms in this batch: mechanism-level, outcome-level, resemblance, petersburg, bids.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.30, relevance=0.44."
       ],
@@ -50783,9 +50783,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06300",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06300v1",
       "problems": [
         "We propose MResOpt, a staged residual neural network architecture for constrained optimization problems."
@@ -50851,9 +50851,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06418",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06418v1",
       "problems": [
         "Specifically, we introduce a new optimization paradigm called double-preconditioning (DoPr) uniquely tailored to the challenges of TTF."
@@ -51336,9 +51336,9 @@
       "doi": "",
       "first_seen": "2026-06-04T18:17:52.896605+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05102",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05102",
       "problems": [],
       "published": "2026-06-03",
@@ -51355,7 +51355,7 @@
       "rationale": [
         "Technique signals: splatting methods, pixel-aligned methods.",
         "Uncommon terms in this batch: zipsplat, gaussians, feed-forward, clustering, pose-free.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.79, relevance=0.33."
       ],
@@ -51850,9 +51850,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06357",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06357v1",
       "problems": [
         "We adapt continuous autoencoder latents to this setting with two components: a noise-regularized autoencoder bottleneck and a latent-side representation encoder.",
@@ -52189,9 +52189,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03312",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03312",
       "problems": [],
       "published": "2026-06-02",
@@ -52208,7 +52208,7 @@
       "rationale": [
         "Technique signals: robotvalues benchmark, quality control, robot evaluation.",
         "Uncommon terms in this batch: robotvalues, prioritize, stakeholder-grounded, privacy-prioritizing, value-conflicting.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.97, relevance=0.30."
       ],
@@ -52509,9 +52509,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06345",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06345v1",
       "problems": [
         "To address this issue, we investigate whether and when brain decoding can be boosted by augmenting small fMRI datasets with synthetic data generated by a pretrained model of fMRI..."
@@ -52638,9 +52638,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05553",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05553",
       "problems": [],
       "published": "2026-06-04",
@@ -52657,7 +52657,7 @@
       "rationale": [
         "Technique signals: language agents, narrative evaluation, constructed benchmark.",
         "Uncommon terms in this batch: psychological, role-playing, characters, arcane, progresses.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.08, relevance=0.55."
       ],
@@ -52953,9 +52953,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06385",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06385v1",
       "problems": [
         "Segmentation, residual correction, and neuralized inertia are treated as learnable modeling choices, with added complexity retained only when validation evidence justifies its cos..."
@@ -53086,9 +53086,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05254",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05254",
       "problems": [
         "World-action models (WAMs) jointly generate future video and robot actions through iterative diffusion, achieving strong performance on manipulation benchmarks but requiring tens..."
@@ -53108,7 +53108,7 @@
         "Technique signals: distillation methods, consistency distillation, modality-aware distillation.",
         "Problem hook: World-action models (WAMs) jointly generate future video and robot actions through iterative diffusion, achieving strong performance on man...",
         "Uncommon terms in this batch: flash-wam, modality-aware, robotwin, linear-gradient-scaling, consistency-function.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.28, relevance=0.35."
       ],
@@ -53421,9 +53421,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06454",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06454v1",
       "problems": [],
       "published": "2026-06-04",
@@ -53552,9 +53552,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06356",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06356v1",
       "problems": [
         "We argue that knowledge infusion in iterative generative models is fundamentally anintervention-layer problem.",
@@ -53872,9 +53872,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06438",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06438v1",
       "problems": [
         "Although newer hardware often improves performance and energy efficiency, these gains do not always offset the carbon cost of premature replacement, particularly under low-utiliza..."
@@ -54530,9 +54530,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04036",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04036",
       "problems": [],
       "published": "2026-06-02",
@@ -54549,7 +54549,7 @@
       "rationale": [
         "Technique signals: self-distilled policy, reinforcement learning, policy-gradient framework.",
         "Uncommon terms in this batch: self-distillation, sdpg, full-vocabulary, self-distilled, student-to-teacher.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.99, relevance=0.24."
       ],
@@ -54656,9 +54656,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06425",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06425v1",
       "problems": [
         "Inferring the sign of social relationships from online interactions is a fundamental challenge in social network analysis.",
@@ -54850,9 +54850,9 @@
       "doi": "",
       "first_seen": "2026-06-01T06:47:27.272913+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2605.31498",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.31498",
       "problems": [
         "A long standing challenge in computational chemistry and biophysics is efficiently sampling the Boltzmann distribution of molecules.",
@@ -54874,7 +54874,7 @@
         "Technique signals: cost simulation, whereby training.",
         "Problem hook: A long standing challenge in computational chemistry and biophysics is efficiently sampling the Boltzmann distribution of molecules.",
         "Uncommon terms in this batch: alanine, sita, unfortunately, temperatures, energy-based.",
-        "Popularity signal: 0 citations over 6 days.",
+        "Popularity signal: 0 citations over 7 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.68, relevance=0.29."
       ],
@@ -54885,7 +54885,7 @@
         "whereby training"
       ],
       "title": "Scalable Inference-Time Annealing with Surrogate Likelihood Estimators",
-      "venue": "arXiv.org",
+      "venue": "",
       "verdict": null
     },
     {
@@ -55043,9 +55043,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06459",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06459v1",
       "problems": [
         "We use this controlled telemetry to evaluate a machine-learning-based dependency recovery pipeline that formulates the conversion of continuous traces into binary event indicators..."
@@ -55459,9 +55459,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03746",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03746",
       "problems": [
         "Overall, our results suggest that effective few-step distillation requires not only carefully designed objectives, but also principled organization of the broader training pipelin..."
@@ -55481,7 +55481,7 @@
         "Technique signals: few-step distillation, training pipeline, focused distillation.",
         "Problem hook: Overall, our results suggest that effective few-step distillation requires not only carefully designed objectives, but also principled orga...",
         "Uncommon terms in this batch: few-step, qwen-image-flash, qwen-image-2, non-obvious, motivate.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.94, relevance=0.20."
       ],
@@ -55795,9 +55795,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06475",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06475v1",
       "problems": [
         "The final answer can only be verified, and the reward assigned, after the CoT trace is complete, making it a delayed reward problem.",
@@ -56768,9 +56768,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.00377",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.00377",
       "problems": [],
       "published": "2026-05-29",
@@ -56787,7 +56787,7 @@
       "rationale": [
         "Technique signals: hallucination evaluation, propose two benchmark.",
         "Uncommon terms in this batch: variance-guided, score-control, density-based, implausible, modulation.",
-        "Popularity signal: 0 citations over 9 days.",
+        "Popularity signal: 0 citations over 10 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.17, relevance=0.47."
       ],
@@ -56827,9 +56827,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06393",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06393v1",
       "problems": [
         "However, in the presence of right censoring, the event time is only partially observed, rendering conventional scoring rules inapplicable in their standard form."
@@ -57209,9 +57209,9 @@
       "doi": "",
       "first_seen": "2026-06-04T12:17:30.314709+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05131",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05131",
       "problems": [
         "Koopman theory turns nonlinear dynamics into a linear spectral problem.",
@@ -57232,7 +57232,7 @@
         "Technique signals: koopman learning, dynamic mode, koopman methods.",
         "Problem hook: Koopman theory turns nonlinear dynamics into a linear spectral problem.",
         "Uncommon terms in this batch: koopman, multiplicative, dictionaries, deepmdmd, mdmd.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.27, relevance=0.36."
       ],
@@ -57823,9 +57823,9 @@
       "doi": "",
       "first_seen": "2026-06-05T06:18:37.114727+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.05846",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.05846",
       "problems": [
         "However, code-switching ASR (CS-ASR) remains particularly challenging due to the severe scarcity of multilingual CS speech resources across diverse language pairs.",
@@ -57846,7 +57846,7 @@
         "Technique signals: pair-specific fine-tuning, generalization methods.",
         "Problem hook: However, code-switching ASR (CS-ASR) remains particularly challenging due to the severe scarcity of multilingual CS speech resources across...",
         "Uncommon terms in this batch: cs-asr, code-switching, multilingual, generalize, combinatorially.",
-        "Popularity signal: 0 citations over 3 days.",
+        "Popularity signal: 0 citations over 4 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.99, relevance=0.20."
       ],
@@ -58947,9 +58947,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06285",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06285v1",
       "problems": [],
       "published": "2026-06-04",
@@ -59198,9 +59198,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06288",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06288v1",
       "problems": [],
       "published": "2026-06-04",
@@ -60595,9 +60595,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06295",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06295v1",
       "problems": [],
       "published": "2026-06-04",
@@ -60718,9 +60718,9 @@
       "doi": "",
       "first_seen": "2026-05-27T02:24:52.787869+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2605.27079",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.27079",
       "problems": [
         "Recently, Q-learning with Adjoint Matching (QAM) addressed this issue by reformulating into a memoryless stochastic optimal control (SOC) problem with a learned critic.",
@@ -60741,7 +60741,7 @@
         "Technique signals: reinforcement learning, instability optimization, optimal control.",
         "Problem hook: Recently, Q-learning with Adjoint Matching (QAM) addressed this issue by reformulating into a memoryless stochastic optimal control (SOC) p...",
         "Uncommon terms in this batch: trqam, path-space, offline-to-online, ill-conditioned, reformulating.",
-        "Popularity signal: 0 citations over 12 days.",
+        "Popularity signal: 0 citations over 13 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.28, relevance=0.31."
       ],
@@ -60789,9 +60789,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06316",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06316v1",
       "problems": [
         "Financial crashes, cascading failures in infrastructure, and critical errors in AI systems are frequently triggered by events that occur with extremely small probability."
@@ -60983,9 +60983,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06332",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06332v1",
       "problems": [
         "Existing asymptotic e-values, however, suffer from the ``missing factor,'' a scaling inefficiency resulting in overly conservative inference."
@@ -61443,9 +61443,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06320",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06320v1",
       "problems": [
         "We formalize this perspective as a joint optimization problem over the model parameters and the token weights and show that, under a natural separation condition, the resulting ob..."
@@ -61956,9 +61956,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06491",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06491v1",
       "problems": [
         "Robot manipulation alternates between low-risk transit phases that call for fast execution and high-risk contact stages that demand slow, precise motion.",
@@ -62151,9 +62151,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.03972",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.03972",
       "problems": [
         "AAD-1 addresses these challenges through two key designs in architecture and training strategy.",
@@ -62174,7 +62174,7 @@
         "Technique signals: adversarial distillation, distillation framework, state-of-the-art methods.",
         "Problem hook: AAD-1 addresses these challenges through two key designs in architecture and training strategy.",
         "Uncommon terms in this batch: aad-1, discriminator, bidirectionally, stabilize, holistic.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.32, relevance=0.22."
       ],
@@ -63178,9 +63178,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.04688",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.04688",
       "problems": [
         "However, existing approaches suffer from two fundamental limitations: (i) low tokenization efficiency, which yields long token sequences and prevents scaling to high-poly meshes,..."
@@ -63200,7 +63200,7 @@
         "Technique signals: autoregressive framework, single decoding, state-of-the-art compression.",
         "Problem hook: However, existing approaches suffer from two fundamental limitations: (i) low tokenization efficiency, which yields long token sequences an...",
         "Uncommon terms in this batch: meshweaver, vertex, mesh, weaving, sparse-voxel-guided.",
-        "Popularity signal: 0 citations over 4 days.",
+        "Popularity signal: 0 citations over 5 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.43, relevance=0.27."
       ],
@@ -63376,9 +63376,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06375",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06375v1",
       "problems": [],
       "published": "2026-06-04",
@@ -63496,9 +63496,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06364",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06364v1",
       "problems": [
         "This problem is fundamental across scientific domains and is closely related to subgraph isomorphism, which is NP-complete, limiting combinatorial approaches to small patterns or...",
@@ -63680,9 +63680,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06313",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06313v1",
       "problems": [
         "Benchmark problems include a 2D canonical backward-facing step (2D-BFS) and a 3D patient-specific stenotic coronary artery.",
@@ -63812,9 +63812,9 @@
       "doi": "",
       "first_seen": "2026-06-04T06:16:40.421949+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2605.29489",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2605.29489",
       "problems": [
         "We introduce MergePipe, a budget-aware execution layer that casts LLM merging as an expert access-set problem: given a merge operator and a checkpoint family in a shared weight co..."
@@ -63833,7 +63833,7 @@
       "rationale": [
         "Problem hook: We introduce MergePipe, a budget-aware execution layer that casts LLM merging as an expert access-set problem: given a merge operator and a...",
         "Uncommon terms in this batch: mergepipe, full-read, fixed-coefficient, omitted-update, budget-sound.",
-        "Popularity signal: 0 citations over 10 days.",
+        "Popularity signal: 0 citations over 11 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.17, relevance=0.40."
       ],
@@ -64129,9 +64129,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06386",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06386v1",
       "problems": [
         "We propose algorithmic refinements, define a cost model in terms of multiplications, build on prefix sums and previous work on multi-precision multiplication, and present an evalu..."
@@ -64512,9 +64512,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06486",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06486v1",
       "problems": [
         "To address this challenge, we propose three algorithms: (i) one based on an optimization oracle, as assumed in some prior work in online non-convex learning; (ii) one that minimiz..."
@@ -64763,9 +64763,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06396",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06396v1",
       "problems": [
         "Autonomous driving technology has the potential to reduce the large number of road traffic accidents caused by human error each year, but it also brings new types of risks that ne...",
@@ -65831,9 +65831,9 @@
       "doi": "",
       "first_seen": "2026-06-06T00:20:13.875399+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.02956",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02956",
       "problems": [],
       "published": "2026-06-01",
@@ -65850,7 +65850,7 @@
       "rationale": [
         "Technique signals: traffic modes, spatial learning.",
         "Uncommon terms in this batch: kitscenes, reprojection-accurate, driving-relevant, global-shutter, high-fidelity.",
-        "Popularity signal: 0 citations over 6 days.",
+        "Popularity signal: 0 citations over 7 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.68, relevance=0.20."
       ],
@@ -65943,9 +65943,9 @@
       "doi": "",
       "first_seen": "2026-06-05T00:18:15.404825+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.02993",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.02993",
       "problems": [],
       "published": "2026-06-02",
@@ -65962,7 +65962,7 @@
       "rationale": [
         "Technique signals: network training, deep learning, irreducible representation.",
         "Uncommon terms in this batch: representation-theoretic, fourier, population-level, diversification, matrix-valued.",
-        "Popularity signal: 0 citations over 5 days.",
+        "Popularity signal: 0 citations over 6 days.",
         "Strongest score component: technique=1.00.",
         "Semantic signals: outlier-novelty=0.40, relevance=0.19."
       ],
@@ -66134,9 +66134,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06368",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06368v1",
       "problems": [
         "The proposed method extends to a broad class of semi-parametric linear functional estimation problems, including average treatment effect estimation."
@@ -66515,9 +66515,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06334",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06334v1",
       "problems": [
         "However, explaining the model's decisions through counterfactuals can also be exploited by an adversary to conduct privacy attacks against the model or its training data."
@@ -66644,9 +66644,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06440",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06440v1",
       "problems": [
         "However, typical techniques for constructing Bayesian networks rely on optimization, which can be ill-suited for learning causal relationships because the underlying data may admi..."
@@ -67733,9 +67733,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06470",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06470v1",
       "problems": [],
       "published": "2026-06-04",
@@ -67912,9 +67912,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06335",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06335v1",
       "problems": [
         "Performance estimation under distribution shift aims to predict how a model behaves on an unlabeled test set whose distribution differs from the training data, a scenario that req...",
@@ -68099,9 +68099,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06494",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06494v1",
       "problems": [],
       "published": "2026-06-04",
@@ -68224,9 +68224,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06412",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06412v1",
       "problems": [
         "This operator viewpoint gives a common language for relaxation gaps, circulating probability currents, hypocoercive acceleration, and finite control costs."
@@ -68289,9 +68289,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06348",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06348v1",
       "problems": [
         "While these data-driven architectures demonstrate remarkable global skill, regional benchmarks in the Global South remain scarce, leaving their efficacy in complex, highly convect..."
@@ -68466,9 +68466,9 @@
       "doi": "",
       "first_seen": "2026-06-04T12:17:30.314709+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.00558",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.00558",
       "problems": [
         "However, a recent study observes that the noise domain constructed from simple distributions (*e.g.*, Gaussian distributions) can serve as a surrogate source domain in the semi-su...",
@@ -68490,7 +68490,7 @@
         "Technique signals: transfer learning, adaptation framework.",
         "Problem hook: However, a recent study observes that the noise domain constructed from simple distributions (*e.g.*, Gaussian distributions) can serve as...",
         "Uncommon terms in this batch: ssna, airesearch-group, characterizing, surprising, tighten.",
-        "Popularity signal: 0 citations over 8 days.",
+        "Popularity signal: 0 citations over 9 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.32, relevance=0.13."
       ],
@@ -68963,9 +68963,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06314",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06314v1",
       "problems": [
         "Time-dependent high-dimensional partial differential equations (PDEs) with spatially localised and dynamically evolving solutions pose a fundamental challenge for physics-informed...",
@@ -69343,9 +69343,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06329",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06329v1",
       "problems": [
         "The naive implementation of this computation, based on a local shape operator approximated from k-nearest neighbor patches, involves an explicit construction of a matrix $H$ whose...",
@@ -69973,9 +69973,9 @@
       "doi": "",
       "first_seen": "2026-06-05T00:18:15.404825+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.01090",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.01090",
       "problems": [
         "The methodological contributions -- the relative-rate estimator that cancels the shared-difficulty confound, the wrong-group control, and a pre-specified failure taxonomy -- trans...",
@@ -69996,7 +69996,7 @@
         "Technique signals: wrong-group control.",
         "Problem hook: The methodological contributions -- the relative-rate estimator that cancels the shared-difficulty confound, the wrong-group control, and a...",
         "Uncommon terms in this batch: wrong-group, replication, orbit, beta, architecture-vs-augmentation.",
-        "Popularity signal: 0 citations over 7 days.",
+        "Popularity signal: 0 citations over 8 days.",
         "Strongest score component: rarity=1.00.",
         "Semantic signals: outlier-novelty=0.02, relevance=0.28."
       ],
@@ -70158,9 +70158,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06349",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06349v1",
       "problems": [],
       "published": "2026-06-04",
@@ -70980,9 +70980,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06293",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06293v1",
       "problems": [
         "Whilst the vulnerability of graph neural networks (GNNs) to adversarial attacks poses a critical threat to graph representation learning, the understanding of the robust generaliz...",
@@ -71293,9 +71293,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06381",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06381v1",
       "problems": [],
       "published": "2026-06-04",
@@ -71476,9 +71476,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06351",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06351v1",
       "problems": [
         "However, the commonly used isotropic Gaussian weight prior fails to encode informative structural properties of vessel dynamics, such as smoothness and locality.",
@@ -71542,9 +71542,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06272",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06272v1",
       "problems": [
         "We show that fixing the initial flow distribution in a minimum-flow GFlowNet reduces its objective to a Kantorovich OT problem with graph-induced shortest path costs.",
@@ -71773,9 +71773,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06347",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06347v1",
       "problems": [
         "This paper addresses the problem of attack detection in cyber-physical systems without any knowledge of the plant model or its structure."
@@ -72316,9 +72316,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06469",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06469v1",
       "problems": [
         "We numerically compare this maximizer to the performance of empirical risk minimization by gradient descent and to the performance of a natural linear program, both finding a poin..."
@@ -72493,9 +72493,9 @@
       "doi": "",
       "first_seen": "2026-06-05T18:19:50.215510+00:00",
       "hidden_gem": false,
-      "influential_citation_count": 0,
+      "influential_citation_count": null,
       "key": "2606.06384",
-      "last_seen": "2026-06-07T18:23:18.819243+00:00",
+      "last_seen": "2026-06-08T00:23:41.126304+00:00",
       "pdf_url": "https://arxiv.org/pdf/2606.06384v1",
       "problems": [
         "We show that our assumptions on $L$ are necessary by proving that the minimax risk over all sub-Gaussian distributions is $\u03a9(1)$; imposing increasingly strong assumptions on the t..."
@@ -72770,12 +72770,12 @@
   ],
   "state_path": "/Users/tam/Library/CloudStorage/Dropbox/codespace/silencementor/monitor-research-hidden-gems/.hidden-gems/state/seen.sqlite3",
   "summary": {
-    "average_score": 42.79,
+    "average_score": 42.8,
     "hidden_gems": 49,
     "judged": 57,
     "top_score": 78.11,
     "total": 1062,
-    "zero_citation": 770
+    "zero_citation": 771
   },
   "technique_counts": [
     {
@@ -72901,7 +72901,7 @@
       "hidden": 0
     },
     {
-      "average_score": 42.67,
+      "average_score": 42.69,
       "count": 141,
       "date": "2026-06-05",
       "hidden": 0
@@ -72915,7 +72915,7 @@
   ],
   "venue_counts": [
     {
-      "count": 2,
+      "count": 1,
       "label": "arXiv.org"
     },
     {
