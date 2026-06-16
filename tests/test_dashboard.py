@@ -63,6 +63,8 @@ def test_write_dashboard_outputs_html_and_json(tmp_path) -> None:
     html = html_path.read_text(encoding="utf-8")
     assert "Research Hidden Gems Dashboard" in html
     assert 'applyMetricFilter("hidden")' in html
+    assert 'applyMetricFilter("average_score")' in html
+    assert 'applyMetricFilter("top_score")' in html
     data = json.loads(data_path.read_text(encoding="utf-8"))
     assert data["summary"]["total"] == 1
 

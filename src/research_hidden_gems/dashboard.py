@@ -462,7 +462,7 @@ _HTML_TEMPLATE = r"""<!doctype html>
         <label>Search<input id="searchInput" type="search" placeholder="title, technique, term, author"></label>
         <label>Source<select id="sourceFilter"></select></label>
         <label>Verdict<select id="verdictFilter"><option value="all">All</option><option value="hidden">Hidden gems</option><option value="judged">Judged</option><option value="unjudged">Unjudged</option></select></label>
-        <label>Min Score<input id="scoreFilter" type="number" min="0" max="100" step="1" value="0"></label>
+        <label>Min Score<input id="scoreFilter" type="number" min="0" max="100" step="0.01" value="0"></label>
         <label>Sort<select id="sortBy"><option value="score">Score</option><option value="first_seen">First seen</option><option value="published">Published</option><option value="citations">Citations</option><option value="relevance">Relevance</option><option value="outlier">Outlier</option></select></label>
         <button class="btn" id="downloadCsvBtn" type="button">CSV</button>
       </section>
@@ -485,7 +485,8 @@ _HTML_TEMPLATE = r"""<!doctype html>
   <script id="dashboard-data" type="application/json">__RHG_DATA__</script>
   <script>
     const data = JSON.parse(document.getElementById("dashboard-data").textContent);
-    let state = { search: "", source: "all", verdict: "all", minScore: 0, sortBy: "score", zeroCitation: false, selected: null };
+    const defaultState = () => ({ search: "", source: "all", verdict: "all", minScore: 0, sortBy: "score", zeroCitation: false, selected: null });
+    let state = defaultState();
     const $ = (id) => document.getElementById(id);
     const fmt = (n, digits = 0) => Number(n || 0).toLocaleString(undefined, { maximumFractionDigits: digits });
     const pct = (n) => `${Math.round(Number(n || 0) * 100)}%`;
@@ -502,18 +503,20 @@ _HTML_TEMPLATE = r"""<!doctype html>
     function renderMetrics() {
       const s = data.summary;
       const metrics = [
-        { label: "Papers", value: s.total, action: () => resetFilters(), active: noFiltersActive() },
-        { label: "Hidden Gems", value: s.hidden_gems, action: () => applyMetricFilter("hidden"), active: state.verdict === "hidden" },
-        { label: "Judged", value: s.judged, action: () => applyMetricFilter("judged"), active: state.verdict === "judged" },
-        { label: "Zero Citation", value: s.zero_citation, action: () => applyMetricFilter("zero_citation"), active: state.zeroCitation },
-        { label: "Avg Score", value: fmt(s.average_score, 1) },
-        { label: "Top Score", value: fmt(s.top_score, 1) },
+        { label: "Papers", value: s.total, title: "Show all papers", action: () => resetFilters(), active: noFiltersActive() },
+        { label: "Hidden Gems", value: s.hidden_gems, title: "Show hidden gems", action: () => applyMetricFilter("hidden"), active: state.verdict === "hidden" },
+        { label: "Judged", value: s.judged, title: "Show judged papers", action: () => applyMetricFilter("judged"), active: state.verdict === "judged" },
+        { label: "Zero Citation", value: s.zero_citation, title: "Show papers with zero citations", action: () => applyMetricFilter("zero_citation"), active: state.zeroCitation },
+        { label: "Avg Score", value: fmt(s.average_score, 1), title: "Show papers at or above average score", action: () => applyMetricFilter("average_score"), active: scoreMetricActive(s.average_score) },
+        { label: "Top Score", value: fmt(s.top_score, 1), title: "Show top-scoring papers", action: () => applyMetricFilter("top_score"), active: scoreMetricActive(s.top_score) },
       ];
       $("metrics").replaceChildren(...metrics.map((metric) => {
         const node = document.createElement(metric.action ? "button" : "article");
         node.className = "metric";
         if (metric.action) {
           node.type = "button";
+          node.title = metric.title;
+          node.setAttribute("aria-label", metric.title);
           node.classList.toggle("active", metric.active);
           node.addEventListener("click", metric.action);
         }
@@ -544,31 +547,43 @@ _HTML_TEMPLATE = r"""<!doctype html>
     }
 
     function resetFilters() {
-      state = { search: "", source: "all", verdict: "all", minScore: 0, sortBy: "score", zeroCitation: false, selected: null };
-      $("searchInput").value = "";
-      $("sourceFilter").value = "all";
-      $("verdictFilter").value = "all";
-      $("scoreFilter").value = 0;
-      $("sortBy").value = "score";
+      state = defaultState();
+      syncControls();
       render();
     }
 
+    function syncControls() {
+      $("searchInput").value = state.search;
+      $("sourceFilter").value = state.source;
+      $("verdictFilter").value = state.verdict;
+      $("scoreFilter").value = state.minScore;
+      $("sortBy").value = state.sortBy;
+    }
+
     function applyMetricFilter(metric) {
+      state = defaultState();
       if (metric === "hidden" || metric === "judged") {
         state.verdict = metric;
-        state.zeroCitation = false;
-        $("verdictFilter").value = metric;
       }
       if (metric === "zero_citation") {
-        state.verdict = "all";
         state.zeroCitation = true;
-        $("verdictFilter").value = "all";
       }
+      if (metric === "average_score") {
+        state.minScore = Number(data.summary.average_score || 0);
+      }
+      if (metric === "top_score") {
+        state.minScore = Number(data.summary.top_score || 0);
+      }
+      syncControls();
       render();
     }
 
     function noFiltersActive() {
       return !state.search && state.source === "all" && state.verdict === "all" && !state.zeroCitation && state.minScore === 0;
+    }
+
+    function scoreMetricActive(value) {
+      return !state.search && state.source === "all" && state.verdict === "all" && !state.zeroCitation && state.minScore === Number(value || 0);
     }
 
     function filteredPapers() {
