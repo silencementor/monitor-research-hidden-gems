@@ -35,7 +35,8 @@ configure_project_cache()
 # --- shared option types -----------------------------------------------------
 QueryOpt = Annotated[str, typer.Option("--query", "-q", help="arXiv query or plain phrase. Also narrows OpenAlex discovery.")]
 CategoriesOpt = Annotated[Optional[str], typer.Option("--categories", "-c", help="Comma-separated arXiv categories (overrides config).")]
-SourcesOpt = Annotated[Optional[str], typer.Option("--sources", help="Comma-separated: arxiv,huggingface_daily,openalex,premium_venues,openreview.")]
+SourcesOpt = Annotated[Optional[str], typer.Option("--sources", help="Comma-separated: arxiv,huggingface_daily,openalex,premium_venues,openreview,news.")]
+NewsFeedsOpt = Annotated[Optional[str], typer.Option("--news-feeds", help="Comma-separated RSS/Atom feed URLs for the news source (overrides config).")]
 PremiumVenuesOpt = Annotated[Optional[str], typer.Option("--premium-venues", help="Comma-separated premium venues for OpenAlex discovery.")]
 ProfileOpt = Annotated[Optional[str], typer.Option("--profile", help="Interest profile text, or @path/to/file.txt (overrides config).")]
 NoLlmOpt = Annotated[bool, typer.Option("--no-llm", help="Skip the LLM deep-judge; rank on heuristics + embeddings only.")]
@@ -76,12 +77,13 @@ def search(
     profile: ProfileOpt = None,
     sources: SourcesOpt = None,
     premium_venues: PremiumVenuesOpt = None,
+    news_feeds: NewsFeedsOpt = None,
     config_path: ConfigOpt = None,
     progress: ProgressOpt = True,
 ) -> None:
     """Search multiple sources and rank papers by hidden-gem potential."""
     cfg = _build_config(
-        config_path, categories, profile, sources, premium_venues, no_llm, model, provider, judge_top, math_depth, math_skills_path
+        config_path, categories, profile, sources, premium_venues, no_llm, model, provider, judge_top, math_depth, math_skills_path, news_feeds
     )
     progress_log = _progress_logger(progress and output != "json")
     scored = run_pipeline(
@@ -122,6 +124,7 @@ def monitor(
     profile: ProfileOpt = None,
     sources: SourcesOpt = None,
     premium_venues: PremiumVenuesOpt = None,
+    news_feeds: NewsFeedsOpt = None,
     config_path: ConfigOpt = None,
     interval_minutes: Annotated[Optional[float], typer.Option("--interval-minutes", help="Repeat forever every N minutes.")] = None,
     git_push: GitPushOpt = True,
@@ -131,7 +134,7 @@ def monitor(
 ) -> None:
     """Show only papers not already seen by this monitor (cron- or loop-friendly)."""
     cfg = _build_config(
-        config_path, categories, profile, sources, premium_venues, no_llm, model, provider, judge_top, math_depth, math_skills_path
+        config_path, categories, profile, sources, premium_venues, no_llm, model, provider, judge_top, math_depth, math_skills_path, news_feeds
     )
     store = SeenStore(state)
     progress_log = _progress_logger(progress and output != "json")
@@ -220,6 +223,47 @@ def monitor(
 
 
 @app.command()
+def news(
+    query: QueryOpt = "",
+    days: Annotated[int, typer.Option("--days", help="Only consider items published in this many recent days.")] = 7,
+    top_k: Annotated[int, typer.Option("--top-k", help="Number of ranked news items to display.")] = 15,
+    threshold: Annotated[float, typer.Option("--threshold", help="Minimum score (0-100) to keep.")] = 0.0,
+    output: Annotated[OutputFormat, typer.Option("--format", help="Output format.")] = "markdown",
+    hn_min_points: Annotated[int, typer.Option("--hn-min-points", help="Hacker News popularity floor; 0 keeps everything.")] = 20,
+    no_llm: NoLlmOpt = False,
+    provider: ProviderOpt = None,
+    model: ModelOpt = None,
+    judge_top: JudgeTopOpt = None,
+    profile: ProfileOpt = None,
+    news_feeds: NewsFeedsOpt = None,
+    config_path: ConfigOpt = None,
+    progress: ProgressOpt = True,
+) -> None:
+    """Scout industry news for research *freshness drivers* — what just changed.
+
+    Papers say what the field has done; news says what stopped being true about
+    the world the field assumes. Each item is judged for the assumption it breaks
+    and the research problem that opens.
+    """
+    cfg = _build_config(
+        config_path, None, profile, "news", None, no_llm, model, provider, judge_top, False, None, news_feeds
+    )
+    cfg.news_hn_min_points = hn_min_points
+    progress_log = _progress_logger(progress and output != "json")
+    scored = run_pipeline(
+        cfg,
+        query=query,
+        days=days,
+        max_results=cfg.news_max_items,
+        enrich=False,
+        do_judge=not no_llm,
+        progress=progress_log,
+    )
+    kept = [item for item in scored if item.score >= threshold][:top_k]
+    _render(kept, output=output, cfg=cfg)
+
+
+@app.command()
 def inspect(
     paper: Annotated[str, typer.Argument(help="arXiv id or URL, e.g. https://arxiv.org/abs/2604.24881")],
     output: Annotated[OutputFormat, typer.Option("--format", help="Output format.")] = "markdown",
@@ -268,6 +312,7 @@ def _build_config(
     judge_top: Optional[int],
     math_depth: bool,
     math_skills_path: Optional[str],
+    news_feeds: Optional[str] = None,
 ) -> Config:
     cfg = Config.load(config_path)
     if categories:
@@ -276,6 +321,8 @@ def _build_config(
         cfg.sources = _split_csv(sources)
     if premium_venues:
         cfg.premium_venues = _split_csv(premium_venues)
+    if news_feeds:
+        cfg.news_feeds = _split_csv(news_feeds)
     if profile:
         cfg.profile = _load_profile(profile)
     if no_llm:
@@ -363,18 +410,41 @@ def _table(papers: list[ScoredPaper], *, cfg: Config) -> None:
     for scored in papers:
         paper = scored.paper
         c = scored.components
-        technique = scored.verdict.technique if scored.verdict and scored.verdict.technique else ", ".join(scored.techniques[:2])
         table.add_row(
             f"{scored.score:.1f}",
             f"{c.get('relevance', 0.0):.2f}",
             _gem_mark(scored),
             paper.title,
-            technique or "-",
-            "?" if paper.citation_count is None else str(paper.citation_count),
+            _technique_cell(scored),
+            _popularity_cell(paper),
             paper.venue or "-",
-            paper.arxiv_id or paper.key,
+            _id_cell(paper),
         )
     console.print(table)
+
+
+def _technique_cell(scored: ScoredPaper) -> str:
+    verdict = scored.verdict
+    if verdict and verdict.technique:
+        return verdict.technique
+    if verdict and verdict.research_hook:
+        return verdict.research_hook
+    return ", ".join(scored.techniques[:2]) or "-"
+
+
+def _popularity_cell(paper) -> str:
+    """Citations for papers; Hacker News points for news items."""
+    if paper.source == "news":
+        points = paper.external_ids.get("hn_points")
+        return f"{points}▲" if points else "-"
+    return "?" if paper.citation_count is None else str(paper.citation_count)
+
+
+def _id_cell(paper) -> str:
+    """A full news URL would starve every other column, so show the outlet."""
+    if paper.source == "news":
+        return paper.external_ids.get("outlet") or "news"
+    return paper.arxiv_id or paper.key
 
 
 def _gem_mark(scored: ScoredPaper) -> str:
@@ -396,19 +466,35 @@ def _markdown(papers: list[ScoredPaper]) -> str:
             "",
             f"- **Score:** {scored.score:.1f}  (relevance {c.get('relevance', 0.0):.2f}, "
             f"outlier-novelty {c.get('outlier', 0.0):.2f}, hiddenness {c.get('hiddenness', 0.0):.2f})",
-            f"- **Link:** [{paper.arxiv_id or paper.key}]({url})  · source: {paper.source}",
+            f"- **Link:** [{paper.arxiv_id or paper.external_ids.get('outlet') or paper.key}]({url})"
+            f"  · source: {paper.source}",
             f"- **Published:** {paper.published.date().isoformat()}  · "
-            f"**Citations:** {'unknown' if paper.citation_count is None else paper.citation_count}",
+            + (
+                f"**Hacker News points:** {paper.external_ids['hn_points']}"
+                if paper.source == "news" and "hn_points" in paper.external_ids
+                else f"**Driver signal:** {c.get('news_driver', 0.0):.2f}"
+                if paper.source == "news"
+                else f"**Citations:** {'unknown' if paper.citation_count is None else paper.citation_count}"
+            ),
         ]
         if paper.venue:
             lines.append(f"- **Venue:** {paper.venue}")
         if scored.verdict is not None:
             v = scored.verdict
+            is_news = paper.source == "news"
             lines += [
-                f"- **LLM verdict:** {'HIDDEN GEM' if v.is_hidden_gem else 'not flagged'} "
+                f"- **LLM verdict:** "
+                f"{('FRESHNESS DRIVER' if is_news else 'HIDDEN GEM') if v.is_hidden_gem else 'not flagged'} "
                 f"(novelty {v.novelty:.2f}, transferability {v.transferability:.2f}, conf {v.confidence:.2f})",
-                f"- **Technique:** {v.technique or 'n/a'}",
+                f"- **{'What changed' if is_news else 'Technique'}:** {v.technique or 'n/a'}",
                 f"- **In one line:** {v.one_liner or 'n/a'}",
+            ]
+            if is_news or v.broken_assumption or v.research_hook:
+                lines += [
+                    f"- **Assumption it breaks:** {v.broken_assumption or 'n/a'}",
+                    f"- **Research hook:** {v.research_hook or 'n/a'}",
+                ]
+            lines += [
                 f"- **Why overlooked:** {v.why_overlooked or 'n/a'}",
                 f"- **Apply to your work:** {v.application_to_user or 'n/a'}",
             ]

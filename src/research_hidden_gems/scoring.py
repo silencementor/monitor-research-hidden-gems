@@ -202,6 +202,58 @@ RESULT_TERMS = {
 TOKEN_RE = re.compile(r"[a-z][a-z0-9-]{2,}", re.I)
 SENTENCE_RE = re.compile(r"(?<=[.!?])\s+")
 
+# --- news-specific signals ---------------------------------------------------
+# A news item is worth a researcher's attention when it says *an assumption just
+# stopped holding*: a price moved, weights were released, a capability shipped,
+# something was deprecated or regulated. Announcement language alone is cheap;
+# what separates a driver from a press release is a stated magnitude, so the
+# magnitude patterns are weighted hardest.
+NEWS_CHANGE_PATTERNS = [
+    re.compile(pattern, re.I)
+    for pattern in [
+        r"\b(release[sd]?|launch(?:e[sd])?|ship(?:s|ped)?|announce[sd]?|unveil(?:s|ed)?)\b",
+        r"\b(open[- ]weights?|open[- ]sourc(?:e|ed|ing)|weights? (?:are |now )?available)\b",
+        r"\b(price|pricing|cost|cheaper|discount|free tier|per million tokens)\b",
+        r"\b(deprecat\w+|end[- ]of[- ]life|sunset|retir(?:es|ed|ing))\b",
+        r"\b(rate limit|outage|capacity|throughput|latency|context window)\b",
+        r"\b(regulat\w+|complian\w+|export control|ban(?:s|ned)?|mandat\w+)\b",
+        r"\b(now|no longer|for the first time|used to|previously)\b",
+    ]
+]
+
+# A number with a unit is the difference between "faster" and "14x cheaper".
+NEWS_MAGNITUDE_RE = re.compile(
+    r"(\$\s?\d[\d,.]*|\b\d[\d,.]*\s?(?:x|×)\b|\b\d[\d,.]*\s?%|\b\d[\d,.]*\s?(?:[bmt]|billion|million|trillion)\b"
+    r"|per million tokens|\b\d[\d,.]*\s?(?:k|m)?\s?(?:token|context)\w*)",
+    re.I,
+)
+
+
+def _news_driver_score(paper: Paper) -> float:
+    """How strongly this item reads as 'a standing assumption just changed'."""
+    text = paper.text.lower()
+    change_hits = sum(1 for pattern in NEWS_CHANGE_PATTERNS if pattern.search(text))
+    magnitude_hits = len(NEWS_MAGNITUDE_RE.findall(text))
+    return _clamp(0.13 * change_hits + 0.11 * min(magnitude_hits, 6))
+
+
+def _news_hiddenness_score(paper: Paper) -> float:
+    """Hiddenness for news = high signal, low amplification.
+
+    Hacker News points are the popularity proxy when present; a feed item with
+    no engagement signal is treated as neutral-high, exactly as an uncited paper
+    is. A front-page story is *trendy*, which is still worth surfacing, but it is
+    by definition not a hidden gem.
+    """
+    raw = paper.external_ids.get("hn_points")
+    if raw is None:
+        return 0.7
+    try:
+        points = max(0, int(raw))
+    except (TypeError, ValueError):
+        return 0.7
+    return _clamp(1.0 - math.log1p(points) / math.log1p(600))
+
 
 def score_papers(papers: list[Paper], *, now: datetime | None = None) -> list[ScoredPaper]:
     now = now or datetime.now(timezone.utc)
@@ -222,10 +274,11 @@ def score_paper(paper: Paper, *, idf: dict[str, float] | None = None, now: datet
     problems = extract_problem_phrases(paper)
     rare_terms = extract_rare_terms(paper, idf)
 
+    is_news = paper.source == "news"
     novelty = _clamp(0.12 * novelty_hits + 0.08 * title_technique_hits + 0.08 * len(problems))
     technique = _clamp(0.16 * len(technique_phrases) + 0.04 * title_technique_hits)
     rarity = _rarity_score(paper, idf)
-    hiddenness = _hiddenness_score(paper, now=now)
+    hiddenness = _news_hiddenness_score(paper) if is_news else _hiddenness_score(paper, now=now)
     applicability = _applicability_score(paper)
 
     components = {
@@ -235,13 +288,26 @@ def score_paper(paper: Paper, *, idf: dict[str, float] | None = None, now: datet
         "hiddenness": hiddenness,
         "applicability": applicability,
     }
-    score = 100 * (
-        0.28 * novelty
-        + 0.26 * technique
-        + 0.18 * rarity
-        + 0.18 * hiddenness
-        + 0.10 * applicability
-    )
+    if is_news:
+        # News has no abstract-style "we propose X" language and no citation
+        # count, so the paper weights would rank it as noise. Score it on the
+        # driver signal instead: did something measurable change?
+        components["news_driver"] = _news_driver_score(paper)
+        score = 100 * (
+            0.46 * components["news_driver"]
+            + 0.16 * novelty
+            + 0.16 * hiddenness
+            + 0.12 * rarity
+            + 0.10 * applicability
+        )
+    else:
+        score = 100 * (
+            0.28 * novelty
+            + 0.26 * technique
+            + 0.18 * rarity
+            + 0.18 * hiddenness
+            + 0.10 * applicability
+        )
 
     return ScoredPaper(
         paper=paper,
@@ -407,7 +473,18 @@ def _rationale(
         reasons.append(f"Problem hook: {_shorten(problems[0], 140)}")
     if rare_terms:
         reasons.append(f"Uncommon terms in this batch: {', '.join(rare_terms[:5])}.")
-    if paper.citation_count is None:
+    if paper.source == "news":
+        outlet = paper.external_ids.get("outlet") or paper.venue or "unknown outlet"
+        reasons.append(
+            f"News driver signal: {components.get('news_driver', 0.0):.2f} "
+            f"(change language + stated magnitudes), via {outlet}."
+        )
+        points = paper.external_ids.get("hn_points")
+        reasons.append(
+            f"Attention signal: {points} Hacker News points." if points is not None
+            else "Attention signal: none available, so hiddenness is treated as neutral-high."
+        )
+    elif paper.citation_count is None:
         reasons.append("Popularity signal: citation data unavailable, so hiddenness is treated as neutral-high.")
     else:
         reasons.append(

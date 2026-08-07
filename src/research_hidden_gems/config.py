@@ -49,8 +49,10 @@ DEFAULT_CATEGORIES = [
 ]
 
 # Sources to pull from. arXiv is the spine; the rest broaden discovery and the
-# popularity signal. See sources/ for each fetcher.
-DEFAULT_SOURCES = ["arxiv", "huggingface_daily", "openalex", "premium_venues", "openreview"]
+# popularity signal. "news" is the odd one out: it does not supply papers, it
+# supplies *freshness drivers* — what just changed about the world a research
+# problem assumes. See news.py.
+DEFAULT_SOURCES = ["arxiv", "huggingface_daily", "openalex", "premium_venues", "openreview", "news"]
 
 # Premium venue discovery is resolved dynamically through OpenAlex sources, so
 # the config keeps human-facing venue names/acronyms rather than fragile ids.
@@ -127,12 +129,27 @@ class Config:
     w_hiddenness: float = 0.20
     w_relevance: float = 0.25
 
+    # Prefilter blend for news items. Deliberately different: "semantically
+    # isolated from its batch" is evidence of a novel technique in a paper, but
+    # in a news batch it usually just means off-topic — which the relevance gate
+    # already handles. So outlier is near-muted and the driver signal carries.
+    w_news_lexical: float = 0.55
+    w_news_outlier: float = 0.05
+    w_news_hiddenness: float = 0.15
+    w_news_relevance: float = 0.25
+
     # final blend when an LLM verdict exists
     w_final_prefilter: float = 0.45
     w_final_llm: float = 0.55
 
     # relevance acts as a soft gate: final *= (relevance_floor + (1-floor)*relevance)
     relevance_floor: float = 0.35
+
+    # news scouting (freshness drivers, not papers) — see news.py
+    news_feeds: list[str] = field(default_factory=list)   # empty => news.DEFAULT_NEWS_FEEDS
+    news_hn_queries: list[str] = field(default_factory=list)  # empty => news.DEFAULT_HN_QUERIES
+    news_hn_min_points: int = 20   # HN popularity floor; 0 keeps everything
+    news_max_items: int = 60       # cap per run, before ranking
 
     # optional deep mathematical-novelty assessment (uses math-skills as reference)
     math_depth: bool = False
@@ -181,6 +198,13 @@ def _apply_env(cfg: Config) -> Config:
         updates["openalex_mailto"] = val
     if (val := os.getenv("RHG_PREMIUM_VENUES")):
         updates["premium_venues"] = _split_csv(val)
+    if (val := os.getenv("RHG_NEWS_FEEDS")):
+        updates["news_feeds"] = _split_csv(val)
+    if (val := os.getenv("RHG_NEWS_HN_MIN_POINTS")):
+        try:
+            updates["news_hn_min_points"] = int(val)
+        except ValueError:
+            pass
     if (val := os.getenv("RHG_JUDGE")) is not None:
         updates["judge_enabled"] = val.strip().lower() not in {"0", "false", "no", "off"}
     return replace(cfg, **updates) if updates else cfg

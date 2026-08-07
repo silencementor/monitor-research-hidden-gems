@@ -14,7 +14,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import Callable
 
-from research_hidden_gems import huggingface_daily, openalex, openreview, semantic_scholar
+from research_hidden_gems import huggingface_daily, news, openalex, openreview, semantic_scholar
 from research_hidden_gems.arxiv_client import ArxivClient
 from research_hidden_gems.config import Config
 from research_hidden_gems.embedding_signals import get_embedder, outlier_scores, relevance_scores
@@ -167,6 +167,24 @@ def _fetch_all(
         except Exception as exc:
             if progress:
                 progress(f"Premium venue fetch failed: {exc}")
+    if "news" in sources:
+        try:
+            if progress:
+                progress("Fetching news feeds and Hacker News")
+            fetched = news.fetch_recent(
+                days=days,
+                max_results=min(config.news_max_items, max_results),
+                feeds=config.news_feeds or None,
+                keywords=config.keywords + ([query] if query.strip() else []),
+                hn_queries=config.news_hn_queries or None,
+                hn_min_points=config.news_hn_min_points,
+            )
+            papers += fetched
+            if progress:
+                progress(f"Fetched news: {len(fetched)} items")
+        except Exception as exc:
+            if progress:
+                progress(f"News fetch failed: {exc}")
     if "openreview" in sources:
         try:
             if progress:
@@ -268,15 +286,33 @@ def _apply_semantic_signals(scored: list[ScoredPaper], config: Config, progress:
 # -------------------------------------------------------------- blending ----
 def _blend_prefilter(item: ScoredPaper, config: Config) -> float:
     c = item.components
-    lexical = _mean(c.get("novelty", 0.0), c.get("technique", 0.0), c.get("applicability", 0.0), c.get("rarity", 0.0))
-    outlier = c.get("outlier", 0.0)
-    hiddenness = c.get("hiddenness", 0.0)
-    relevance = c.get("relevance", 0.0)
+    if item.paper.source == "news":
+        # News has no "we propose X" phrasing, so the technique-phrase signal is
+        # near-zero for every item and would flatten the blend. The driver signal
+        # (something changed, by this much) takes its place.
+        lexical = _mean(
+            c.get("news_driver", 0.0),
+            c.get("news_driver", 0.0),
+            c.get("novelty", 0.0),
+            c.get("rarity", 0.0),
+        )
+        weights = (
+            config.w_news_lexical,
+            config.w_news_outlier,
+            config.w_news_hiddenness,
+            config.w_news_relevance,
+        )
+    else:
+        lexical = _mean(
+            c.get("novelty", 0.0), c.get("technique", 0.0), c.get("applicability", 0.0), c.get("rarity", 0.0)
+        )
+        weights = (config.w_lexical, config.w_outlier, config.w_hiddenness, config.w_relevance)
+    w_lexical, w_outlier, w_hiddenness, w_relevance = weights
     return _clamp(
-        config.w_lexical * lexical
-        + config.w_outlier * outlier
-        + config.w_hiddenness * hiddenness
-        + config.w_relevance * relevance
+        w_lexical * lexical
+        + w_outlier * c.get("outlier", 0.0)
+        + w_hiddenness * c.get("hiddenness", 0.0)
+        + w_relevance * c.get("relevance", 0.0)
     )
 
 
@@ -305,6 +341,10 @@ def _augment_rationale(item: ScoredPaper) -> list[str]:
             f"Claude judge: novelty={v.novelty:.2f}, transferability={v.transferability:.2f}, "
             f"hidden_gem={v.is_hidden_gem} (conf {v.confidence:.2f})."
         )
+        if v.broken_assumption:
+            reasons.append(f"Assumption it breaks: {v.broken_assumption}")
+        if v.research_hook:
+            reasons.append(f"Research hook: {v.research_hook}")
         if v.why_overlooked:
             reasons.append(f"Why overlooked: {v.why_overlooked}")
         if v.application_to_user:

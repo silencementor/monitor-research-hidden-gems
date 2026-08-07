@@ -20,6 +20,7 @@ COMPONENT_KEYS = [
     "technique",
     "applicability",
     "rarity",
+    "news_driver",
 ]
 _SOURCE_RE = re.compile(r"\*\*Link:\*\* \[([^\]]+)\]\([^)]+\)\s+.*source:\s+([A-Za-z0-9_.-]+)")
 
@@ -600,6 +601,7 @@ _HTML_TEMPLATE = r"""<!doctype html>
           paper.title, paper.source, paper.arxiv_id, paper.venue,
           ...(paper.authors || []), ...(paper.techniques || []), ...(paper.rare_terms || []),
           paper.verdict?.technique, paper.verdict?.one_liner, paper.verdict?.application_to_user,
+          paper.verdict?.research_hook, paper.verdict?.broken_assumption,
         ].join(" ").toLowerCase();
         return haystack.includes(q);
       });
@@ -809,8 +811,10 @@ _HTML_TEMPLATE = r"""<!doctype html>
       if (!v) return el("div", "empty", "No LLM verdict stored.");
       const box = document.createElement("div");
       [
-        ["Technique", v.technique],
+        [paper.source === "news" ? "What changed" : "Technique", v.technique],
         ["One line", v.one_liner],
+        ["Assumption it breaks", v.broken_assumption],
+        ["Research hook", v.research_hook],
         ["Why overlooked", v.why_overlooked],
         ["Apply", v.application_to_user],
         ["Scores", `novelty ${fmt(v.novelty, 2)}, transferability ${fmt(v.transferability, 2)}, confidence ${fmt(v.confidence, 2)}`],

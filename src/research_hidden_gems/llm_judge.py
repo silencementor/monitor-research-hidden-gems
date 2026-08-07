@@ -48,6 +48,45 @@ Return ONLY a JSON object (no prose, no code fence) with exactly these keys:
 extend the technique in their own work
 Keep strings under ~240 characters. Output the JSON object only."""
 
+_NEWS_SYSTEM = """\
+You are a research-idea scout reading industry news for an experienced ML/CS \
+researcher. You are NOT summarising the news. Your job is to decide whether an \
+item is a usable FRESHNESS DRIVER: a dated, recent development that makes a \
+standing assumption in the research literature stop holding, and therefore opens \
+a research problem that could not have been posed two years ago.
+
+A strong driver has all four of these:
+1. Something measurably CHANGED (a price, a capability, an availability, a limit, \
+a rule) — with a magnitude, not just an announcement.
+2. A named ASSUMPTION in the literature that the change invalidates.
+3. A resulting research PROBLEM statable in the field's standard vocabulary — no \
+coined terms, no product names as concepts.
+4. A COST someone now pays while the problem is unresolved.
+
+Reject: product marketing, funding rounds, personnel news, opinion, restatements \
+of known trends, and anything whose only content is "model X is better now". \
+Be skeptical and calibrated — most news items are NOT usable drivers.
+
+Judge relevance against THIS researcher's interests:
+<profile>
+{profile}
+</profile>
+{math_block}
+Return ONLY a JSON object (no prose, no code fence) with exactly these keys:
+- "novelty": float 0..1 — how genuinely new the *development* is (not the writing)
+- "transferability": float 0..1 — how usefully it could drive research in the profile above
+- "confidence": float 0..1 — your confidence given only headline + excerpt
+- "is_hidden_gem": boolean — a real driver AND under-discussed as a research signal
+- "technique": string — name the concrete development, with its magnitude if stated
+- "one_liner": string — what changed, in one sentence
+- "broken_assumption": string — the standing assumption in the literature this invalidates \
+("" if none)
+- "research_hook": string — the research problem it opens, in the field's standard \
+vocabulary ("" if none)
+- "why_overlooked": string — why this is under-discussed as a research signal (or "")
+- "application_to_user": string — one concrete paper this researcher could write from it
+Keep strings under ~240 characters. Output the JSON object only."""
+
 _MATH_BLOCK = """\
 This researcher also values mathematical depth. For math-heavy papers, also weigh \
 the rigor and novelty of the formal contribution (proofs, new objects, structural \
@@ -126,11 +165,12 @@ def judge_papers(scored: list[ScoredPaper], config: Config, progress: Progress |
     if progress:
         progress(f"LLM judge: {provider}/{model} on top {limit} papers")
     client = _make_client(provider)
-    system_text = _build_system(config)
+    systems = build_systems(config)
     judged = 0
     for index, item in enumerate(scored[: config.judge_top], start=1):
         if progress:
             progress(f"LLM judge {index}/{limit}: {item.paper.title[:90]}")
+        system_text = systems["news" if item.paper.source == "news" else "paper"]
         verdict = _judge_one(provider, client, system_text, item, config, model)
         if verdict is not None:
             item.verdict = verdict
@@ -150,12 +190,26 @@ def _make_client(provider: str):
     return anthropic.Anthropic()
 
 
-def _build_system(config: Config) -> str:
+def build_systems(config: Config) -> dict[str, str]:
+    """The two static system prompts, keyed by item kind.
+
+    Both are large and constant across a run, so each is cached separately by
+    the provider after its first call.
+    """
     math_block = ""
     if config.math_depth:
         reference = _math_reference(config.math_skills_path)
         math_block = "\n" + _MATH_BLOCK.format(reference=reference) + "\n"
-    return _SYSTEM.format(profile=config.profile.strip(), math_block=math_block)
+    profile = config.profile.strip()
+    return {
+        "paper": _SYSTEM.format(profile=profile, math_block=math_block),
+        "news": _NEWS_SYSTEM.format(profile=profile, math_block=math_block),
+    }
+
+
+def _build_system(config: Config) -> str:
+    """Backwards-compatible accessor for the paper prompt."""
+    return build_systems(config)["paper"]
 
 
 def _judge_one(provider, client, system_text, item, config, model) -> LLMVerdict | None:
@@ -212,6 +266,8 @@ def _call_openai(client, system_text: str, user: str, model: str, max_tokens: in
 def _paper_prompt(item: ScoredPaper) -> str:
     paper = item.paper
     now = datetime.now(timezone.utc)
+    if paper.source == "news":
+        return _news_prompt(item, now)
     cites = "unknown" if paper.citation_count is None else str(paper.citation_count)
     lines = [
         f"Title: {paper.title}",
@@ -226,6 +282,23 @@ def _paper_prompt(item: ScoredPaper) -> str:
     lines.append("")
     lines.append("Abstract:")
     lines.append(paper.summary)
+    return "\n".join(lines)
+
+
+def _news_prompt(item: ScoredPaper, now: datetime) -> str:
+    paper = item.paper
+    ids = paper.external_ids
+    lines = [
+        f"Headline: {paper.title}",
+        f"Outlet: {ids.get('outlet') or paper.venue or 'unknown'}; "
+        f"Published: {paper.published.date().isoformat()}; Age(days): {paper.age_days(now)}",
+        f"URL: {paper.abs_url or 'n/a'}",
+    ]
+    if (points := ids.get("hn_points")) is not None:
+        lines.append(f"Hacker News points: {points}; comments: {ids.get('hn_comments', '?')}")
+    lines.append("")
+    lines.append("Excerpt (may be truncated or empty — judge on the headline if so):")
+    lines.append(paper.summary or "(no excerpt available)")
     return "\n".join(lines)
 
 

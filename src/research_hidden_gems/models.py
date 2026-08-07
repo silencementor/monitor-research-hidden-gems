@@ -27,6 +27,9 @@ class LLMVerdict:
     one_liner: str = ""            # the idea in a single sentence
     why_overlooked: str = ""       # why it is plausibly underappreciated
     application_to_user: str = ""  # concrete way to apply it to the user's work
+    # News items only: what a *freshness driver* leaves behind for a paper.
+    broken_assumption: str = ""    # the standing assumption this development invalidates
+    research_hook: str = ""        # the research problem it opens, in standard vocabulary
     raw: str = ""
 
     def to_dict(self) -> dict[str, Any]:
@@ -39,6 +42,8 @@ class LLMVerdict:
             "one_liner": self.one_liner,
             "why_overlooked": self.why_overlooked,
             "application_to_user": self.application_to_user,
+            "broken_assumption": self.broken_assumption,
+            "research_hook": self.research_hook,
         }
 
     @classmethod
@@ -52,6 +57,8 @@ class LLMVerdict:
             one_liner=str(d.get("one_liner") or ""),
             why_overlooked=str(d.get("why_overlooked") or ""),
             application_to_user=str(d.get("application_to_user") or ""),
+            broken_assumption=str(d.get("broken_assumption") or ""),
+            research_hook=str(d.get("research_hook") or ""),
             raw=str(d.get("raw") or ""),
         )
 

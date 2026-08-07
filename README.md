@@ -14,7 +14,7 @@ firehose, then Claude deep-judges the shortlist for genuine novelty and *how it
 could apply to you*:
 
 ```
-fetch (arXiv · HF Daily · OpenAlex · premium venues · OpenReview)
+fetch (arXiv · HF Daily · OpenAlex · premium venues · OpenReview · news)
   → dedup + citation enrichment
   → prefilter:  lexical signals (novelty/technique language, rare terms)
               + embedding-outlier novelty (semantic isolation)
@@ -23,6 +23,10 @@ fetch (arXiv · HF Daily · OpenAlex · premium venues · OpenReview)
   → Claude deep-judge on the top shortlist  (novelty · transferability · why-overlooked · how-to-apply)
   → blended hidden-gem score
 ```
+
+It also scouts **news** — see [Freshness drivers](#freshness-drivers-news) below. Papers
+tell you what the field *has done*; news tells you what just stopped being true
+about the world the field assumes.
 
 Every stage degrades gracefully: a dead source, a missing embeddings backend, or
 an absent API key simply drops that signal instead of failing the run.
@@ -79,8 +83,8 @@ uv run hidden-gems search -q "approximate nearest neighbor" --days 120 --format 
 
 Useful flags: `--no-llm` (heuristics only), `--provider openai`, `--model gpt-4.1`,
 `--judge-top N` (how many to deep-judge — controls cost), `--threshold 50`,
-`--sources arxiv,openalex,premium_venues`, `--premium-venues NeurIPS,ICML,SIGMOD`,
-`--categories cs.IR,cs.DB`, `--profile @my_interests.txt`.
+`--sources arxiv,openalex,premium_venues,news`, `--premium-venues NeurIPS,ICML,SIGMOD`,
+`--categories cs.IR,cs.DB`, `--profile @my_interests.txt`, `--news-feeds URL,URL`.
 
 ## Personalize
 
@@ -93,7 +97,7 @@ Override anything in `hidden_gems.toml` (or `~/.config/research-hidden-gems/conf
 ```toml
 profile = "I work on retrieval-augmented LLM agents and recommender systems; I want transferable indexing, ranking, and training techniques."
 categories = ["cs.IR", "cs.DB", "cs.LG", "cs.MA"]
-sources = ["arxiv", "huggingface_daily", "openalex", "premium_venues"]
+sources = ["arxiv", "huggingface_daily", "openalex", "premium_venues", "news"]
 premium_venues = ["NeurIPS", "ICML", "ICLR", "KDD", "SIGMOD", "VLDB", "ICDE", "ICDM", "SIGIR", "ICCV", "CVPR", "ACL", "EMNLP", "WWW", "AAAI", "IJCAI"]
 judge_provider = "auto"         # auto | anthropic | openai
 judge_model = ""                # empty => provider default below
@@ -195,6 +199,58 @@ may be overlooked, and a concrete way to apply it to your work.
 - **OpenReview** — best-effort; recent submissions are keyed by per-venue
   invitation ids that rotate each cycle, so it returns nothing until you supply
   venues in config (it never ships stale guesses).
+- **News** — curated RSS/Atom feeds (lab and vendor blogs, practitioner
+  newsletters, trade press) plus Hacker News. Not papers: *freshness drivers*.
+  See below.
+
+## Freshness drivers (news)
+
+A research problem needs a **what-changed** driver from the last ~2 years, or it
+reads as five years old and reviewers assume the field already picked it over.
+Those drivers usually appear as news before they appear as papers: a price that
+fell 100×, weights that got released, a capability that shipped, a limit that
+was imposed.
+
+```bash
+uv run hidden-gems news --days 7
+```
+
+Each item is judged against a different bar from a paper. Instead of "is the
+technique novel and transferable?", the judge is asked:
+
+- **What changed** — the concrete development, with its magnitude if stated
+- **Assumption it breaks** — the standing assumption in the literature this invalidates
+- **Research hook** — the problem it opens, in the field's standard vocabulary
+- **Apply to your work** — one paper you could write from it
+
+Announcements without a magnitude, funding rounds, personnel news, and "model X
+is better now" are explicitly rejected — most news is not a usable driver.
+
+News scoring differs from paper scoring in two deliberate ways. Hiddenness uses
+Hacker News points rather than citations (a front-page story is *trendy*, which
+is still worth surfacing, but by definition not hidden). And embedding-outlier
+novelty is near-muted: "semantically isolated from its batch" is evidence of a
+novel technique in a paper, but in a news batch it usually just means off-topic.
+
+News is on by default in `sources`. Configure it with:
+
+```toml
+sources = ["arxiv", "news"]
+news_feeds = ["https://huggingface.co/blog/feed.xml", "https://qwenlm.github.io/blog/index.xml"]
+news_hn_queries = ["open weights model", "LLM pricing"]
+news_hn_min_points = 20     # Hacker News popularity floor; 0 keeps everything
+news_max_items = 60         # cap per run, before ranking
+# news-specific prefilter blend
+w_news_lexical = 0.55
+w_news_outlier = 0.05
+w_news_hiddenness = 0.15
+w_news_relevance = 0.25
+```
+
+or per-run with `--news-feeds`, `--hn-min-points`, `--sources news`, and env
+overrides `RHG_NEWS_FEEDS` / `RHG_NEWS_HN_MIN_POINTS`. Leaving `news_feeds`
+empty uses the built-in curated list. Every feed is best-effort: a dead host or
+a malformed document drops that feed, not the run.
 
 ## Mathematical depth (optional)
 
